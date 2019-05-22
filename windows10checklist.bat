@@ -2,7 +2,7 @@
 
 color 0a
 
-type D:\Zer0day_script\ASCII.txt
+type ASCII.txt
 
 echo You are about to run the Windows 10 zer0day script, continue?
 
