@@ -67,3 +67,15 @@ echo All services successfully disabled.
 pause
 
 REM Changing all user passwords. 
+
+setlocal
+
+set /p "newpw=Enter new password: "
+
+for /f "delims=" %%u in ('cscript //NoLogo C:\pathto\listUsers.vbs') do (
+net user "%%u" "%newpw%"
+)
+
+endlocal
+
+REM Do next thing, whatever that is.
