@@ -72,7 +72,7 @@ setlocal
 
 set /p "newpw=Enter new password: "
 
-for /f "delims=" %%u in ('cscript //NoLogo C:\pathto\listUsers.vbs') do (
+for /f "delims=" %%u in ('cscript //NoLogo E:\CP-XII') do (
 net user "%%u" "%newpw%"
 )
 
