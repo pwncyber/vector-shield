@@ -68,9 +68,11 @@ pause
 
 REM Changing all user passwords. 
 
+echo Changing user passwords to !t43M@z0r0d4y!
+
 setlocal
 
-set /p "newpw=Enter new password: "
+set /p "newpw=Enter new password: !t43M@z0r0d4y!"
 
 for /f "delims=" %%u in ('cscript //NoLogo E:\CP-XII') do (
 net user "%%u" "%newpw%"
