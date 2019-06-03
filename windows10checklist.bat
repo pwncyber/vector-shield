@@ -80,4 +80,16 @@ net user "%%u" "%newpw%"
 
 endlocal
 
-REM Do next thing, whatever that is.
+echo Passwords changed
+
+pause
+
+REM Uninstalls unwanted programs
+
+echo Uninstalling, if applicable, the following applications:(What should be uninstalled?)
+
+setlocal
+(NOT DONE YET)
+endlocal
+
+REM Turns on windows firewall, and sets to max security(thats what can be done next)
