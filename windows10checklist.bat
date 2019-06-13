@@ -70,15 +70,7 @@ REM Changing all user passwords.
 
 echo Changing user passwords to !t43M@z0r0d4y!
 
-setlocal
-
-set /p "newpw=Enter new password: !t43M@z0r0d4y!"
-
-for /f "delims=" %%u in ('cscript //NoLogo E:\CP-XII') do (
-net user "%%u" "%newpw%"
-)
-
-endlocal
+FOR /F %%F IN ('wmic useraccount get name') DO (Echo "%%F" | FIND /I "Name" 1>NUL) || (NET USER %%F !t43M@z0r0d4y!)
 
 echo Passwords changed
 
