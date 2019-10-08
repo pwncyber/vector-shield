@@ -1,0 +1,1 @@
+$settings1 = Get-Content -Path .\settings1.json
