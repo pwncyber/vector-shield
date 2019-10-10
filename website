@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Vector Shield</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<head>
+<style>
+#rcorners1 {
+	border-radius: 25px;
+	background: #9CE1C5;
+	padding: 20px; 
+	width: 450px;
+	height: 150px;  
+	float:center
+}
+#rcorners2 {
+	border-radius: 25px;
+	background: #9CE1C5;
+	padding: 20px; 
+	width: 450px;
+	height: 100px;  
+	float:center
+}
+.column {
+	float: left;
+	width: 33.33%;
+}
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+#grad1 {
+	height 200px;
+	background-color: white;
+	background-image: linear-gradient(black, #333);
+}
+p {
+	color: black;
+	text-align: center;
+	float: center
+	margin:0;
+}
+h1 {
+	text-shadow: 3px 2px gray;
+}
+h2 {
+	text-align: center;
+	float: center;
+	margin:0;
+}
+body {
+	background-color: #404040;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: white;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	text-align: center;
+}
+li {
+	float: left;
+	text-align: center;
+}
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+nav a.active {
+	color: #DADADA;
+	text-decoration: none;
+}
+nav a:hover:not(.active) {
+	color:gray !important;
+	text-decoration: none;
+}
+.navbar-custom {
+	background-color: white;
+}
+a.ex1:hover, a.ex1:active {
+	color: red;
+}
+@media screen and (max-width: 600px) {
+	.column {
+		width:100%;
+	}
+}
+hr.new1 { 
+	display: block;
+	margin-before: 0.5em;
+	margin-after: 0.5em;
+	margin-start: auto;
+	margin-end: auto;
+	overflow: hidden;
+	border-style: inset;
+	border-width: 1px;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+hr.new2 { 
+	display: block;
+	margin-before: 0.5em;
+	margin-after: 0.5em;
+	margin-start: auto;
+	margin-end: auto;
+	overflow: hidden;
+	border-style: inset;
+	border-width: 1px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
+</head>
+<body>
+<div style="background-color: white">
+	<br>
+	<br>
+	<br>
+	<div>
+		<p style="text-align:center;">
+		
+		<img src="Vector Shield Logo.JPG" width="400" height="160">
+		</p>
+	</div>
+	<br>
+	<br>
+	<br>
+</div>
+<nav class="navbar nav-tabs navbar-inverse navbar-expand-sm sticky-top" style="background-color: white;">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand">
+			<img src="Vector Shield Logo.JPG" width="100" height="40" style="float:left">
+			</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="nav-item"; style="float:right">
+			<a class="nav-link" href="x.html" style="color:black">Download</a>
+			</li>
+			<li class="nav-item"; style="float:right">
+			<a class="nav-link" href="x.html" style="color:black">How To Use</a>
+			</li>
+			<li class="nav-item"; style="float:right">
+			<a class="nav-link" href="Vector Shield About.html" style="color:black">About</a>
+			</li>
+			<li class="nav-item"; style="float:right">
+			<a class="nav-link active" href="Vector Shield Home.html" style="color:black">Home</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+
+
+<div class="row">
+	<div class="column" style="background-color: #404040;">
+		
+	</div>
+	<div class="column" style="background-color: #404040;">
+		<br>
+		<br>
+		<h2 align="center" style="color:white">What is Vector Shield?</h2>
+		<hr class="new1">
+		<p style="color:white">
+		Vector Shield is a comprehensive security application for the Microsoft Windows operating system.
+		</p>
+		<p><a href="Vector Shield About.html" style="color: red">More About Vector Shield</a>
+
+		<br>
+
+		<h2 align="center" style="color:white">What Vector Shield Offers</h2>
+		<hr class="new2">
+		<p style="color:white">
+		-More thorough security than the default windows security
+		<br>
+		-More security
+		<br>
+		-More security
+		<br>
+		-More security
+		<br>
+		-More security
+		<br>
+		</p>
+	</div>
+	<div class="column" style="background-color: #404040;">
+		
+	</div>
+</div>
+
+
+
+</body>
+</html>
