@@ -1,15 +1,27 @@
 #Imports the boolean values as separate array's from the settings.json files.
-$settings1 = Get-Content -Path .\settings1.json
-$settings3 = Get-Content -Path .\settings3.json
+$Networking = Get-Content -Path .\Networking.json
+$LocalSecPol = Get-Content -Path .\LocalSecPol.json
+$Lusrmgr = Get-Content -Path .\Lusrmgr.json
+$Services = Get-Content -Path .\Services.json
+$SecPol = Get-Content -Path .\SecPol.json
 
-#Low security setting level.
-if(){
-$settings2 = Get-Content -Path .\settings2.json
-}else{
 
+#General Networking in Windows.
+
+if($Networking[0]){
+#Refreshes DNS of the system.
 }
-#Medium security setting level.
-
-#High security setting level.
-
-#Cyberpatriot Level
+if($Networking[1]){
+}
+#Local Security Policy
+if($LocalSecPol[0]){
+#Refreshes DNS of the system.
+}
+#Local User Manager
+if($Lusrmgr[0]){
+#Refreshes DNS of the system.
+}
+#Windows Services
+if($Services[0]){
+#Refreshes DNS of the system.
+}
