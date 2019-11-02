@@ -277,7 +277,7 @@ footer {
 
 <div style="align:center">
 	<footer>
-		<p style="text-align:center" style="background-color:#262626" style="font-size:20px" style="color:white">Made By Kevin Alegre, Christopher Zhong, and Justin Vogel</p>
+		<p style="text-align:center" style="background-color:#262626"><font size="2px" color="#C7C7C7">Made By Kevin Alegre, Christopher Zhong, and Justin Vogel</font></p>
 	</footer>
 </div>
 
