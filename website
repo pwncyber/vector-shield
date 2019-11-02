@@ -170,6 +170,9 @@ hr.new3 {
 .imgborder {
 	border: 5px solid #212121;
 }
+footer {
+	display: block;
+}
 </style>
 </head>
 <body>
@@ -213,7 +216,7 @@ hr.new3 {
 		</div>
 		<br>
 		<div align="center">
-			<a href="Vector Shield Download.html" style="color:black" class="btn roundedbtn">Download Vector Shield Today</a>
+			<a href="Vector Shield Download.html" style="color:black" class="btn roundedbtn">Download Vector Shield</a>
 		</div>
 		<br>
 		<br>
@@ -225,48 +228,57 @@ hr.new3 {
 
 <hr class="new0">
 
-<div class="row">
-	<div class="column" style="background-color: #001B25;">
-		
-	</div>
-	<div class="column" style="background-color: #001B25;">
-		<br>
-		<br>
-		
-		<h2 align="center" style="color:white">What is Vector Shield?</h2>
-		<hr class="new1">
-		<p style="color:white">
-		Vector Shield is a comprehensive security application built for the Microsoft Windows operating system.
-		</p>
-		<p><a href="Vector Shield About.html" style="color: red">More About Vector Shield</a>
+<div>
+	<div class="row">
+		<div class="column" style="background-color: #001B25;">
+			
+		</div>
+		<div class="column" style="background-color: #001B25;">
+			<br>
+			<br>
+			
+			<h2 align="center" style="color:white">What is Vector Shield?</h2>
+			<hr class="new1">
+			<p style="color:white">
+			Vector Shield is a comprehensive security application built for the Microsoft Windows operating system.
+			</p>
+			<p><a href="Vector Shield About.html" style="color: red">More About Vector Shield</a>
 
-		<br>
+			<br>
 
-		<h2 align="center" style="color:white">What Vector Shield Offers</h2>
-		<hr class="new2">
-		<p style="color:white">
-		-More thorough security than the default windows security
-		<br>
-		-Provides in depth information on every available option
-		<br>
-		-Easy and simple to use interface
-		</p>
+			<h2 align="center" style="color:white">What Vector Shield Offers</h2>
+			<hr class="new2">
+			<p style="color:white">
+			-More thorough security than the default windows security
+			<br>
+			-Provides in depth information on every available option
+			<br>
+			-Easy and simple to use interface
+			</p>
+			
+			<br>
+			
+			<h2 align="center" style="color:white">Requirements for Vector Shield</h2>
+			<hr class="new3">
+			<p style="color:white">
+			-2 Gigabytes of Ram
+			<br>
+			-1 Gigabyte of Storage
+			<br>
+			-Windows 10 Operating System
+			</p>
+			<br>
+			<br>
+		</div>
+		<div class="column" style="background-color: #001B25;">
 		
-		<br>
-		
-		<h2 align="center" style="color:white">Requirements for Vector Shield</h2>
-		<hr class="new3">
-		<p style="color:white">
-		-2 Gigabytes of Ram
-		<br>
-		-1 Gigabyte of Storage
-		<br>
-		-Windows 10 Operating System
-		</p>
-	</div>
-	<div class="column" style="background-color: #001B25;">
+		</div>
+</div>
 
-	</div>
+<div style="align:center">
+	<footer>
+		<p style="text-align:center" style="background-color:#262626" style="font-size:20px" style="color:white">Made By Kevin Alegre, Christopher Zhong, and Justin Vogel</p>
+	</footer>
 </div>
 
 
