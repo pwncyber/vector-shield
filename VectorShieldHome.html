@@ -41,9 +41,8 @@
 	display: table;
 	clear: both;
 }
-#grad1 {
-	background-image: 
-	linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #D6FEFF, #F2F6FF, #DFF2FF); 				
+.grad1 {
+	background-image: linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #D6FEFF, #F2F6FF, #DFF2FF); 				
 }
 p {
 	color: black;
@@ -59,8 +58,13 @@ h2 {
 	float: center;
 	margin:0;
 }
-body {
-	background-color: #262626;
+body { 
+	background-image: linear-gradient(to bottom, #F2FEFF 0%, #001B25 100%);
+	max-width: 100%;
+	overflow-x: hidden;
+}
+.divgrad { 
+	background-image: linear-gradient(to bottom, #F2FEFF 0%, #001B25 100%);
 	max-width: 100%;
 	overflow-x: hidden;
 }
@@ -111,7 +115,7 @@ hr.new0 {
 	height: 0px;
 	width: 100%;
 	overflow: hidden;
-	border-color: #262626;
+	background-color: #85989d;
 }
 hr.new1 { 
 	display: block;
@@ -203,7 +207,7 @@ footer {
 	</div>
 </nav>
 
-<div id="grad1">
+<div class="grad1">
 	<div>
 		<br>
 		<br>
@@ -225,7 +229,9 @@ footer {
 	</div>
 </div>
 
-<hr class="new0">
+<div class="divgrad">
+	<hr class="new0">
+</div>
 
 <div>
 	<div class="row">
