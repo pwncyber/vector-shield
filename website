@@ -43,7 +43,7 @@
 }
 #grad1 {
 	background-image: 
-	linear-gradient(to bottom right, #E2DFFF, #D6E9FF, #D6FEFF, #D6DFFD, #DFF2FF); 				
+	linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #D6FEFF, #F2F6FF, #DFF2FF); 				
 }
 p {
 	color: black;
@@ -226,10 +226,10 @@ hr.new3 {
 <hr class="new0">
 
 <div class="row">
-	<div class="column" style="background-color: #02001A;">
+	<div class="column" style="background-color: #001B25;">
 		
 	</div>
-	<div class="column" style="background-color: #02001A;">
+	<div class="column" style="background-color: #001B25;">
 		<br>
 		<br>
 		
@@ -264,7 +264,7 @@ hr.new3 {
 		-Windows 10 Operating System
 		</p>
 	</div>
-	<div class="column" style="background-color: #02001A;">
+	<div class="column" style="background-color: #001B25;">
 
 	</div>
 </div>
