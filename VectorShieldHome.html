@@ -26,15 +26,23 @@
 }
 .column2 {
 	float: left;
-	width: 16%;
+	width: 10%;
 }
 .column3 {
 	float: left;
-	width: 34%;
+	width: 40%;
 }
 .column4 {
 	float: left;
 	width: 50%;
+}
+.column5 {
+	float: left;
+	width: 5%;
+}
+.column6 {
+	float: left;
+	width: 35%;
 }
 .row:after {
 	content: "";
@@ -44,7 +52,7 @@
 .grad1 {
 	background-image: linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #D6FEFF, #F2F6FF, #DFF2FF); 				
 }
-p {
+.paragraph {
 	color: black;
 	text-align: center;
 	float: center
@@ -125,7 +133,7 @@ hr.new1 {
 	overflow: hidden;
 	border-style: inset;
 	border-width: 1px;
-	width: 80%;
+	width: 66%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -138,7 +146,7 @@ hr.new2 {
 	overflow: hidden;
 	border-style: inset;
 	border-width: 1px;
-	width: 95%;
+	width: 76%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -155,9 +163,22 @@ hr.new3 {
 	margin-left: auto;
 	margin-right: auto;
 }
+hr.new4 { 
+	display: block;
+	margin-before: 0.5em;
+	margin-after: 0.5em;
+	margin-start: auto;
+	margin-end: auto;
+	overflow: hidden;
+	border-style: inset;
+	border-width: 1px;
+	width: 93%;
+	margin-left: auto;
+	margin-right: auto;
+}
 .btn {
 	border: none;
-	background-color: #59BAFF;
+	background-color: #85D5FF;
 	padding: 13px;
 	font-size: 20px;
 	cursor: pointer;
@@ -207,24 +228,35 @@ footer {
 </nav>
 
 <div class="grad1">
-	<div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<div style="align:center">
-			<p style="font-size:90px" style="color:black" style="align:center">Vector Shield</p>
+	<div class="row">
+		<div class="column2">
+		
 		</div>
-		<br>
-		<div align="center">
-			<a href="VectorShieldDownload.html" style="color:black" class="btn roundedbtn">Download Vector Shield</a>
+		<div class="column3">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div style="align:left">
+				<p style="font-size:60px" style="color:black" style="text-align:left">Vector Shield</p>
+			</div>
+			<br>
+			<div align="left">
+				<a href="VectorShieldDownload.html" style="color:black" class="btn roundedbtn">Download Vector Shield</a>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<div class="column3">
+			
+		</div>
+		<div class="column2">
+			
+		</div>
 	</div>
 </div>
 
@@ -234,55 +266,101 @@ footer {
 
 <div>
 	<div class="row">
-		<div class="column" style="background-color: #001B25;">
-			
+		<div class="column2" style="background-color:#001B25;">
+		
 		</div>
-		<div class="column" style="background-color: #001B25;">
+		<div class="column6" style="background-color:#001B25;">
 			<br>
 			<br>
 			
-			<h2 align="center" style="color:white">What is Vector Shield?</h2>
+			<h3 align="center" style="color:white">What is Vector Shield?</h3>
 			<hr class="new1">
-			<p style="color:white">
-			Vector Shield is a comprehensive security application built for the Microsoft Windows operating system.
+			<p class="paragraph" style="color:white">
+			Vector Shield is a comprehensive security application built for the Microsoft Windows operating system made to prevent the unauthorized
+			exploit of the system and reduce the attack vector's for potential cyber-attacks. 
 			</p>
-			<p><a href="VectorShieldAbout.html" style="color: red">More About Vector Shield</a>
-
+			<p class="paragraph">
+			<a href="VectorShieldAbout.html" style="color: red">Learn More About Vector Shield</a>
+			</p>
+			
+			<br>
+		</div>
+		<div class="column5" style="background-color:#001B25;">
+		
+		</div>		
+		<div class="column5" style="background-color:#001B25;">
+		
+		</div>
+		<div class="column6" style="background-color:#001B25;">
+			<br>			
+			<br>
+			
+			<h3 align="center" style="color:white">Why is Cybersecurity Important?</h3>
+			<hr class="new4">
+			<p class="paragraph" style="color:white">
+			Today, it is not difficult for a determined hacker or a piece of malware to infect and damage files and information. 
+			It is important that you protect your computer by installing an application or changing your settings.
+			</p>
+			<p class="paragraph">
+			<a href="VectorShieldAbout.html" style="color: red">Learn More About Cybersecurity</a>
+			</p>
+			
+			<br>
+		</div>
+		<div class="column2" style="background-color:#001B25;">
+		
+		</div>
+	</div>
+	<div class="row">
+		<div class="column2" style="background-color:#001B25;">
+		
+		</div>
+		<div class="column6" style="background-color:#001B25;">
 			<br>
 			<br>
 			
-			<h2 align="center" style="color:white">What Vector Shield Offers</h2>
+			<h3 align="center" style="color:white">What Vector Shield Offers</h3>
 			<hr class="new2">
-			<p style="color:white">
+			<p class="paragraph" style="color:white">
 			-More thorough security than the default windows security
 			<br>
 			-Provides in depth information on every available option
 			<br>
 			-Easy and simple to use interface
 			</p>
-			
+		</div>
+		<div class="column5" style="background-color:#001B25;">
+		
+		</div>
+		<div class="column5" style="background-color:#001B25;">
+		
+		</div>
+		<div class="column6" style="background-color:#001B25;">
+			<br>			
 			<br>
 			
-			<h2 align="center" style="color:white">Requirements for Vector Shield</h2>
+			<h3 align="center" style="color:white">Requirements for Vector Shield</h3>
 			<hr class="new3">
-			<p style="color:white">
+			<p class="paragraph" style="color:white">
 			-2 Gigabytes of RAM
 			<br>
 			-1 Gigabyte of Storage
 			<br>
 			-Windows 10 Operating System
 			</p>
+			
 			<br>
 			<br>
 		</div>
-		<div class="column" style="background-color: #001B25;">
+		<div class="column2" style="background-color:#001B25;">
 		
 		</div>
+	</div>
 </div>
 
 <div style="align:center">
 	<footer>
-		<p style="text-align:center" style="background-color:#262626"><font size="2px" color="#C7C7C7">Made By Kevin Alegre, Christopher Zhong, and Justin Vogel</font></p>
+		<p class="paragraph" style="text-align:center" style="background-color:#262626"><font size="2px" color="#C7C7C7">Made By Kevin Alegre, Christopher Zhong, and Justin Vogel</font></p>
 	</footer>
 </div>
 
