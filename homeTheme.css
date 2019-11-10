@@ -1,0 +1,22 @@
+.root{
+ -fx-background-color:linear-gradient(#F2F6FF, #E9FFF9, #D6FEFF, #F2F6FF);
+ -fx-font-size: 12pt;
+}
+.button{
+  -fx-background-color: linear-gradient(#001B25, grey);
+  -fx-text-fill: white;
+  -fx-padding: 10px 10px;
+  -fx-font-weight: bold;
+  -fx-background-radius: 6;
+}
+.buttonSpecial{
+  -fx-background-color: #001B25;
+    -fx-background-radius: 6;
+}
+.labels{
+  -fx-background-color: #001B25;
+  -fx-text-fill: white;
+  -fx-padding: 10px 10px;
+  -fx-font-weight: bold;
+  -fx-background-radius: 2;
+}
