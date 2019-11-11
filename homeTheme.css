@@ -2,16 +2,86 @@
  -fx-background-color:linear-gradient(#F2F6FF, #E9FFF9, #D6FEFF, #F2F6FF);
  -fx-font-size: 12pt;
 }
+.backgroundBlue{
+ -fx-background-color: #001B25;
+
+}
 .button{
   -fx-background-color: linear-gradient(#001B25, grey);
   -fx-text-fill: white;
   -fx-padding: 10px 10px;
   -fx-font-weight: bold;
-  -fx-background-radius: 6;
+  -fx-border-color: white;
+  -fx-background-radius: 30;
+  -fx-border-radius: 30;
+}
+.button:hover {
+    -fx-background-color: linear-gradient(#001B25, #14484F);
+    -fx-border-color: white;
 }
 .buttonSpecial{
+-fx-background-color: #001B25;
+-fx-border-color: white;
+-fx-background-radius: 30;
+-fx-border-radius: 30;
+-fx-padding: 10px 10px;
+}
+.buttonSpecial:pressed{
+-fx-padding: 7px 10px;
+}
+.menu-item {
   -fx-background-color: #001B25;
-    -fx-background-radius: 6;
+  -fx-border-color: #001B25;
+  -fx-padding: 10px 10px;
+  -fx-background-radius: 10;
+  -fx-border-radius: 10;
+}
+.menu-item .label {
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+}
+
+.menu-item:focused {
+     -fx-border-color: white;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: lightgrey;
+}
+.context-menu {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+    -fx-background-color: #14484F;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em;
+}
+* {
+    -fx-my-menu-color: #14484F;
+    -fx-my-menu-color-highlighted: #001B25;
+    -fx-my-menu-font-color: white;
+    -fx-my-menu-font-color-highlighted: lightgrey;
+}
+.menu-bar {
+    -fx-background-color: -fx-my-menu-color;
+}
+.menu-bar > .container > .menu-button {
+    -fx-background-color: -fx-my-menu-color;
+}
+.menu-bar > .container > .menu-button > .label {
+    -fx-text-fill: -fx-my-menu-font-color;
+}
+.menu-bar > .container > .menu-button > .label:disabled {
+    -fx-opacity: 1.0;
+}
+.menu-bar > .container > .menu-button:hover,
+.menu-bar > .container > .menu-button:focused,
+.menu-bar > .container > .menu-button:showing {
+    -fx-background-color: -fx-my-menu-color-highlighted;
+}
+.menu-bar > .container > .menu-button:hover > .label,
+.menu-bar > .container > .menu-button:focused > .label,
+.menu-bar > .container > .menu-button:showing > .label {
+    -fx-text-fill: -fx-my-menu-font-color-highlighted;
 }
 .labels{
   -fx-background-color: #001B25;
@@ -19,4 +89,18 @@
   -fx-padding: 10px 10px;
   -fx-font-weight: bold;
   -fx-background-radius: 2;
+}
+.tree-view{
+-fx-background-color: #001B25;
+-fx-border-color: #14484F;
+-fx-background-radius: 5;
+-fx-border-radius: 5;
+-fx-padding: 3px 3px;
+}
+.tree-item{
+-fx-background-color: grey;
+-fx-border-color: #001B25;
+-fx-background-radius: 5;
+-fx-border-radius: 5;
+-fx-padding: 3px 3px;
 }

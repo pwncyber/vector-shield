@@ -1,5 +1,7 @@
 import java.io.*;
 //Imports JavaFX, the ibrary used for the gui.
+import java.io.FileInputStream; 
+import java.io.FileNotFoundException; 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,6 +27,8 @@ import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.Group;
+import javafx.scene.paint.Color;
 
 public class Gui extends Application {
 // sets a stage
@@ -43,7 +47,7 @@ public class Gui extends Application {
    String[] settingNames = {"Networking", "LocalSecPol", "Lusrmgr", "Services", "CyPat"};
    //Runs the method to write setting values to Json files
    //printToJson.writeSettings(arrays, settingNames);
-   
+ 
 //Beginning of script
    public static void main(String[] args) throws IOException {
    // GUI Start
@@ -64,14 +68,45 @@ public class Gui extends Application {
       });
       //For homepage
       Label welcome = new Label("Welcome to vector shield! The system hardening application for windows 10.");
-      Label description = new Label("Choose a settings preset to get started, then click harden. Or, you can use advanced settings to choose specifics.");
+      Label description = new Label("Choose a settings preset to get started, then click harden. Or, you can set your own settings in advanced settings for customization.");
       Label boost = new Label("Ver 1.0. VectorShield is a free non-profit software made for public use.");
       welcome.getStyleClass().add("labels");
       description.getStyleClass().add("labels");
       Button hardenSyst = new Button("Harden my system");
+      
+      String Description1 = "Low option: Lowest impact on computer usability, and is the safest option out of the three. Will set settings to include the following actions: (INSERT ACTIONS). Possible effects include: (INSERT SIDE EFFECTS).";
+      String Description2 = "Medium option: Moderate impact on computer usability. Acts as a compromise between security and usability. Will set settings to include the following actions: (INSERT ACTIONS). Possible effects include: (INSERT SIDE EFFECTS).";
+      String Description3 = "High option: Highest impact on computer usability, however it gives the highest security. Will set settings to include the following actions: (INSERT ACTIONS). Possible effects include: (INSERT SIDE EFFECTS).";
+
+      Label lowDesc = new Label (Description1);
+      lowDesc.setMaxWidth(360);
+      lowDesc.setMinHeight(200);
+      lowDesc.setWrapText(true);
+      lowDesc.getStyleClass().add("labels");
+      Label midDesc = new Label (Description2);
+      midDesc.setMaxWidth(360);
+      midDesc.setMinHeight(200);
+      midDesc.setWrapText(true);
+      midDesc.getStyleClass().add("labels");
+      Label highDesc = new Label (Description3);
+      highDesc.setMaxWidth(360);
+      highDesc.setMinHeight(200);
+      highDesc.setWrapText(true);
+      highDesc.getStyleClass().add("labels");
+      
+                     //Images
+      FileInputStream logo = new FileInputStream("Images/VectorShield.png"); 
       Image imagelow = new Image(new File("Images/low.png").toURI().toString(), 150, 150, true, true);
       Image imageMid = new Image(new File("Images/mid.png").toURI().toString(), 150, 150, true, true);
       Image imageHigh = new Image(new File("Images/high.png").toURI().toString(), 150, 150, true, true);
+      Image logoImage = new Image(logo);
+      ImageView vectorShieldLogo = new ImageView(logoImage);
+       vectorShieldLogo.setX(0); 
+       vectorShieldLogo.setY(0); 
+       vectorShieldLogo.setFitHeight(200); 
+       vectorShieldLogo.setFitWidth(250); 
+       vectorShieldLogo.setPreserveRatio(true);    
+       
       Button low = new Button ();
       low.setGraphic(new ImageView(imagelow));
       low.getStyleClass().add("buttonSpecial");
@@ -152,12 +187,16 @@ public class Gui extends Application {
       VBox LayoutTop = new VBox();
       //Home layouts
       BorderPane homeLayout = new BorderPane();
-
+      Group images = new Group(vectorShieldLogo);
       VBox homeLayoutTop = new VBox();
       homeLayoutTop.setAlignment(Pos.CENTER);
+      homeLayoutTop.getStyleClass().add("backgroundBlue");
       HBox homeLayoutMid = new HBox(50);
       homeLayoutMid.setAlignment(Pos.CENTER);
-      VBox homeLayoutBottom = new VBox(390);
+      VBox homeLayoutCenter = new VBox(10);
+      HBox descriptions = new HBox(25);
+      descriptions.setAlignment(Pos.CENTER);
+      VBox homeLayoutBottom = new VBox(150);
       homeLayoutBottom.setAlignment(Pos.CENTER);
       //Settings layouts
       StackPane settingLayout = new StackPane();
@@ -177,12 +216,14 @@ public class Gui extends Application {
       MainLayout.setTop(LayoutTop);
       MainLayout.setCenter(homeLayout);
       //Home
-      homeLayoutTop.getChildren().addAll(welcome, description);
+      homeLayoutTop.getChildren().addAll(images, welcome, description);
       homeLayoutMid.getChildren().addAll(low, medium, high);
       homeLayoutBottom.getChildren().addAll(hardenSyst, boost);
+      descriptions.getChildren().addAll(lowDesc, midDesc, highDesc);
+      homeLayoutCenter.getChildren().addAll(homeLayoutMid, descriptions);
 
       homeLayout.setTop(homeLayoutTop);
-      homeLayout.setCenter(homeLayoutMid);
+      homeLayout.setCenter(homeLayoutCenter);
       homeLayout.setBottom(homeLayoutBottom);
       //Settings
       settingBoxesLayout.getChildren().addAll(NetworkingOptions, LocalSecPolOptions, LusrmgrOptions, ServicesOptions);
