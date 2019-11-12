@@ -28,6 +28,8 @@ if($LocalSecPol[0]){
 #Local User Manager#
 ####################
 if($Lusrmgr[0]){
+#Disable local Guest Account
+#Disable local Administrator account.
 }
 
 ##################
