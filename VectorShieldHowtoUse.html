@@ -9,40 +9,25 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <head>
 <style>
-#rcorners1 {
-	border-radius: 25px;
-	background: #77D8FF;
-	padding: 25px; 
-	width: 150px;
-	height: 50px;  
-}
 .column1 {
-	float: left;
-	width: 25%;
-}
-.column2 {
-	float: left;
-	width: 5%;
-}
-.column3 {
-	float: left;
-	width: 20%;
-}
-.column4 {
 	float: left;
 	width: 50%;
 }
-.column5 {
+.column2 {
 	float: left;
-	width: 60%;
+	width: 30%;
 }
-.column6 {
+.column3 {
 	float: left;
 	width: 10%;
 }
-.column7 {
+.column4 {
 	float: left;
-	width: 35%
+	width: 50%
+}
+.column5 {
+	float: left;
+	width: 25%
 }
 .row:after {
 	content: "";
@@ -50,7 +35,7 @@
 	clear: both;
 }
 .grad1 {
-	background-image: linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #D6FEFF, #F2F6FF, #DFF2FF); 				
+	background-image: linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #E9FEFF, #F2F6FF, #DFF2FF); 				
 }
 .paragraph {
 	color: black;
@@ -109,13 +94,7 @@ a.ex1:hover, a.ex1:active {
 		width:100%;
 	}
 }
-hr.new0 {
-	display: block;
-	border-style: none;
-	width: 100%;
-	overflow: hidden;
-}
-hr.new1 { 
+hr.line1 { 
 	display: block;
 	margin-before: 0.5em;
 	margin-after: 0.5em;
@@ -124,11 +103,10 @@ hr.new1 {
 	overflow: hidden;
 	border-style: inset;
 	border-width: 1px;
-	width: 66%;
-	margin-left: auto;
-	margin-right: auto;
+	width: 89%;
+	margin-left: 0;
 }
-hr.new2 { 
+hr.line2 { 
 	display: block;
 	margin-before: 0.5em;
 	margin-after: 0.5em;
@@ -141,7 +119,7 @@ hr.new2 {
 	margin-left: auto;
 	margin-right: auto;
 }
-hr.new3 { 
+hr.line3 { 
 	display: block;
 	margin-before: 0.5em;
 	margin-after: 0.5em;
@@ -154,7 +132,7 @@ hr.new3 {
 	margin-left: auto;
 	margin-right: auto;
 }
-hr.new4 { 
+hr.line4 { 
 	display: block;
 	margin-before: 0.5em;
 	margin-after: 0.5em;
@@ -168,8 +146,8 @@ hr.new4 {
 	margin-right: auto;
 }
 .btn {
-	border: none;
-	background-color: #85D5FF;
+	border: 2px solid black;
+	background-color: #E2F6FF;
 	padding: 13px;
 	font-size: 20px;
 	cursor: pointer;
@@ -198,9 +176,6 @@ footer {
 </style>
 </head>
 <body>
-
-
-
 <nav class="navbar nav-tabs navbar-inverse navbar-expand-sm sticky-top" style="background-color: white;">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -224,13 +199,11 @@ footer {
 		</ul>
 	</div>
 </nav>
-
 <div class="grad1">
 	<div class="row">
-		<div class="column3">
-			
-		</div>
 		<div class="column5">
+		</div>
+		<div class="column4">
 			<br>
 			<br>
 			<br>
@@ -245,23 +218,43 @@ footer {
 			<br>
 			<br>
 		</div>
-		<div class="column3">
-
+		<div class="column5">
 		</div>
 	</div>
-
-
-
 	<div class="box" style="border: 10px solid #001622">
 		<div class="row">
-			<div class="column1" style="background-color:#001B25;">
-			
-			</div>
-			<div class="column4" style="background-color:#001B25;">
-			
+			<div class="column3" style="background-color:#001B25;">		
 			</div>
 			<div class="column1" style="background-color:#001B25;">
-			
+			<br>			
+				<br>				
+				<h3 align="left" style="color:white">System Requirements for Vector Shield</h3>
+				<hr class="line1">
+				<p style="color:white">
+				-Windows 7 Operating System or Higher
+				<br>
+				-PowerShell 5.1 or Higher
+				<br>
+				-2 Gigabytes of RAM
+				<br>
+				-10 Gigabytes of Storage
+				<br>
+				-Latest Version of Java
+				<br>
+				-PowerShell 5.1+
+				</p>		
+				<br>
+				<br>
+			</div>
+			<div class="column2" style="background-color:#001B25;">	
+			<br>
+			<br>
+			<br>
+			<p class="paragraph">
+			<a href="https://www.java.com/en/download/" style="color:black" class="btn" download="VectorShield" target="_blank">Download Java</a>
+			</p>
+			</div>
+			<div class="column3" style="background-color:#001B25;">		
 			</div>		
 		</div>
 	</div>
@@ -269,9 +262,6 @@ footer {
 	<br>
 	<br>
 </div>
-
-
-
 <div style="align:center" style="background-color:#001B25">
 	<footer>
 		<br>
@@ -280,8 +270,5 @@ footer {
 		</font></p>
 	</footer>
 </div>
-
-
-
 </body>
 </html>
