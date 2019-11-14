@@ -29,6 +29,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Toggle;
+import javafx.beans.value.ObservableValue;
+import javafx.beans.value.ChangeListener;
 
 public class Gui extends Application {
 // sets a stage
@@ -69,10 +73,13 @@ public class Gui extends Application {
       //For homepage
       Label welcome = new Label("Welcome to vector shield! The system hardening application for windows 10.");
       Label description = new Label("Choose a settings preset to get started, then click harden. Or, you can set your own settings in advanced settings for customization.");
+      Label warning = new Label("NOTE: Choosing a preset will overwrite custom settings.");
       Label boost = new Label("Ver 1.0. VectorShield is a free non-profit software made for public use.");
       welcome.getStyleClass().add("labels");
       description.getStyleClass().add("labels");
+      warning.getStyleClass().add("labels");
       Button hardenSyst = new Button("Harden my system");
+      hardenSyst.setGraphic(new ImageView(new Image(new File("Images/buttonIcon.png").toURI().toString(), 37, 42, true, true)));
       
       String Description1 = "Low option: Lowest impact on computer usability, and is the safest option out of the three. Will set settings to include the following actions: (INSERT ACTIONS). Possible effects include: (INSERT SIDE EFFECTS).";
       String Description2 = "Medium option: Moderate impact on computer usability. Acts as a compromise between security and usability. Will set settings to include the following actions: (INSERT ACTIONS). Possible effects include: (INSERT SIDE EFFECTS).";
@@ -94,7 +101,7 @@ public class Gui extends Application {
       highDesc.setWrapText(true);
       highDesc.getStyleClass().add("labels");
       
-                     //Images
+                     //Images Homepage
       FileInputStream logo = new FileInputStream("Images/VectorShield.png"); 
       Image imagelow = new Image(new File("Images/low.png").toURI().toString(), 150, 150, true, true);
       Image imageMid = new Image(new File("Images/mid.png").toURI().toString(), 150, 150, true, true);
@@ -106,16 +113,23 @@ public class Gui extends Application {
        vectorShieldLogo.setFitHeight(200); 
        vectorShieldLogo.setFitWidth(250); 
        vectorShieldLogo.setPreserveRatio(true);    
-       
-      Button low = new Button ();
+      
+      final ToggleGroup presetButtons = new ToggleGroup();
+      ToggleButton low = new ToggleButton ();
+      low.setToggleGroup(presetButtons);
       low.setGraphic(new ImageView(imagelow));
       low.getStyleClass().add("buttonSpecial");
-      Button medium = new Button ();
+      low.setUserData("low");
+      ToggleButton medium = new ToggleButton ();
       medium.setGraphic(new ImageView(imageMid));
       medium.getStyleClass().add("buttonSpecial");
-      Button high = new Button ();
+      medium.setUserData("mid");
+      medium.setToggleGroup(presetButtons);
+      ToggleButton high = new ToggleButton ();
       high.setGraphic(new ImageView(imageHigh));
       high.getStyleClass().add("buttonSpecial");
+      high.setUserData("high");
+      high.setToggleGroup(presetButtons);
 
       MenuBar homePageMenu = new MenuBar();
       Menu viewMenu = new Menu("_View");
@@ -137,8 +151,19 @@ public class Gui extends Application {
 
       homePageMenu.getMenus().addAll(viewMenu, optionMenu);
       //For settings
-      Label settingsDesc = new Label("Here are the advanced settings. Modify only if you know what your doing.");
+      Label settingsDesc = new Label("Here are the advanced settings. Modify to customize which actions you wish VectorShield to take when hardening.");
+      settingsDesc.setMaxWidth(650);
+      settingsDesc.setMinHeight(110);
+      settingsDesc.setWrapText(true);
+      settingsDesc.getStyleClass().add("labels");
       StackPane.setAlignment(settingsDesc, Pos.TOP_CENTER);
+                           //Images for settings  
+      ImageView settingsLogo = new ImageView(new Image(getClass().getResourceAsStream("Images/gear.png")));
+       settingsLogo.setX(0); 
+       settingsLogo.setY(0); 
+       settingsLogo.setFitHeight(130); 
+       settingsLogo.setFitWidth(130); 
+       settingsLogo.setPreserveRatio(true); 
 
         CheckBox Netroot = new CheckBox("Networking");//Check boxes can be set on action the same way a button is.
           CheckBox Netgeneric = new CheckBox("Generic");
@@ -193,14 +218,18 @@ public class Gui extends Application {
       homeLayoutTop.getStyleClass().add("backgroundBlue");
       HBox homeLayoutMid = new HBox(50);
       homeLayoutMid.setAlignment(Pos.CENTER);
+      homeLayoutMid.getStyleClass().add("HomepageBackground");
       VBox homeLayoutCenter = new VBox(10);
+      homeLayoutCenter.setAlignment(Pos.CENTER);
       HBox descriptions = new HBox(25);
       descriptions.setAlignment(Pos.CENTER);
-      VBox homeLayoutBottom = new VBox(150);
+      VBox homeLayoutBottom = new VBox(60);
       homeLayoutBottom.setAlignment(Pos.CENTER);
       //Settings layouts
       StackPane settingLayout = new StackPane();
       HBox settingBoxesLayout = new HBox();
+      Group settingImages = new Group(settingsLogo);
+      StackPane.setAlignment(settingImages, Pos.TOP_LEFT);
       settingBoxesLayout.setAlignment(Pos.CENTER);
       settingBoxesLayout.setPadding(new Insets(100, 40, 40, 40));
 
@@ -220,14 +249,14 @@ public class Gui extends Application {
       homeLayoutMid.getChildren().addAll(low, medium, high);
       homeLayoutBottom.getChildren().addAll(hardenSyst, boost);
       descriptions.getChildren().addAll(lowDesc, midDesc, highDesc);
-      homeLayoutCenter.getChildren().addAll(homeLayoutMid, descriptions);
+      homeLayoutCenter.getChildren().addAll(homeLayoutMid, descriptions, warning);
 
       homeLayout.setTop(homeLayoutTop);
       homeLayout.setCenter(homeLayoutCenter);
       homeLayout.setBottom(homeLayoutBottom);
       //Settings
       settingBoxesLayout.getChildren().addAll(NetworkingOptions, LocalSecPolOptions, LusrmgrOptions, ServicesOptions);
-      settingLayout.getChildren().addAll(settingsDesc, settingBoxesLayout);
+      settingLayout.getChildren().addAll(settingImages, settingsDesc, settingBoxesLayout);
       //ProgressBar
       progressLayout.getChildren().addAll(ProgressDescription);
 
@@ -250,16 +279,19 @@ public class Gui extends Application {
             }
            }
           );
+                  //Go to settings
        goToSettings.setOnAction(e -> {
       MainLayout.setCenter(settingLayout);
       goToHome.setDisable(false);
       goToSettings.setDisable(true);
        });
+                  //Go to home
         goToHome.setOnAction(e -> {
       MainLayout.setCenter(homeLayout);
       goToHome.setDisable(true);
       goToSettings.setDisable(false);
        });
+                //secret settings menu option
        cyberPatriotView.setOnAction(e -> {
          if(cyberPatriotView.isSelected()) {
          boolean choice = AlertBox.display("WARNING!", "Secret settings can cuase SERIOUS IRREVERSIBLE damage, this option is for specifc cases only.", "I know what im doing", "Cancel");
@@ -269,15 +301,32 @@ public class Gui extends Application {
          } else { settingBoxesLayout.getChildren().remove(secretOptions);}
       });
       exitProgram.setOnAction(e -> exitProgram());
-            low.setOnAction(e -> {
+               //Low medium and high buttons
+presetButtons.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
+    public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
+          if (presetButtons.getSelectedToggle() != null) {
+               String choice = presetButtons.getSelectedToggle().getUserData().toString();
+                           switch (choice) {
+            //Low actions
+            case "low":
+            
+                  break;
+            //Mid actions
+            case "mid":
+            
+                  break;
+            //High actions
+            case "high":
+            
+                  break;
+            default: System.out.println("ERROR: Invalid preset");
+            System.exit(0);
+                  break;
+               }
+         }
 
-      });
-            medium.setOnAction(e -> {
-
-      });
-            high.setOnAction(e -> {
-
-      });
+     } 
+});
       //Sets primary stage to home page
       window.setScene(homePage);
       primaryStage.show();
