@@ -9,17 +9,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <head>
 <style>
-#rcorners1 {
-	border-radius: 25px;
-	background: #77D8FF;
-	padding: 25px; 
-	width: 150px;
-	height: 50px;  
-}
-.column {
-	float: left;
-	width: 33.33%;
-}
 .column1 {
 	float: left;
 	width: 25%;
@@ -30,23 +19,11 @@
 }
 .column3 {
 	float: left;
-	width: 40%;
+	width: 90%;
 }
 .column4 {
 	float: left;
 	width: 50%;
-}
-.column5 {
-	float: left;
-	width: 5%;
-}
-.column6 {
-	float: left;
-	width: 40%;
-}
-.column7 {
-	float: left;
-	width: 10%;
 }
 .row:after {
 	content: "";
@@ -54,18 +31,11 @@
 	clear: both;
 }
 .grad1 {
-	background-image: linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #D6FEFF, #F2F6FF, #DFF2FF); 				
+	background-image: linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #E9FEFF, #F2F6FF, #DFF2FF); 				
 }
 .paragraph {
 	color: black;
 	text-align: center;
-}
-h1 {
-	text-shadow: 3px 2px gray;
-}
-h2 {
-	text-align: center;
-	margin:0;
 }
 body { 
 	background-color: #001B25;
@@ -119,61 +89,16 @@ a.ex1:hover, a.ex1:active {
 		width:100%;
 	}
 }
-hr.new0 {
+hr.line1 { 
 	display: block;
-	border-style: none;
+	margin-before: 0.5em;
+	margin-after: 0.5em;
+	margin-start: auto;
+	margin-end: auto;
+	overflow: hidden;
+	border-style: inset;
+	border-width: 1px;
 	width: 100%;
-	overflow: hidden;
-}
-hr.new1 { 
-	display: block;
-	margin-before: 0.5em;
-	margin-after: 0.5em;
-	margin-start: auto;
-	margin-end: auto;
-	overflow: hidden;
-	border-style: inset;
-	border-width: 1px;
-	width: 66%;
-	margin-left: auto;
-	margin-right: auto;
-}
-hr.new2 { 
-	display: block;
-	margin-before: 0.5em;
-	margin-after: 0.5em;
-	margin-start: auto;
-	margin-end: auto;
-	overflow: hidden;
-	border-style: inset;
-	border-width: 1px;
-	width: 76%;
-	margin-left: auto;
-	margin-right: auto;
-}
-hr.new3 { 
-	display: block;
-	margin-before: 0.5em;
-	margin-after: 0.5em;
-	margin-start: auto;
-	margin-end: auto;
-	overflow: hidden;
-	border-style: inset;
-	border-width: 1px;
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-}
-hr.new4 { 
-	display: block;
-	margin-before: 0.5em;
-	margin-after: 0.5em;
-	margin-start: auto;
-	margin-end: auto;
-	overflow: hidden;
-	border-style: inset;
-	border-width: 1px;
-	width: 93%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -191,11 +116,8 @@ hr.new4 {
 .btn:hover {
 	background-color: #BAEAFF;
 }
-.imgborder {
-	border: 5px solid #212121;
-}
 div.box {
-	width: 90%;
+	width: 60%;
 	padding: 25px;
 	margin-left: auto;
 	margin-right: auto;
@@ -263,13 +185,22 @@ footer {
 
 	<div class="box" style="border: 10px solid #001622">
 		<div class="row">
-			<div class="column1" style="background-color:#001B25;">
+			<div class="column2" style="background-color:#001B25;">
 			
 			</div>
-			<div class="column4" style="background-color:#001B25" style="margin-top:30px" style="margin-bottom:30px" align="center">
-				<a href="" style="color:black" class="btn" download="">Download Vector Shield</a>
+			<div class="column3" style="background-color:#001B25" style="margin-top:30px" style="margin-bottom:30px" align="center">
+				<h3 align="center" style="color:white">Click the Button Below to Download Vector Shield:</h3>
+				<hr class="line1">
+				<br>
+				<p class="paragraph">
+				<a href="" style="color:black" class="btn" download="VectorShield">Download Vector Shield</a>
+				</p>
+				<br>
+				<p class="paragraph" style="color:white">
+				Make sure you have all the requirements for Vector Shield before downloading.
+				</p>
 			</div>
-			<div class="column1" style="background-color:#001B25;">
+			<div class="column2" style="background-color:#001B25;">
 				
 			</div>		
 		</div>
@@ -278,9 +209,6 @@ footer {
 	<br>
 	<br>
 </div>
-
-
-
 <div style="align:center" style="background-color:#001B25">
 	<footer>
 		<br>
@@ -289,8 +217,5 @@ footer {
 		</font></p>
 	</footer>
 </div>
-
-
-
 </body>
 </html>
