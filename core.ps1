@@ -37,7 +37,6 @@ if($Lusrmgr[0]){
 ##################
 if($Services[20]){
 #Disables Remote Desktop services from startup.
-Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" –Value 1
 }
 
 ##############
