@@ -5,7 +5,6 @@ $Networking = Get-Content -Path .\Networking.json
 $LocalSecPol = Get-Content -Path .\LocalSecPol.json
 $Lusrmgr = Get-Content -Path .\Lusrmgr.json
 $Services = Get-Content -Path .\Services.json
-$SecPol = Get-Content -Path .\SecPol.json
 $CyPat = Get-Content -Path .\CyPat.json
 $Password = Get-Content -Path .\Password.json
 
