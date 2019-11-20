@@ -33,6 +33,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Toggle;
 import javafx.beans.value.ObservableValue;
 import javafx.beans.value.ChangeListener;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 public class Gui extends Application {
 // sets a stage
@@ -78,7 +80,7 @@ public class Gui extends Application {
       welcome.getStyleClass().add("labels");
       description.getStyleClass().add("labels");
       warning.getStyleClass().add("labels");
-      Button hardenSyst = new Button("Harden my system");
+      Button hardenSyst = new Button("Secure my system");
       hardenSyst.setGraphic(new ImageView(new Image(new File("Images/buttonIcon.png").toURI().toString(), 37, 42, true, true)));
       
       String Description1 = "Low option: Lowest impact on computer usability, and is the safest option out of the three. Will set settings to include the following actions: (INSERT ACTIONS). Possible effects include: (INSERT SIDE EFFECTS).";
@@ -156,7 +158,31 @@ public class Gui extends Application {
       settingsDesc.setMinHeight(110);
       settingsDesc.setWrapText(true);
       settingsDesc.getStyleClass().add("labels");
-      StackPane.setAlignment(settingsDesc, Pos.TOP_CENTER);
+      
+                           //Setting Menu Buttons
+      final ToggleGroup SettingsButtons = new ToggleGroup();
+      
+      ToggleButton SecpolSettings = new ToggleButton("Local Security Policy");
+      SecpolSettings.getStyleClass().add("buttonMenu");
+      SecpolSettings.setUserData("secpol");
+      SecpolSettings.setToggleGroup(SettingsButtons);
+         ToggleButton NetworkingSettings = new ToggleButton("Networking");
+         NetworkingSettings.getStyleClass().add("buttonMenu");
+         NetworkingSettings.setUserData("networking");
+         NetworkingSettings.setSelected(true);
+         NetworkingSettings.setToggleGroup(SettingsButtons);
+      ToggleButton LusrmgrSettings = new ToggleButton("Users&Groups");
+      LusrmgrSettings.getStyleClass().add("buttonMenu");
+      LusrmgrSettings.setUserData("lusrmgr");
+      LusrmgrSettings.setToggleGroup(SettingsButtons);
+         ToggleButton ServicesSettings = new ToggleButton("Services");
+         ServicesSettings.getStyleClass().add("buttonMenu");
+         ServicesSettings.setUserData("services");
+         ServicesSettings.setToggleGroup(SettingsButtons);
+      ToggleButton SecretSettings = new ToggleButton("Secret Settings");
+      SecretSettings.getStyleClass().add("buttonMenu");
+      SecretSettings.setUserData("cypat");
+      SecretSettings.setToggleGroup(SettingsButtons);
                            //Images for settings  
       ImageView settingsLogo = new ImageView(new Image(getClass().getResourceAsStream("Images/gear.png")));
        settingsLogo.setX(0); 
@@ -226,12 +252,21 @@ public class Gui extends Application {
       VBox homeLayoutBottom = new VBox(60);
       homeLayoutBottom.setAlignment(Pos.CENTER);
       //Settings layouts
-      StackPane settingLayout = new StackPane();
-      HBox settingBoxesLayout = new HBox();
+      BorderPane settingLayout = new BorderPane();
+            HBox LeftPane = new HBox();
+      LeftPane.setPadding(new Insets(70));
+            HBox RightPane = new HBox();
+      RightPane.setPadding(new Insets(70));
+            HBox BottomPane = new HBox();
+      BottomPane.setPadding(new Insets(70));
+      HBox settingTopLayout = new HBox();
+      settingTopLayout.setAlignment(Pos.CENTER);
+      settingTopLayout.setSpacing(40);
+      HBox settingMenuLayout = new HBox(0);
+      settingMenuLayout.setAlignment(Pos.CENTER);
+      VBox settingTopLayoutMain = new VBox();
+      settingTopLayoutMain.setAlignment(Pos.CENTER);
       Group settingImages = new Group(settingsLogo);
-      StackPane.setAlignment(settingImages, Pos.TOP_LEFT);
-      settingBoxesLayout.setAlignment(Pos.CENTER);
-      settingBoxesLayout.setPadding(new Insets(100, 40, 40, 40));
 
       TreeView<CheckBox> NetworkingOptions = new TreeView<>(NetworkingRoot);
       TreeView<CheckBox> LocalSecPolOptions = new TreeView<>(LocalSecPolRoot);
@@ -255,8 +290,16 @@ public class Gui extends Application {
       homeLayout.setCenter(homeLayoutCenter);
       homeLayout.setBottom(homeLayoutBottom);
       //Settings
-      settingBoxesLayout.getChildren().addAll(NetworkingOptions, LocalSecPolOptions, LusrmgrOptions, ServicesOptions);
-      settingLayout.getChildren().addAll(settingImages, settingsDesc, settingBoxesLayout);
+            //settingTopLayout.getChildren().addAll(NetworkingOptions, LocalSecPolOptions, LusrmgrOptions, ServicesOptions);
+      settingTopLayout.getChildren().addAll(settingImages, settingsDesc);
+      settingTopLayout.getStyleClass().add("backgroundBlue");
+      settingMenuLayout.getChildren().addAll(NetworkingSettings, SecpolSettings , LusrmgrSettings, ServicesSettings);
+      settingTopLayoutMain.getChildren().addAll(settingTopLayout, settingMenuLayout);
+      settingLayout.setTop(settingTopLayoutMain);
+      settingLayout.setLeft(LeftPane);
+      settingLayout.setRight(RightPane);
+      settingLayout.setBottom(BottomPane);
+            settingLayout.setCenter(NetworkingOptions);
       //ProgressBar
       progressLayout.getChildren().addAll(ProgressDescription);
 
@@ -294,11 +337,11 @@ public class Gui extends Application {
                 //secret settings menu option
        cyberPatriotView.setOnAction(e -> {
          if(cyberPatriotView.isSelected()) {
-         boolean choice = AlertBox.display("WARNING!", "Secret settings can cuase SERIOUS IRREVERSIBLE damage, this option is for specifc cases only.", "I know what im doing", "Cancel");
+         boolean choice = AlertBox.display("WARNING!", "Secret settings can cause SERIOUS IRREVERSIBLE damage, do not use unless told to.", "I know what im doing", "Cancel");
          if (choice) {
-         settingBoxesLayout.getChildren().add(secretOptions);
+         settingMenuLayout.getChildren().add(SecretSettings);
          } else {cyberPatriotView.setSelected(false);}
-         } else { settingBoxesLayout.getChildren().remove(secretOptions);}
+         } else { settingMenuLayout.getChildren().remove(SecretSettings);}
       });
       exitProgram.setOnAction(e -> exitProgram());
                //Low medium and high buttons
@@ -320,6 +363,35 @@ presetButtons.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
             
                   break;
             default: System.out.println("ERROR: Invalid preset");
+            System.exit(0);
+                  break;
+               }
+         }
+
+     } 
+});
+                     //Settings menu choices
+SettingsButtons.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
+    public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
+          if (SettingsButtons.getSelectedToggle() != null) {
+               String choice = SettingsButtons.getSelectedToggle().getUserData().toString();
+                           switch (choice) {
+            case "networking":
+            settingLayout.setCenter(NetworkingOptions);
+                  break;
+            case "secpol":
+            settingLayout.setCenter(LocalSecPolOptions);
+                  break;
+            case "lusrmgr":
+            settingLayout.setCenter(LusrmgrOptions);
+                  break;
+            case "services":
+            settingLayout.setCenter(ServicesOptions);
+                  break;
+            case "cypat":
+            settingLayout.setCenter(secretOptions);
+                  break;
+            default: System.out.println("ERROR: Invalid setting choice");
             System.exit(0);
                   break;
                }

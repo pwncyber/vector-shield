@@ -52,12 +52,33 @@
 -fx-background-insets: 3.5,0,0,0;
 -fx-background-color: #14484F;
 }
+.buttonMenu{
+  -fx-background-color:
+      #14484F,
+      linear-gradient(#14484F 0%, #14484F 20%, #001B25 100%);
+  -fx-text-fill: white;
+  -fx-font-family: "Times_New_Roman";
+  -fx-font-size: 15px;
+  -fx-padding: 10 20 10 20;
+  -fx-background-radius: 0;
+  -fx-border-radius: 0;
+  -fx-border-color: #001B25;
+}
+.buttonMenu:selected{
+-fx-background-color: #14484F;
+-fx-background-insets: 1.5,1.5,1.5,1.5;
+}
+.buttonMenu:hover {
+  -fx-background-color:
+      #3a6287,
+      linear-gradient(#14484F 0%, #14484F 20%, #3a6287 100%);
+}
 .menu-item {
   -fx-background-color: #001B25;
-  -fx-border-color: #001B25;
-  -fx-padding: 10px 10px;
+  -fx-border-color: #14484F;
+  -fx-padding: 10, 10;
   -fx-background-radius: 10;
-  -fx-border-radius: 10;
+  -fx-border-radius: 8.9;
 }
 .menu-item .label {
   -fx-text-fill: white;
@@ -74,8 +95,8 @@
 .context-menu {
     -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
     -fx-background-color: #14484F;
-    -fx-background-insets: 0, 1, 2;
-    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0 0 6 6, 0 0 5 5, 0 0 4 4;
     -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em;
 }
 * {
@@ -114,16 +135,7 @@
   -fx-background-radius: 2;
 }
 .tree-view{
--fx-background-color: #001B25;
--fx-border-color: #14484F;
--fx-background-radius: 5;
--fx-border-radius: 5;
--fx-padding: 3px 3px;
-}
-.tree-item{
--fx-background-color: grey;
--fx-border-color: #001B25;
--fx-background-radius: 5;
--fx-border-radius: 5;
--fx-padding: 3px 3px;
+  -fx-background-color: #001B25;
+  -fx-padding: 5px 5px;
+  -fx-background-radius: 4;
 }
