@@ -6,7 +6,7 @@ $LocalSecPol = Get-Content -Path .\LocalSecPol.json
 $Lusrmgr = Get-Content -Path .\Lusrmgr.json
 $Services = Get-Content -Path .\Services.json
 $CyPat = Get-Content -Path .\CyPat.json
-$Password = Get-Content -Path .\Password.json
+$Password = Get-Content -Path .\Password.txt
 
 ################################
 #General Networking in Windows.#
@@ -43,6 +43,9 @@ if($Services[20]){
 ##############
 #Changes all user passwords to the one stored in the Password.json file.
 if($CyPat[0]){
-Get-LocalUser |
-    Set-Localuser -Password $Password
+
+
+cmd.exe /c '\core_modules\set_password.bat'
+
+
 }
