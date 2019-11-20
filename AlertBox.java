@@ -18,6 +18,7 @@ public static boolean display(String title, String warning, String button1, Stri
    window.setMinWidth(350);
    VBox layout = new VBox(10);
    Scene scene = new Scene(layout);
+   scene.getStylesheets().add("alertTheme.css");
    Label message = new Label();
    message.setText(warning);
    
