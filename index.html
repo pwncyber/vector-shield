@@ -26,6 +26,10 @@
 	float: left;
 	width: 10%;
 }
+.column4 {
+	float: left;
+	width: 80%
+}
 .row:after {
 	content: "";
 	display: table;
@@ -38,12 +42,16 @@
 	color: black;
 	text-align: center;
 }
+.p {
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
 h2 {
 	text-align: center;
 	margin:0;
 }
 body { 
-	background-color: #001B25;
+	background-color: black;
 	max-width: 100%;
 	overflow-x: hidden;
 }
@@ -90,16 +98,22 @@ a.ex1:hover, a.ex1:active {
 }
 hr.line1 { 
 	display: block;
-	margin-before: 0.5em;
-	margin-after: 0.5em;
-	margin-start: auto;
-	margin-end: auto;
 	overflow: hidden;
 	border-style: inset;
 	border-width: 1px;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
+}
+hr.line2 { 
+	display: block;
+	overflow: hidden;
+	border-style: inset;
+	border-width: 10px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	border-color: black;
 }
 .btn {
 	border: 2px solid black;
@@ -126,8 +140,14 @@ div.box {
 	margin-right: auto;
 	background-color: #001B25;
 }
+div.backgroundimg {
+	background-image: url("VectorShieldBackground.PNG");
+	background-color: black;
+	background-size: 1400px 300px;
+}
 footer {
 	display: block;
+	background-color: #001B25;
 }
 </style>
 </head>
@@ -155,21 +175,21 @@ footer {
 		</ul>
 	</div>
 </nav>
-<div class="grad1">
+<div class="backgroundimg">
 	<div class="row">
 		<div class="column3">		
 		</div>
-		<div class="column2">
+		<div class="column4">
 			<br>
 			<br>
 			<br>
 			<br>
 			<br>
-			<div align="left">
-				<p style="font-size:60px" style="color:black">Vector Shield</p>
+			<div align="right">
+				<p style="font-size:60px; color:white">Vector Shield</p>
 			</div>
 			<br>
-			<div align="left">
+			<div align="right">
 				<a href="VectorShieldDownload.html" style="color:black" class="btn roundedbtn">Download Vector Shield</a>
 			</div>
 			<br>
@@ -178,17 +198,14 @@ footer {
 			<br>
 			<br>
 		</div>
-		<div class="column2">
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<img src="Shield.png" height="200" width="170" alt="Shield" align="right">
-		</div>
 		<div class="column3">			
 		</div>
 	</div>
+</div>
+<hr class="line2">
+<div class="grad1">
+	<br>
+	<br>
 	<div class="box" style="border: 10px solid #001622">
 		<div class="row">
 			<div class="column1" style="background-color:#001B25;">
@@ -278,14 +295,14 @@ footer {
 	</div>
 	<br>
 	<br>
-	<br>
 </div>
 <div style="align:center" style="background-color:#001B25">
 	<footer>
 		<br>
-		<p class="paragraph" style="text-align:center" style="background-color:#262626"><font size="2px" color="#C7C7C7">
+		<p class="p" style="text-align:center" style="background-color:#262626"><font size="2px" color="#C7C7C7">
 		Made By Kevin Alegre, Christopher Zhong, and Justin Vogel
 		</font></p>
+		<br>
 	</footer>
 </div>
 </body>
