@@ -35,6 +35,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.util.Duration;
+import javafx.animation.RotateTransition; 
+import javafx.animation.Interpolator;
 
 public class Gui extends Application {
 // sets a stage
@@ -73,8 +76,8 @@ public class Gui extends Application {
       exitProgram();
       });
       //For homepage
-      Label welcome = new Label("Welcome to vector shield! The system hardening application for windows 10.");
-      Label description = new Label("Choose a settings preset to get started, then click harden. Or, you can set your own settings in advanced settings for customization.");
+      Label welcome = new Label("Welcome to VectorShield! The system hardening application for Windows 10.");
+      Label description = new Label("Choose a setting preset to get started, then click harden. Or, you can set your own settings in advanced settings for customization.");
       Label warning = new Label("NOTE: Choosing a preset will overwrite custom settings.");
       Label boost = new Label("Ver 1.0. VectorShield is a free non-profit software made for public use.");
       welcome.getStyleClass().add("labels");
@@ -114,7 +117,7 @@ public class Gui extends Application {
        vectorShieldLogo.setY(0); 
        vectorShieldLogo.setFitHeight(200); 
        vectorShieldLogo.setFitWidth(250); 
-       vectorShieldLogo.setPreserveRatio(true);    
+       vectorShieldLogo.setPreserveRatio(true);
       
       final ToggleGroup presetButtons = new ToggleGroup();
       ToggleButton low = new ToggleButton ();
@@ -141,7 +144,7 @@ public class Gui extends Application {
       goToHome.setDisable(true);
       MenuItem goToSettings = new MenuItem("Advanced settings");
       MenuItem exitProgram = new MenuItem("Exit");
-      CheckMenuItem saveSettings = new CheckMenuItem("Save setting choices");
+      CheckMenuItem saveSettings = new CheckMenuItem("Keep setting choices");
       CheckMenuItem cyberPatriotView = new CheckMenuItem("Enable Secret Settings...");
 
       viewMenu.getItems().add(goToHome);
@@ -171,7 +174,7 @@ public class Gui extends Application {
          NetworkingSettings.setUserData("networking");
          NetworkingSettings.setSelected(true);
          NetworkingSettings.setToggleGroup(SettingsButtons);
-      ToggleButton LusrmgrSettings = new ToggleButton("Users&Groups");
+      ToggleButton LusrmgrSettings = new ToggleButton("Users & Groups");
       LusrmgrSettings.getStyleClass().add("buttonMenu");
       LusrmgrSettings.setUserData("lusrmgr");
       LusrmgrSettings.setToggleGroup(SettingsButtons);
@@ -231,8 +234,17 @@ public class Gui extends Application {
          ServicesRoot.getChildren().add(ServicesGeneric);
          ServicesGeneric.setExpanded(true);
       //For Progress bar
-      Label ProgressDescription = new Label("(Insert Progress Bar here)");
-
+      Label ProgressDescription = new Label("Batch Script has been called. Command Prompt should now be open.");
+            ProgressDescription.getStyleClass().add("labels");
+      Label ProgressBarDescription = new Label("Hardening System. Please wait...");
+         ImageView vectorShieldLogo2 = new ImageView(new Image(getClass().getResourceAsStream("Images/VectorShield.png")));
+       vectorShieldLogo2.setFitHeight(400); 
+       vectorShieldLogo2.setFitWidth(500); 
+       vectorShieldLogo2.setPreserveRatio(true);    
+         ImageView loadingCircle = new ImageView(new Image(getClass().getResourceAsStream("Images/loading.png")));
+       loadingCircle.setFitHeight(200); 
+       loadingCircle.setFitWidth(200); 
+       loadingCircle.setPreserveRatio(true);
       // Sets layouts
       BorderPane MainLayout = new BorderPane();
       VBox LayoutTop = new VBox();
@@ -273,8 +285,14 @@ public class Gui extends Application {
       TreeView<CheckBox> LusrmgrOptions = new TreeView<>(LusrmgrRoot);
       TreeView<CheckBox> ServicesOptions = new TreeView<>(ServicesRoot);
       //Progress bar layouts
-      StackPane progressLayout = new StackPane();
-
+      Group images2 = new Group(vectorShieldLogo2);
+      Group loadingImage = new Group(loadingCircle);
+      
+      BorderPane progressLayout = new BorderPane();
+      VBox progressLayoutTop = new VBox();
+            progressLayoutTop.setAlignment(Pos.CENTER);
+      VBox progressLayoutCenter = new VBox(60);
+           progressLayoutCenter.setAlignment(Pos.CENTER);
       // Adds to layouts
       LayoutTop.getChildren().addAll(homePageMenu);
       MainLayout.setTop(LayoutTop);
@@ -301,16 +319,21 @@ public class Gui extends Application {
       settingLayout.setBottom(BottomPane);
             settingLayout.setCenter(NetworkingOptions);
       //ProgressBar
-      progressLayout.getChildren().addAll(ProgressDescription);
-
+      progressLayoutTop.getChildren().addAll(images2, ProgressDescription);
+            progressLayoutTop.getStyleClass().add("backgroundBlue");
+      progressLayoutCenter.getChildren().addAll(ProgressBarDescription, loadingImage);
+            progressLayout.setTop(progressLayoutTop);
+            progressLayout.setCenter(progressLayoutCenter);
+      
       // Sets the scenes
       homePage = new Scene(MainLayout, 1200, 800);
       homePage.getStylesheets().add("homeTheme.css");
       progressBar = new Scene(progressLayout, 1200, 800);
+      progressBar.getStylesheets().add("progressBar.css");
        // Sets the actions when button is pressed
       hardenSyst.setOnAction(
          e -> {
-            harden = AlertBox.display("Warning!", "Changes have to be manually reversed! Check settings before proceeding", "Harden my system", "Cancel");
+            harden = AlertBox.display("Warning!", "Changes have to be manually reversed! Check settings before proceeding.", "Harden my system", "Cancel");
             if (harden == true) {//IMPORTANT: Handles checkboxes, modifying the array based on their state.
              CheckBox[] NetworkBoxes = {example};
              CheckBox[] LocalSecPolBoxes = {};
@@ -319,9 +342,23 @@ public class Gui extends Application {
              CheckBox[] CyPatBoxes = {cyPat1, cyPat2, cyPat3};
                 handleOptions(NetworkBoxes, LocalSecPolBoxes, LusrmgrBoxes, ServiceBoxes, CyPatBoxes);
                 window.setScene(progressBar);
-            }
-           }
-          );
+                           //Running batch script
+                  Runtime runtime = Runtime.getRuntime();
+                     try {
+                          Process p1 = runtime.exec("cmd /c start core.bat");
+                          InputStream is = p1.getInputStream();
+                          } catch(IOException ioException) {}
+                        //Rotating loading circle
+      RotateTransition rotateTransition = new RotateTransition(); 
+      rotateTransition.setDuration(Duration.millis(1500));
+      rotateTransition.setNode(loadingImage);       
+      rotateTransition.setToAngle(360); 
+      rotateTransition.setCycleCount(rotateTransition.INDEFINITE); 
+      rotateTransition.setAutoReverse(false);
+      rotateTransition.setInterpolator(Interpolator.LINEAR);
+      rotateTransition.play();
+                     }
+                   });
                   //Go to settings
        goToSettings.setOnAction(e -> {
       MainLayout.setCenter(settingLayout);
