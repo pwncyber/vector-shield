@@ -11,19 +11,23 @@
 <style>
 .column1 {
 	float: left;
-	width: 5%;
+	width: 50%;
 }
 .column2 {
 	float: left;
-	width: 40%;
+	width: 30%;
 }
 .column3 {
 	float: left;
-	width: 50%
+	width: 10%;
 }
 .column4 {
 	float: left;
 	width: 25%
+}
+.column5 {
+	float: left;
+	width: 80%
 }
 .row:after {
 	content: "";
@@ -99,13 +103,51 @@ hr.line1 {
 	overflow: hidden;
 	border-style: inset;
 	border-width: 1px;
-	width: 100%;
+	width: 89%;
+	margin-left: 0;
+}
+hr.line2 { 
+	display: block;
+	margin-before: 0.5em;
+	margin-after: 0.5em;
+	margin-start: auto;
+	margin-end: auto;
+	overflow: hidden;
+	border-style: inset;
+	border-width: 1px;
+	width: 76%;
+	margin-left: auto;
+	margin-right: auto;
+}
+hr.line3 { 
+	display: block;
+	margin-before: 0.5em;
+	margin-after: 0.5em;
+	margin-start: auto;
+	margin-end: auto;
+	overflow: hidden;
+	border-style: inset;
+	border-width: 1px;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+hr.line4 { 
+	display: block;
+	margin-before: 0.5em;
+	margin-after: 0.5em;
+	margin-start: auto;
+	margin-end: auto;
+	overflow: hidden;
+	border-style: inset;
+	border-width: 1px;
+	width: 93%;
 	margin-left: auto;
 	margin-right: auto;
 }
 .btn {
-	border: none;
-	background-color: #85D5FF;
+	border: 2px solid black;
+	background-color: #E2F6FF;
 	padding: 13px;
 	font-size: 20px;
 	cursor: pointer;
@@ -146,10 +188,10 @@ footer {
 			<a class="nav-link" href="VectorShieldDownload.html" style="color:black">Download</a>
 			</li>
 			<li class="nav-item"; style="float:right">
-			<a class="nav-link" href="VectorShieldHowtoUse.html" style="color:black">How To Use</a>
+			<a class="nav-link active" href="VectorShieldHowtoUse.html" style="color:black">How To Use</a>
 			</li>
 			<li class="nav-item"; style="float:right">
-			<a class="nav-link active" href="VectorShieldAbout.html" style="color:black">About</a>
+			<a class="nav-link" href="VectorShieldAbout.html" style="color:black">About</a>
 			</li>
 			<li class="nav-item"; style="float:right">
 			<a class="nav-link" href="index.html" style="color:black">Home</a>
@@ -159,16 +201,16 @@ footer {
 </nav>
 <div class="grad1">
 	<div class="row">
-		<div class="column4">	
-		</div>
 		<div class="column3">
+		</div>
+		<div class="column5">
 			<br>
 			<br>
 			<br>
 			<br>
 			<br>
 			<div align="center">
-				<p style="font-size:60px" style="color:black">About Vector Shield</p>
+				<p style="font-size:60px" style="color:black">How to Use Vector Shield</p>
 			</div>
 			<br>
 			<br>
@@ -176,63 +218,42 @@ footer {
 			<br>
 			<br>
 		</div>
-		<div class="column4">
+		<div class="column3">
 		</div>
 	</div>
 	<div class="box" style="border: 10px solid #001622">
 		<div class="row">
-			<div class="column1" style="background-color:#001B25;">
+			<div class="column3" style="background-color:#001B25;">		
 			</div>
-			<div class="column2" style="background-color:#001B25;">
-				<br>
-				<br>	
-				<h3 align="center" style="color:white">Vector Shield</h3>
+			<div class="column1" style="background-color:#001B25;">
+			<br>			
+				<br>				
+				<h3 align="left" style="color:white">System Requirements for Vector Shield</h3>
 				<hr class="line1">
-				<p class="paragraph" style="color:white">
-				Vector shield is a Windows security application designed for effectiveness and ease of use. 
+				<p style="color:white">
+				-Windows 7 Operating System or Higher
 				<br>
+				-PowerShell 5.1 or Higher
 				<br>
-				Vector shield uses high quality batch scripts to systematically implement 
-				industry standard system hardening procedures on the Windows operating system. These 
-				procedures are derived from the Centers for Internet Security's annual 
-				benchmark, a guideline that our program will use to meet the needs of end users. 
+				-2 Gigabytes of RAM
 				<br>
+				-10 Gigabytes of Storage
 				<br>
-				The batch script coupled with a Java GUI makes our program highly 
-				customizable, and all source code is open source for security auditing 
-				and is published under the GNU open source license to insure full transparency.
-				</p>
+				-Latest Version of Java
+				</p>		
+				<br>
 				<br>
 			</div>
-			<div class="column1" style="background-color:#001B25;">
+			<div class="column2" style="background-color:#001B25;">	
+			<br>
+			<br>
+			<br>
+			<p class="paragraph">
+			<a href="https://www.java.com/en/download/" style="color:black" class="btn" download="VectorShield" target="_blank">Download Java</a>
+			</p>
+			</div>
+			<div class="column3" style="background-color:#001B25;">		
 			</div>		
-			<div class="column1" style="background-color:#001B25;">
-			</div>
-			<div class="column2" style="background-color:#001B25;">
-				<br>			
-				<br>	
-				<h3 align="center" style="color:white">Cybersecurity</h3>
-				<hr class="line1">
-				<p class="paragraph" style="color:white">
-				Cybersecurity is important because it protects you and your information from threats that could
-				potentially harm you. Important cybersecurity terms that you should know include: 
-				<br>
-				<br>
-				-Malware: A type of software that can be used to harm a computer. This includes a wide variety of softwares
-				such as worms, trojans, viruses, ransomware, spyware, and adware. 
-				<br>
-				<br>
-				-Exploit: Malicious software that is used to cause harm to or damage a computer.
-				<br>
-				<br>
-				-Hacker: A person who breaks into computer systems or networks generally in order to obtain unauthorized information.
-				<br>
-				<br>
-				-System Hardening: The use of good practices and software to remove vulnerablities and make a system more secure.
-				</p>
-			</div>
-			<div class="column1" style="background-color:#001B25;">			
-			</div>
 		</div>
 	</div>
 	<br>
