@@ -3,26 +3,31 @@
 color 0b
 
 title Vector Shield
-REM Below is the file import section for batch files.
-set "CyPatRead=Cypat.json"
-If Not Exist "%CyPatRead%" (Goto :Error)
+
+
+REM ==================================Imports CyPat.json============================================
+set "File2Read=Lusrmgr.json"
 rem This will read a file into an array of variables and populate it 
 setlocal EnableExtensions EnableDelayedExpansion
-for /f "delims=" %%a in ('Type "%CyPatRead%"') do (
+for /f "delims=" %%a in ('Type "%File2Read%"') do (
     set /a count+=1
-    set "Line[!count!]=%%a"
+    set "Lusrmgr[!count!]=%%a"
 )
 rem Display array elements
 For /L %%i in (1,1,%Count%) do (
-    echo "CyPat%%i" is assigned to ==^> "!Line[%%i]!"
+    echo "Lusrmgr%%i" is assigned to ==^> "!Lusrmgr[%%i]!"
 )
-pause>nul
-Exit
-::***************************************************
-:Error
-cls & Color c
-echo(
-echo   The file "%CyPatRead%" does not exist, make sure that you have not modified or changed the .json in any way.
-Pause>nul
-exit /b
-::***************************************************
+REM ==================================Imports LocalSecPol.json============================================
+set "File2Read=LocalSecPol.json"
+rem This will read a file into an array of variables and populate it 
+setlocal EnableExtensions EnableDelayedExpansion
+for /f "delims=" %%a in ('Type "%File2Read%"') do (
+    set /a count+=1
+    set "LocalSecPol[!count!]=%%a"
+	echo %Count%
+)
+rem Display array elements
+For /L %%i in (1,1,3) do (
+    echo "LocalSecPol%%i" is assigned to ==^> "!LocalSecPol[%%i]!"
+)
+pause
