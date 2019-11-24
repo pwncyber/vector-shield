@@ -32,7 +32,7 @@
   -fx-font-family: "Times_New_Roman";
   -fx-font-size: 15px;
   -fx-font-weight: bold;
-  -fx-padding: 12 24 12 24;
+  -fx-padding: 24 48 24 48;
 }
 .button:pressed {
 -fx-background-insets: 3,3,3,3;

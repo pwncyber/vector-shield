@@ -38,6 +38,11 @@ import javafx.scene.control.TableView;
 import javafx.util.Duration;
 import javafx.animation.RotateTransition; 
 import javafx.animation.Interpolator;
+import java.util.concurrent.TimeUnit;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import java.util.concurrent.CountDownLatch;
+import javafx.application.Platform;
 
 public class Gui extends Application {
 // sets a stage
@@ -56,7 +61,6 @@ public class Gui extends Application {
    String[] settingNames = {"Networking", "LocalSecPol", "Lusrmgr", "Services", "CyPat"};
    //Runs the method to write setting values to Json files
    //printToJson.writeSettings(arrays, settingNames);
- 
 //Beginning of script
    public static void main(String[] args) throws IOException {
    // GUI Start
@@ -144,14 +148,12 @@ public class Gui extends Application {
       goToHome.setDisable(true);
       MenuItem goToSettings = new MenuItem("Advanced settings");
       MenuItem exitProgram = new MenuItem("Exit");
-      CheckMenuItem saveSettings = new CheckMenuItem("Keep setting choices");
       CheckMenuItem cyberPatriotView = new CheckMenuItem("Enable Secret Settings...");
 
       viewMenu.getItems().add(goToHome);
       viewMenu.getItems().add(goToSettings);
       viewMenu.getItems().add(new SeparatorMenuItem());
       viewMenu.getItems().add(exitProgram);
-      optionMenu.getItems().add(saveSettings);
       optionMenu.getItems().add(cyberPatriotView);
 
       homePageMenu.getMenus().addAll(viewMenu, optionMenu);
@@ -234,7 +236,7 @@ public class Gui extends Application {
          ServicesRoot.getChildren().add(ServicesGeneric);
          ServicesGeneric.setExpanded(true);
       //For Progress bar
-      Label ProgressDescription = new Label("Batch Script has been called. Command Prompt should now be open.");
+      Label ProgressDescription = new Label("Batch Script has been called.");
             ProgressDescription.getStyleClass().add("labels");
       Label ProgressBarDescription = new Label("Hardening System. Please wait...");
          ImageView vectorShieldLogo2 = new ImageView(new Image(getClass().getResourceAsStream("Images/VectorShield.png")));
@@ -342,13 +344,7 @@ public class Gui extends Application {
              CheckBox[] CyPatBoxes = {cyPat1, cyPat2, cyPat3};
                 handleOptions(NetworkBoxes, LocalSecPolBoxes, LusrmgrBoxes, ServiceBoxes, CyPatBoxes);
                 window.setScene(progressBar);
-                           //Running batch script
-                  Runtime runtime = Runtime.getRuntime();
-                     try {
-                          Process p1 = runtime.exec("cmd /c start core.bat");
-                          InputStream is = p1.getInputStream();
-                          } catch(IOException ioException) {}
-                        //Rotating loading circle
+                    //Rotating loading circle
       RotateTransition rotateTransition = new RotateTransition(); 
       rotateTransition.setDuration(Duration.millis(1500));
       rotateTransition.setNode(loadingImage);       
@@ -357,8 +353,77 @@ public class Gui extends Application {
       rotateTransition.setAutoReverse(false);
       rotateTransition.setInterpolator(Interpolator.LINEAR);
       rotateTransition.play();
-                     }
-                   });
+                           //Running batch script
+                          Runtime runtime = Runtime.getRuntime();
+                          try {
+    Process p1 = runtime.exec("cmd /c core.bat");
+    Thread t=new Thread(()->{
+        try{
+            p1.waitFor();
+            Service<Void> service = new Service<Void>() {
+        @Override
+        protected Task<Void> createTask() {
+            return new Task<Void>() {           
+                @Override
+                protected Void call() throws Exception {
+                    //Background work                       
+                    final CountDownLatch latch = new CountDownLatch(1);
+                    Platform.runLater(new Runnable() {                          
+                        @Override
+                        public void run() {
+                            try{
+                                //FX Stuff done here for multi threading
+                                        Label ProgressBarDescription1 = new Label("System Hardening complete. Exit or return to home.");
+                                        ImageView loadingCheck = new ImageView(new Image(getClass().getResourceAsStream("Images/loading1.png")));
+                                        loadingCheck.setFitHeight(200); 
+                                        loadingCheck.setFitWidth(200); 
+                                        loadingCheck.setPreserveRatio(true);
+                                      HBox returnButtons = new HBox(120);
+                                      returnButtons.setPadding(new Insets(20));
+                                      HBox Nothing = new HBox();
+                                      returnButtons.setAlignment(Pos.CENTER);
+                                      Button exit = new Button("Exit");
+                                      Button home = new Button("Home");
+                                             home.setOnAction(e -> {
+                                                MainLayout.setCenter(homeLayout);
+                                                goToHome.setDisable(true);
+                                                goToSettings.setDisable(false);
+                                                progressLayoutCenter.getChildren().removeAll(ProgressBarDescription1, loadingCheck);
+                                                progressLayoutCenter.getChildren().addAll(ProgressBarDescription, loadingImage);
+                                                progressLayout.setBottom(Nothing);
+                                                window.setScene(homePage);
+                                                });
+                                             exit.setOnAction(e -> {
+                                             exitProgram();
+                                                });
+                                      returnButtons.getChildren().addAll(exit, home);
+                                      progressLayout.setBottom(returnButtons);
+
+                                progressLayoutCenter.getChildren().removeAll(ProgressBarDescription, loadingImage);
+                                progressLayoutCenter.getChildren().addAll(ProgressBarDescription1, loadingCheck);
+
+                                
+                            }finally{
+                                latch.countDown();
+                            }
+                        }
+                    });
+                    latch.await();                      
+                    //Keep with the background work
+                    return null;
+                }
+            };
+        }
+    };
+    service.start();            
+        }catch(InterruptedException ex){
+        }
+    });
+    t.setDaemon(true);
+    t.start();
+} catch(IOException ioException) {}                  
+        }
+        });
                   //Go to settings
        goToSettings.setOnAction(e -> {
       MainLayout.setCenter(settingLayout);
