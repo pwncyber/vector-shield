@@ -30,6 +30,10 @@
 	float: left;
 	width: 80%
 }
+.column5 {
+	float: left;
+	width: 90%
+}
 .row:after {
 	content: "";
 	display: table;
@@ -45,6 +49,7 @@
 .p {
     margin-top: 0;
     margin-bottom: 0rem;
+	text-align: center;
 }
 h2 {
 	text-align: center;
@@ -109,7 +114,17 @@ hr.line2 {
 	display: block;
 	overflow: hidden;
 	border-style: inset;
-	border-width: 10px;
+	border-width: 5px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	border-color: black;
+}
+hr.line3 { 
+	display: block;
+	overflow: hidden;
+	border-style: inset;
+	border-width: 30px;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
@@ -140,6 +155,13 @@ div.box {
 	margin-right: auto;
 	background-color: #001B25;
 }
+div.box2 {
+	width: 90%;
+	padding: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: black;
+}
 div.backgroundimg {
 	background-image: url("VectorShieldBackground.png");
 	background-color: black;
@@ -158,7 +180,6 @@ div.fullbackground {
 }
 footer {
 	display: block;
-	background-color: #001B25;
 }
 </style>
 </head>
@@ -195,15 +216,17 @@ footer {
 			<br>
 			<br>
 			<br>
+			<div align="right">
+				<p style="font-size:50px; color:white">Vector Shield</p>
+			</div>
 			<br>
 			<div align="right">
-				<p style="font-size:60px; color:white">Vector Shield</p>
+				<p style="font-size:23px; color:white">Keep your device secure and download today.</p>
 			</div>
 			<br>
 			<div align="right">
 				<a href="VectorShieldDownload.html" style="color:black" class="btn roundedbtn">Download Vector Shield</a>
 			</div>
-			<br>
 			<br>
 			<br>
 			<br>
@@ -217,12 +240,11 @@ footer {
 <div class="grad1">
 	<br>
 	<br>
-	<div class="box" style="border: 10px solid #001622">
+	<div class="box" style="border: 10px solid #001B25">
 		<div class="row">
 			<div class="column1" style="background-color:#001B25;">
 			</div>
 			<div class="column2" style="background-color:#001B25;">
-				<br>
 				<br>	
 				<h3 align="center" style="color:white">What is Vector Shield?</h3>
 				<hr class="line1">
@@ -230,8 +252,8 @@ footer {
 				Vector Shield is a comprehensive security application built for the Microsoft Windows operating system that is made 
 				to prevent the unauthorized exploit of the system and reduce the amount of attack vectors for potential cyber-attacks. 
 				</p>
-				<p class="paragraph">
-				<a href="VectorShieldAbout.html" style="color: red">Learn More About Vector Shield</a>
+				<p class="p">
+				<a href="VectorShieldAbout.html" style="color:red">Learn More</a>
 				</p>
 				<br>
 			</div>
@@ -240,27 +262,73 @@ footer {
 			<div class="column1" style="background-color:#001B25;">
 			</div>
 			<div class="column2" style="background-color:#001B25;">
-				<br>			
-				<br>	
-				<h3 align="center" style="color:white">Why is Cybersecurity Important?</h3>
+				<br>				
+				<h3 align="center" style="color:white">How Does Vector Shield Work?</h3>
 				<hr class="line1">
 				<p class="paragraph" style="color:white">
-				Today, it is not difficult for a determined hacker or a piece of malware to infect and damage files and information. 
-				It is important that you protect your computer by installing a program or changing your settings. 
+				Vector Shield uses a series of batch scripts to implement industry standard changes to the system. 
+				The user simply opens the application and decides which settings they would like to make more secure. 
 				</p>
-				<p class="paragraph">
-				<a href="VectorShieldAbout.html" style="color: red">Learn More About Cybersecurity</a>
+				<p class="p">
+				<a href="VectorShieldAbout.html" style="color:red">Learn More</a>
 				</p>			
 			</div>
 			<div class="column1" style="background-color:#001B25;">			
 			</div>
 		</div>
+	</div>
+	<br>
+	<br>
+</div>
+<div style="background-color:black">
+	<div class="box2" style="border: 10px solid black">
+		<div class="row">
+			<div class="column1" style="background-color:black;">			
+			</div>
+			<div class="column2" style="background-color:black;">
+				<br>				
+				<h3 align="center" style="color:#E2E2E2">Why is Cybersecurity Important?</h3>
+				<hr class="line1">
+				<p class="paragraph" style="color:#E2E2E2">
+				Today, it is not difficult for a determined hacker or a piece of malware to infect and damage files and information. 
+				It is important that you protect your computer by installing a program or changing your settings. 
+				</p>
+				<p class="p">
+				<a href="VectorShieldAbout.html" style="color:red">Learn More</a>
+				</p>
+				<br>
+			</div>
+			<div class="column1" style="background-color:black;">			
+			</div>
+			<div class="column1" style="background-color:black;">			
+			</div>
+			<div class="column2" style="background-color:black;">
+				<br>						
+				<h3 align="center" style="color:#E2E2E2">How can you Stay Safe?</h3>
+				<hr class="line1">
+				<p class="paragraph" style="color:#E2E2E2">
+				In order to protect your information, you will need to make your settings more secure. It is also 
+				recommended that you download a program that aids with system hardening. Download Vector Shield to start protecting your device.
+				</p>	
+				<p class="p">
+				<a href="VectorShieldHowtoUse.html" style="color:red">Learn More</a>
+				</p>				
+				<br>
+			</div>
+			<div class="column1" style="background-color:black;">			
+			</div>
+		</div>
+	</div>
+</div>
+<div class="grad1">
+	<br>
+	<br>
+	<div class="box" style="border: 10px solid #001B25">
 		<div class="row">
 			<div class="column1" style="background-color:#001B25;">			
 			</div>
 			<div class="column2" style="background-color:#001B25;">
-				<br>
-				<br>				
+				<br>		
 				<h3 align="center" style="color:white">What Vector Shield Offers</h3>
 				<hr class="line1">
 				<p class="paragraph" style="color:white">
@@ -272,8 +340,8 @@ footer {
 				<br>
 				-Open Source Code
 				</p>
-				<p class="paragraph">
-				<a href="VectorShieldHowtoUse.html" style="color: red">Learn What Vector Shield Provides</a>
+				<p class="p">
+				<a href="VectorShieldHowtoUse.html" style="color:red" text-align="center">Learn More</a>
 				</p>
 			</div>
 			<div class="column1" style="background-color:#001B25;">			
@@ -281,8 +349,7 @@ footer {
 			<div class="column1" style="background-color:#001B25;">			
 			</div>
 			<div class="column2" style="background-color:#001B25;">
-				<br>			
-				<br>				
+				<br>						
 				<h3 align="center" style="color:white">System Requirements</h3>
 				<hr class="line1">
 				<p class="paragraph" style="color:white">
@@ -294,10 +361,9 @@ footer {
 				<br>
 				-10 Gigabytes of Storage
 				</p>	
-				<p class="paragraph">
-				<a href="VectorShieldHowtoUse.html" style="color: red">Learn the System Requirements for Vector Shield</a>
+				<p class="p">
+				<a href="VectorShieldHowtoUse.html" style="color:red">Learn More</a>
 				</p>				
-				<br>
 				<br>
 			</div>
 			<div class="column1" style="background-color:#001B25;">			
@@ -307,10 +373,10 @@ footer {
 	<br>
 	<br>
 </div>
-<div style="align:center" style="background-color:#001B25">
-	<footer>
+<div style="align:center">
+	<footer style="background-color:black">
 		<br>
-		<p class="p" style="text-align:center" style="background-color:#262626"><font size="2px" color="#C7C7C7">
+		<p class="p" style="text-align:center" style="background-color:black"><font size="2px" color="#C7C7C7">
 		Made By Kevin Alegre, Christopher Zhong, and Justin Vogel
 		</font></p>
 		<br>
