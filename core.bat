@@ -84,5 +84,17 @@ set /p Password=<Password.json
 rem Display array elements
     echo "Password" is assigned to ==^> "!Password!"
 
+REM ==================================Configures System Services==========================================
+
+if %Networking[1]%==true (
+echo do your stuff here
+)
+
+
+
+
+
+
+
 
 pause
