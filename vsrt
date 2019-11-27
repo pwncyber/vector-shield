@@ -1,1 +1,9 @@
 REM This is the Vector Shield Reversal Tool, and is to be used to reverse all changes made with the main core.bat script.
+
+
+echo Reversed Bluetooth service stopped and disabled from startup.
+
+sc config BTAGService start= demand
+sc config bthserv start= demand
+
+pause
