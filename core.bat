@@ -101,7 +101,11 @@ REM ==================================Configures Local User Manager Settings====
 REM ==================================Configures System Services Security Settings==============================================
 
 if %Services[1]%==true (
-
+echo Bluetooth service stopped and disabled from startup.
+sc stop BTAGService
+sc stop bthserv
+sc config BTAGService start= disabled
+sc config bthserv start= disabled
 )
 
 REM ==================================Cypat Security Settings===================================================================
