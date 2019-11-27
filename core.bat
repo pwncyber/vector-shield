@@ -84,15 +84,27 @@ set /p Password=<Password.json
 rem Display array elements
     echo "Password" is assigned to ==^> "!Password!"
 
-REM ==================================Configures System Services==========================================
+REM ==================================Configures System Network Security Settings===============================================
 
 if %Networking[1]%==true (
 echo do your stuff here
 )
 
+REM ==================================Configures System Local Security Policy Settings==========================================
 
 
 
+REM ==================================Configures Local User Manager Settings====================================================
+
+
+
+REM ==================================Configures System Services Security Settings==============================================
+
+if %Services[1]%==true (
+
+)
+
+REM ==================================Cypat Security Settings===================================================================
 
 
 
