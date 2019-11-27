@@ -82,7 +82,7 @@ public class Gui extends Application {
       //For homepage
       Label welcome = new Label("Welcome to VectorShield! The system hardening application for Windows 10.");
       Label description = new Label("Choose a setting preset to get started, then click harden. Or, you can set your own settings in advanced settings for customization.");
-      Label warning = new Label("NOTE: Choosing a preset will overwrite custom settings.");
+      Label warning = new Label("NOTE: Choosing a preset will overwrite changes in Advanced settings.");
       Label boost = new Label("Ver 1.0. VectorShield is a free non-profit software made for public use.");
       welcome.getStyleClass().add("labels");
       description.getStyleClass().add("labels");
@@ -90,13 +90,13 @@ public class Gui extends Application {
       Button hardenSyst = new Button("Secure my system");
       hardenSyst.setGraphic(new ImageView(new Image(new File("Images/buttonIcon.png").toURI().toString(), 37, 42, true, true)));
       
-      String Description1 = "Low option: Strongly recommened for personal users, and is the safest option out of the three. Will set settings to include the following actions: (INSERT ACTIONS). Possible effects include: (INSERT SIDE EFFECTS).";
-      String Description2 = "Medium option: Recommended for enterprise business environment. Acts as a compromise between security and usability. Will set settings to include the following actions: (INSERT ACTIONS). Possible effects include: (INSERT SIDE EFFECTS).";
-      String Description3 = "High option: Reserved for high security environments, impacts computer usability severly. Will set settings to include the following actions: (INSERT ACTIONS). Possible effects include: (INSERT SIDE EFFECTS).";
+      String Description1 = "Low option: Strongly recommened for personal users, and impacts your computer the least. It will: Secure networking, disable weak/legacy protcols, enable basic windows security components, prevent insecure remote access, restrict defualt admin & guest accounts, and more.";
+      String Description2 = "Medium option: Recommended for enterprise business environment. Will do Low option actions, plus: Restrict low-level users, secure removable media, disable network sharing services(Mobile Hotspot, Peer Networking, Geolocation, etc), disable certain support services, and more.";
+      String Description3 = "High option: Reserved for high security environments, impacts computer usability severly. Will do Medium option actions plus: Disable printing, block Microsoft accounts, restrict file control, disable basic Windows services(Push notifications, Media player, etc), disable XBox services, and more.";
 
       Label lowDesc = new Label (Description1);
       lowDesc.setMaxWidth(360);
-      lowDesc.setMinHeight(200);
+      lowDesc.setMinHeight(2-0);
       lowDesc.setWrapText(true);
       lowDesc.getStyleClass().add("labels");
       Label midDesc = new Label (Description2);
@@ -139,7 +139,7 @@ public class Gui extends Application {
       high.getStyleClass().add("buttonSpecial");
       high.setUserData("high");
       high.setToggleGroup(presetButtons);
-
+      
       MenuBar homePageMenu = new MenuBar();
       Menu viewMenu = new Menu("_View");
       Menu optionMenu = new Menu("_Options");
@@ -216,23 +216,16 @@ public class Gui extends Application {
             CheckBox N12 = new CheckBox("Disable IPv6 networking protocol");
             CheckBox[] NetProtocolBoxes = {N9, N10, N11, N12};
          CheckBox[] NetworkBoxes1 = {NetSecurity, N0, N1, N2, N3, N4, N5, N6, N7, N8, NetProtocol , N9, N10, N11, N12};
-      
       TreeItem<CheckBox> NetworkingRoot = new TreeItem<>(Netroot);
       NetworkingRoot.setExpanded(true);
-         TreeItem<CheckBox> NetworkingSecurity = new TreeItem<>(NetSecurity);
+       TreeItem<CheckBox> NetworkingSecurity = new TreeItem<>(NetSecurity);
          NetworkingRoot.getChildren().add(NetworkingSecurity);
          NetworkingSecurity.setExpanded(true);
-          for (int x = 0; x<NetSecurityBoxes.length; x++) {
-            TreeItem<CheckBox> item = new TreeItem<>(NetSecurityBoxes[x]);
-            NetworkingSecurity.getChildren().add(item);
-              }
-         TreeItem<CheckBox> NetworkingProtocol = new TreeItem<>(NetProtocol);
+         CheckBoxAdd(NetSecurityBoxes, NetworkingSecurity);
+       TreeItem<CheckBox> NetworkingProtocol = new TreeItem<>(NetProtocol);
          NetworkingRoot.getChildren().add(NetworkingProtocol);
          NetworkingProtocol.setExpanded(true);
-          for (int x = 0; x<NetProtocolBoxes.length; x++) {
-            TreeItem<CheckBox> item = new TreeItem<>(NetProtocolBoxes[x]);
-            NetworkingProtocol.getChildren().add(item);
-              }
+         CheckBoxAdd(NetProtocolBoxes, NetworkingProtocol);
               
        Netroot.setOnAction(e -> {
        if (Netroot.isSelected()) {
@@ -305,34 +298,22 @@ public class Gui extends Application {
                CheckBox[] SecpolBoxes1 = {SecpolSecurity, S0, S1, S2, S3, S4, S5, S6, S7, S8, SecpolMedia, S9, S10, S11, S12, SecpolClient, S13, S14, S15, S16, S17, SecpolUser, S18, S19, S20, S21, S22};
       TreeItem<CheckBox> LocalSecPolRoot = new TreeItem<>(SecpolRoot);
       LocalSecPolRoot.setExpanded(true);
-         TreeItem<CheckBox> LocalSecPolSecurity = new TreeItem<>(SecpolSecurity);
+       TreeItem<CheckBox> LocalSecPolSecurity = new TreeItem<>(SecpolSecurity);
          LocalSecPolRoot.getChildren().add(LocalSecPolSecurity);
          LocalSecPolSecurity.setExpanded(true);
-              for (int x = 0; x<SecpolSecurityBoxes.length; x++) {
-               TreeItem<CheckBox> item = new TreeItem<>(SecpolSecurityBoxes[x]);
-                  LocalSecPolSecurity.getChildren().add(item);
-                   }
-         TreeItem<CheckBox> LocalSecPolMedia = new TreeItem<>(SecpolMedia);
+         CheckBoxAdd(SecpolSecurityBoxes, LocalSecPolSecurity);
+       TreeItem<CheckBox> LocalSecPolMedia = new TreeItem<>(SecpolMedia);
          LocalSecPolRoot.getChildren().add(LocalSecPolMedia);
          LocalSecPolMedia.setExpanded(true);
-              for (int x = 0; x<SecpolMediaBoxes.length; x++) {
-               TreeItem<CheckBox> item = new TreeItem<>(SecpolMediaBoxes[x]);
-                  LocalSecPolMedia.getChildren().add(item);
-                   } 
-         TreeItem<CheckBox> LocalSecPolClient = new TreeItem<>(SecpolClient);
+         CheckBoxAdd(SecpolMediaBoxes, LocalSecPolMedia);
+       TreeItem<CheckBox> LocalSecPolClient = new TreeItem<>(SecpolClient);
          LocalSecPolRoot.getChildren().add(LocalSecPolClient);
          LocalSecPolClient.setExpanded(true);
-              for (int x = 0; x<SecpolClientBoxes.length; x++) {
-               TreeItem<CheckBox> item = new TreeItem<>(SecpolClientBoxes[x]);
-                  LocalSecPolClient.getChildren().add(item);
-                   }       
-         TreeItem<CheckBox> LocalSecPolUser = new TreeItem<>(SecpolUser);
+         CheckBoxAdd(SecpolClientBoxes, LocalSecPolClient);    
+       TreeItem<CheckBox> LocalSecPolUser = new TreeItem<>(SecpolUser);
          LocalSecPolRoot.getChildren().add(LocalSecPolUser);
          LocalSecPolUser.setExpanded(true);
-              for (int x = 0; x<SecpolUserBoxes.length; x++) {
-               TreeItem<CheckBox> item = new TreeItem<>(SecpolUserBoxes[x]);
-                  LocalSecPolUser.getChildren().add(item);
-                   }
+         CheckBoxAdd(SecpolUserBoxes, LocalSecPolUser);
                 
                 SecpolRoot.setOnAction(e -> {
        if (SecpolRoot.isSelected()) {
@@ -437,48 +418,31 @@ public class Gui extends Application {
                CheckBox[] LusrmgrBoxes1 = {LusrmgrAccount, LusrmgrAccess, LusrmgrAction, LusrmgrLogon, LusrmgrMaintenance, LusrmgrBasic, L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L24, L25, L26, L27, L28};
       TreeItem<CheckBox> LocalusrmgrRoot = new TreeItem<>(LusrmgrRoot);
       LocalusrmgrRoot.setExpanded(true);
-         TreeItem<CheckBox> LocalusrmgrAccount = new TreeItem<>(LusrmgrAccount);
+       TreeItem<CheckBox> LocalusrmgrAccount = new TreeItem<>(LusrmgrAccount);
          LocalusrmgrRoot.getChildren().add(LocalusrmgrAccount);
          LocalusrmgrAccount.setExpanded(true);
-          for (int x = 0; x<LusrmgrAccountBoxes.length; x++) {
-              TreeItem<CheckBox> item = new TreeItem<>(LusrmgrAccountBoxes[x]);
-                LocalusrmgrAccount.getChildren().add(item);
-              }
-         TreeItem<CheckBox> LocalusrmgrAccess = new TreeItem<>(LusrmgrAccess);
+         CheckBoxAdd(LusrmgrAccountBoxes, LocalusrmgrAccount);
+       TreeItem<CheckBox> LocalusrmgrAccess = new TreeItem<>(LusrmgrAccess);
          LocalusrmgrRoot.getChildren().add(LocalusrmgrAccess);
          LocalusrmgrAccess.setExpanded(true);
-          for (int x = 0; x<LusrmgrAccessBoxes.length; x++) {
-              TreeItem<CheckBox> item = new TreeItem<>(LusrmgrAccessBoxes[x]);
-                LocalusrmgrAccess.getChildren().add(item);
-              }
-         TreeItem<CheckBox> LocalusrmgrAction = new TreeItem<>(LusrmgrAction);
+         CheckBoxAdd(LusrmgrAccessBoxes, LocalusrmgrAccess);
+       TreeItem<CheckBox> LocalusrmgrAction = new TreeItem<>(LusrmgrAction);
          LocalusrmgrRoot.getChildren().add(LocalusrmgrAction);
          LocalusrmgrAction.setExpanded(true);
-          for (int x = 0; x<LusrmgrActionBoxes.length; x++) {
-              TreeItem<CheckBox> item = new TreeItem<>(LusrmgrActionBoxes[x]);
-                LocalusrmgrAction.getChildren().add(item);
-              }
-         TreeItem<CheckBox> LocalusrmgrLogon = new TreeItem<>(LusrmgrLogon);
+         CheckBoxAdd(LusrmgrActionBoxes, LocalusrmgrAction);
+       TreeItem<CheckBox> LocalusrmgrLogon = new TreeItem<>(LusrmgrLogon);
          LocalusrmgrRoot.getChildren().add(LocalusrmgrLogon);
          LocalusrmgrLogon.setExpanded(true);
-          for (int x = 0; x<LusrmgrLogonBoxes.length; x++) {
-              TreeItem<CheckBox> item = new TreeItem<>(LusrmgrLogonBoxes[x]);
-                LocalusrmgrLogon.getChildren().add(item);
-              }
-         TreeItem<CheckBox> LocalusrmgrMaintenance = new TreeItem<>(LusrmgrMaintenance);
+         CheckBoxAdd(LusrmgrLogonBoxes, LocalusrmgrLogon);
+       TreeItem<CheckBox> LocalusrmgrMaintenance = new TreeItem<>(LusrmgrMaintenance);
          LocalusrmgrRoot.getChildren().add(LocalusrmgrMaintenance);
          LocalusrmgrMaintenance.setExpanded(true);
-          for (int x = 0; x<LusrmgrMaintenanceBoxes.length; x++) {
-              TreeItem<CheckBox> item = new TreeItem<>(LusrmgrMaintenanceBoxes[x]);
-                LocalusrmgrMaintenance.getChildren().add(item);
-              }
-         TreeItem<CheckBox> LocalusrmgrBasic = new TreeItem<>(LusrmgrBasic);
+         CheckBoxAdd(LusrmgrMaintenanceBoxes, LocalusrmgrMaintenance);
+       TreeItem<CheckBox> LocalusrmgrBasic = new TreeItem<>(LusrmgrBasic);
          LocalusrmgrRoot.getChildren().add(LocalusrmgrBasic);
          LocalusrmgrBasic.setExpanded(true);
-          for (int x = 0; x<LusrmgrBasicBoxes.length; x++) {
-              TreeItem<CheckBox> item = new TreeItem<>(LusrmgrBasicBoxes[x]);
-                LocalusrmgrBasic.getChildren().add(item);
-              }
+         CheckBoxAdd(LusrmgrBasicBoxes, LocalusrmgrBasic);
+       
        LusrmgrRoot.setOnAction(e -> {
        if (LusrmgrRoot.isSelected()) {
                  for (int x = 0; x<LusrmgrBoxes1.length; x++) {
@@ -616,38 +580,23 @@ public class Gui extends Application {
             TreeItem<CheckBox> ServicesShare = new TreeItem<>(ServiceShare);
             ServicesNetwork.getChildren().add(ServicesShare);
             ServicesShare.setExpanded(true);
-          for (int x = 0; x<ServiceShareBoxes.length; x++) {
-              TreeItem<CheckBox> item = new TreeItem<>(ServiceShareBoxes[x]);
-                ServicesShare.getChildren().add(item);
-              }
-            TreeItem<CheckBox> ServicesAccess = new TreeItem<>(ServiceAccess);
+            CheckBoxAdd(ServiceShareBoxes, ServicesShare);
+          TreeItem<CheckBox> ServicesAccess = new TreeItem<>(ServiceAccess);
             ServicesNetwork.getChildren().add(ServicesAccess);
             ServicesAccess.setExpanded(true);
-          for (int x = 0; x<ServiceAccessBoxes.length; x++) {
-              TreeItem<CheckBox> item = new TreeItem<>(ServiceAccessBoxes[x]);
-                ServicesAccess.getChildren().add(item);
-              }  
-            TreeItem<CheckBox> ServicesNetpro = new TreeItem<>(ServiceNetpro);
+            CheckBoxAdd(ServiceAccessBoxes, ServicesAccess); 
+          TreeItem<CheckBox> ServicesNetpro = new TreeItem<>(ServiceNetpro);
             ServicesNetwork.getChildren().add(ServicesNetpro);
             ServicesNetpro.setExpanded(true);
-         for (int x = 0; x<ServiceNetproBoxes.length; x++) {
-              TreeItem<CheckBox> item = new TreeItem<>(ServiceNetproBoxes[x]);
-                ServicesNetpro.getChildren().add(item);
-              }  
-        TreeItem<CheckBox> ServicesWindows = new TreeItem<>(ServiceWindows);
+            CheckBoxAdd(ServiceNetproBoxes, ServicesNetpro);
+      TreeItem<CheckBox> ServicesWindows = new TreeItem<>(ServiceWindows);
         ServicesRoot.getChildren().add(ServicesWindows);
         ServicesWindows.setExpanded(true);
-          for (int x = 0; x<ServiceWindowsBoxes.length; x++) {
-              TreeItem<CheckBox> item = new TreeItem<>(ServiceWindowsBoxes[x]);
-                ServicesWindows.getChildren().add(item);
-              }
-        TreeItem<CheckBox> ServicesGeneric = new TreeItem<>(ServiceGeneric);
+        CheckBoxAdd(ServiceWindowsBoxes, ServicesWindows);
+      TreeItem<CheckBox> ServicesGeneric = new TreeItem<>(ServiceGeneric);
         ServicesRoot.getChildren().add(ServicesGeneric);
         ServicesGeneric.setExpanded(true);
-          for (int x = 0; x<ServiceGenericBoxes.length; x++) {
-              TreeItem<CheckBox> item = new TreeItem<>(ServiceGenericBoxes[x]);
-                ServicesGeneric.getChildren().add(item);
-              }
+        CheckBoxAdd(ServiceGenericBoxes, ServicesGeneric);
        ServiceRoot.setOnAction(e -> {
        if (ServiceRoot.isSelected()) {
                  for (int x = 0; x<ServiceBoxes1.length; x++) {
@@ -948,32 +897,37 @@ public class Gui extends Application {
          } else { settingMenuLayout.getChildren().remove(SecretSettings);}
       });
       exitProgram.setOnAction(e -> exitProgram());
+      
+CheckBox[] AllBoxes = {Netroot, NetSecurity, NetProtocol, SecpolRoot, SecpolSecurity, SecpolMedia, SecpolClient, SecpolUser, LusrmgrRoot, LusrmgrAccount, LusrmgrAccess, LusrmgrAction, LusrmgrLogon, LusrmgrMaintenance, LusrmgrBasic, ServiceRoot, ServiceNetwork, ServiceShare, ServiceAccess, ServiceNetpro, ServiceWindows, ServiceGeneric, N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L24, L25, L26, L27, L28, R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23, R24, R25, R26, R27, R28, R29, R30, R31, R32, R33, R34, cyPat0, cyPat1, cyPat2, cyPat3, cyPat4};
                //Low medium and high buttons
-presetButtons.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
-    public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
-          if (presetButtons.getSelectedToggle() != null) {
-               String choice = presetButtons.getSelectedToggle().getUserData().toString();
-                           switch (choice) {
-            //Low actions
-            case "low":
+                   low.setOnAction(e -> {
+            CheckBox[] LowBoxes = {Netroot, NetSecurity, NetProtocol, LusrmgrLogon, LusrmgrAccount, N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, S0, S1, S3, S4, S5, S6, S10, S11, S12, S13, S17, S18, S21, L0, L1, L3, L4, L11, L12, L13, L15, L17, L20, R5, R6, R8, R15, R17, R22, R23, R33};
+            CheckBox[] NoBoxes = {};
+       if (low.isSelected()) {
+         changeBoxes(LowBoxes, AllBoxes);
+            } else if (!low.isSelected()) {
+            changeBoxes(NoBoxes, LowBoxes);
+            }
+       });
+                          medium.setOnAction(e -> {
+            CheckBox[] MidBoxes = {Netroot, NetSecurity, NetProtocol, SecpolMedia, LusrmgrAccount, LusrmgrAccess, LusrmgrAction, LusrmgrLogon, LusrmgrMaintenance, ServiceAccess, N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, S0, S1, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S17, S18, S19, S20, S21, L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L24, L25, R1, R2, R3, R4, R5, R6, R7, R8, R11, R12, R13, R14, R15, R16, R17, R18, R20, R21, R22, R23, R24, R28, R33};
+            CheckBox[] NoBoxes = {};
+       if (medium.isSelected()) {
+         changeBoxes(MidBoxes, AllBoxes);
+            } else if (!medium.isSelected()) {
+            changeBoxes(NoBoxes, MidBoxes);
+            }
+       });
+                          high.setOnAction(e -> {
+            CheckBox[] HighBoxes = {Netroot, NetSecurity, NetProtocol, SecpolRoot, SecpolSecurity, SecpolMedia, SecpolClient, SecpolUser, LusrmgrRoot, LusrmgrAccount, LusrmgrAccess, LusrmgrAction, LusrmgrLogon, LusrmgrMaintenance, LusrmgrBasic, ServiceRoot, ServiceNetwork, ServiceShare, ServiceAccess, ServiceNetpro, ServiceWindows, ServiceGeneric, N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L24, L25, L26, L27, L28, R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23, R24, R25, R26, R27, R28, R29, R30, R31, R32, R33, R34};
+            CheckBox[] NoBoxes = {};
+       if (high.isSelected()) {
+         changeBoxes(HighBoxes, AllBoxes);
+            } else if (!high.isSelected()) {
+            changeBoxes(NoBoxes, HighBoxes);
+            }
+       });
             
-                  break;
-            //Mid actions
-            case "mid":
-            
-                  break;
-            //High actions
-            case "high":
-            
-                  break;
-            default: System.out.println("ERROR: Invalid preset");
-            System.exit(0);
-                  break;
-               }
-         }
-
-     } 
-});
                      //Settings menu choices
 SettingsButtons.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
     public void changed(ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) {
@@ -1055,4 +1009,22 @@ SettingsButtons.selectedToggleProperty().addListener(new ChangeListener<Toggle>(
    //writing .json files---
    printToJson.writeSettings(arrays, settingNames);
    }
+   
+      //Checbox method for low, mid, and high buttons
+      public void changeBoxes(CheckBox[] select, CheckBox[] All) {
+                                          for (int x = 0; x<All.length; x++) {
+            All[x].setSelected(false); 
+              }
+                        for (int x = 0; x<select.length; x++) {
+            select[x].setSelected(true); 
+              }
+      }
+      
+     //Adding Checkbox method to treeview
+     public void CheckBoxAdd(CheckBox[] boxes, TreeItem<CheckBox> view) {
+               for (int x = 0; x<boxes.length; x++) {
+            TreeItem<CheckBox> item = new TreeItem<>(boxes[x]);
+            view.getChildren().add(item);
+              }
+     }
 }
