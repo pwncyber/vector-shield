@@ -54,8 +54,8 @@ public class Gui extends Application {
    boolean[] Networking = {false, false, false, false, false, false, false, false, false, false, false, false, false};
    boolean[] LocalSecPol = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
    boolean[] Lusrmgr = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
-   boolean[] Services = {false, false, false};
-   boolean[] CyPat = {false, false, false};
+   boolean[] Services = {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
+   boolean[] CyPat = {false, false, false, false, false};
    boolean[][] arrays = new boolean[][] {Networking, LocalSecPol, Lusrmgr, Services, CyPat};
    //Names of the Files that will be printed. Written In same order as the arrays array.
    String[] settingNames = {"Networking", "LocalSecPol", "Lusrmgr", "Services", "CyPat"};
@@ -842,7 +842,7 @@ public class Gui extends Application {
              CheckBox[] NetworkBoxes = {N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12};
              CheckBox[] LocalSecPolBoxes = {S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22};
              CheckBox[] LusrmgrBoxes = {L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L24, L25, L26, L27, L28};
-             CheckBox[] ServiceBoxes = {};
+             CheckBox[] ServiceBoxes = {R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23, R24, R25, R26, R27, R28, R29, R30, R31, R32, R33, R34};
              CheckBox[] CyPatBoxes = {cyPat0, cyPat1, cyPat2, cyPat3, cyPat4};
                 handleOptions(NetworkBoxes, LocalSecPolBoxes, LusrmgrBoxes, ServiceBoxes, CyPatBoxes);
                 window.setScene(progressBar);
