@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Vector Shield</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<head>
+<style>
+.column1 {
+	float: left;
+	width: 90%;
+}
+.column2 {
+	float: left;
+	width: 30%;
+}
+.column3 {
+	float: left;
+	width: 10%;
+}
+.column4 {
+	float: left;
+	width: 25%
+}
+.column5 {
+	float: left;
+	width: 80%
+}
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.grad1 {
+	background-image: linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #E9FEFF, #F2F6FF, #DFF2FF);
+}
+.p {
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
+.paragraph {
+	color: black;
+	text-align: center;
+}
+h1 {
+	text-shadow: 3px 2px gray;
+}
+h2 {
+	text-align: center;
+	margin:0;
+}
+body {
+	background-color: #001B25;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: white;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	text-align: center;
+}
+li {
+	float: left;
+	text-align: center;
+}
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+nav a.active {
+	color: #DADADA;
+	text-decoration: none;
+}
+nav a:hover:not(.active) {
+	color:gray !important;
+	text-decoration: none;
+}
+.navbar-custom {
+	background-color: white;
+}
+a.ex1:hover, a.ex1:active {
+	color: red;
+}
+@media screen and (max-width: 600px) {
+	.column {
+		width:100%;
+	}
+}
+hr.line1 {
+	display: block;
+	overflow: hidden;
+	border-style: inset;
+	border-width: 1px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	border-color: black;
+}
+hr.line2 {
+	display: block;
+	margin-before: 0.5em;
+	margin-after: 0.5em;
+	margin-start: auto;
+	margin-end: auto;
+	overflow: hidden;
+	border-style: inset;
+	border-width: 1px;
+	width: 76%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.btn {
+	border: 2px solid #4B4B4B;
+	background-color: #E6EDFF;
+	padding: 16px;
+	font-size: 1.5vw;
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	color: #858585;
+	text-decoration: none;
+	margin: -10px 2px;
+}
+.roundedbtn {
+	border-radius: 40px;
+}
+.btn:hover {
+	background-color: #D5E1FF;
+}
+.imgborder {
+	border: 5px solid #212121;
+}
+div.box {
+	width: 90%;
+	padding: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #EDF8FF;
+}
+footer {
+	display: block;
+}
+</style>
+</head>
+<body>
+<div style="background-color:black">
+	<div class="row">
+		<div class="column3">
+		</div>
+		<div class="column5">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div align="center">
+				<p style="font-size:4.0vw; color:white">Vector Shield Documentation</p>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div>
+		<div class="column3">
+		</div>
+	</div>
+</div>
+<div style="background-color:#EDF8FF">
+	<div class="box" style="border: 10px solid #EDF8FF">
+		<div class="row">
+			<div class="column4" style="background-color:#EDF8FF;">
+			</div>
+			<div class="column1" style="background-color:#EDF8FF;">
+				<br>
+				<h3 align="center" style="color:#494949">Documentation</h3>
+				<hr class="line1">
+				<p align="center" style="color:#000000">
+					A full list of Vector Shield's actions for each security option is detailed below.
+				</p>
+				<p align="center" style="color:#12ae10">
+								The low security option will do the following:
+				</p>
+				<p align="left" style="color:#12ae10">
+				Networking:
+			</p>
+				<p align="left" style="color:#256013">
+				Ensure 'Network security: Allow Local System to use computer identity for NTLM' is set to 'Enabled'
+				<br>
+				Ensure 'Network security: Allow LocalSystem NULL session fallback' is set to 'Disabled'
+				<br>
+				Ensure 'Network Security: Allow PKU2U authentication requests to this computer to use online identities' is set to 'Disabled'
+				<br>
+				Ensure 'Network security: Configure encryption types allowed for Kerberos' is set to 'AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types'
+				<br>
+				Ensure 'Network security: Do not store LAN Manager hash value on next password change' is set to 'Enabled'
+				<br>
+				Ensure 'Network security: Force logoff when logon hours expire' is set to 'Enabled'
+				<br>
+				Ensure 'Network security: LAN Manager authentication level' is set to 'Send NTLMv2 response only. Refuse LM & NTLM'
+				<br>
+				Ensure 'Network security: LDAP client signing requirements' is set to 'Negotiate signing' or higher
+				<br>
+				Ensure 'Network security: Minimum session security for NTLM SSP based (including secure RPC) clients' is set to 'Require NTLMv2 session security, Require 128-bit encryption'
+				<br>
+				Ensure 'Network security: Minimum session security for NTLM SSP based (including secure RPC) servers' is set to 'Require NTLMv2 session security, Require 128-bit encryption'
+				<br>
+				Disable Telnet
+				<br>
+				Disable TFTP
+				<br>
+				Disable Fax & Scan
+				<br>
+				Disable IPv6 networking protocol
+				<br>
+				</p>
+				<p align="left" style="color:#12ae10">
+				Local Security Policy:
+			</p>
+				<p align="left" style="color:#256013">
+					Set Windows Firewall As Enabled
+									<br>
+					Enable full Auditing for success and failure
+									<br>
+					Set 'Additional restrictions for anonymous connections' to 'Do not allow enumeration of SAM accounts and shares'
+									<br>
+					'Digitally sign server communication (when possible)' Enabled
+									<br>
+					'Do not display last username in logon screen' Enabled
+									<br>
+					'LAN Manager authentication level' Send LM & NTLM - use NTLMv2 if negotiated
+									<br>
+					'Unsigned driver/non-driver installation behavior' Warn
+									<br>
+					Clear virtual memory pagefile: Enabled
+									<br>
+					'RDP network level authentication' Enabled
+									<br>
+					'Limit local use of blank passwords to local console only' Enabled
+									<br>
+					'Network access: Restrict anonymous access to Named Pipes and Shares' Enabled
+									<br>
+					'User Account Control: Allow UIAccess applications to prompt for elevation without using the secure desktop' Enabled
+									<br>
+					'User Account Control: Switch to the secure desktop when prompting for elevation' Enabled
+									<br>
+					'Microsoft network client: Send unencrypted password to third-party SMB servers' Disabled
+									<br>
+				</p>
+				<p align="left" style="color:#12ae10">
+				Local Users and Groups:
+			</p>
+				<p align="left" style="color:#256013">
+					Ensure 'Guest Account' is set to 'Disabled'
+					<br>
+					Ensure Defualt 'Admin' is set to 'Disabled'
+					<br>
+					Ensure 'Access this computer from the network' is set to 'Administrators, Remote Desktop Users'
+					<br>
+					Ensure 'Act as part of the operating system' is set to 'No One'
+					<br>
+					Ensure 'Deny log on as a batch job' to include 'Guests'
+					<br>
+					Ensure 'Deny log on as a service' to include 'Guests'
+					<br>
+					Ensure 'Deny log on locally' to include 'Guests'
+					<br>
+					Ensure 'Deny log on through Remote Desktop Services' to include 'Guests, Local account'
+					<br>
+					Ensure 'Log on as a batch job' is set to 'Administrators'
+					<br>
+					Configure 'Log on as a service'
+					<br>
+					Ensure 'Force shutdown from a remote system' is set to 'Administrators'
+					<br>
+					Ensure 'Impersonate a client after authentication' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE'
+					<br>
+					Ensure 'Lock pages in memory' is set to 'No One'
+					<br>
+				</p>
+				<p align="left" style="color:#12ae10">
+				Services:
+			</p>
+				<p align="left" style="color:#256013">
+					Ensure 'Internet Connection Sharing (ICS) (SharedAccess)' is set to 'Disabled'
+					<br>
+					Ensure 'Link-Layer Topology Discovery Mapper (lltdsvc)' is set to 'Disabled'
+					<br>
+					Ensure 'Microsoft FTP Service (FTPSVC)' is set to 'Disabled' or 'Not Installed'
+					<br>
+					Ensure 'Remote Desktop Configuration (SessionEnv)' is set to 'Disabled'
+					<br>
+					Ensure 'Remote Desktop Services (TermService)' is set to 'Disabled'
+					<br>
+					Ensure 'Remote Desktop Services UserMode Port Redirector (UmRdpService)' is set to 'Disabled'
+					<br>
+					Ensure 'Remote Registry (RemoteRegistry)' is set to 'Disabled'
+					<br>
+					Ensure 'SSDP Discovery (SSDPSRV)' is set to 'Disabled'
+					<br>
+					Ensure 'UPnP Device Host (upnphost)' is set to 'Disabled'
+					<br>
+					Ensure 'Windows Updates' are enabled as 'Automatic on startup'
+					<br>
+				</p>
+				<p align="center" style="color:#CEAC01">
+								The medium security option will do all low option actions, as well as:
+				</p>
+				<p align="left" style="color:#CEAC01">
+				Local Security Policy:
+			</p>
+				<p align="left" style="color:#907800">
+					Ensure 'Number of previous logons to cache' is set to '0 logons'
+					<br>
+					'Restrict CD-ROM/floppy access to locally logged on user' Enabled
+					<br>
+					Ensure 'Smart card removal behavior' is set to 'Lock Workstation'
+					<br>
+					'Updates for other microsoft products' Enabled
+					<br>
+					'Recovery console: Allow automatic administrative logon'  Disabled
+					<br>
+					'Network security: Do not store LAN Manager hash value on next password change' Enabled
+					<br>
+				</p>
+				<p align="left" style="color:#CEAC01">
+				Local Users and Groups:
+			</p>
+				<p align="left" style="color:#907800">
+					Ensure 'Access Credential Manager as a trusted caller' is set to 'No One'
+					<br>
+					Ensure 'Adjust memory quotas for a process' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE'
+					<br>
+					Ensure 'Back up files and directories' is set to 'Administrators'
+					<br>
+					Ensure 'Change the time zone' is set to 'Administrators, LOCAL SERVICE, Users'
+					<br>
+					Ensure 'Create a pagefile' is set to 'Administrators'
+					<br>
+					Ensure 'Create a token object' is set to 'No One'
+					<br>
+					Ensure 'Create global objects' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE'
+					<br>
+					Ensure 'Create permanent shared objects' is set to 'No One'
+					<br>
+					Configure 'Create symbolic links'
+					<br>
+					Ensure 'Debug programs' is set to 'Administrators'
+					<br>
+					Ensure 'Enable computer and user accounts to be trusted for delegation' is set to 'No One'
+					<br>
+					Ensure 'Generate security audits' is set to 'LOCAL SERVICE, NETWORK SERVICE'
+					<br>
+					Ensure 'Increase scheduling priority' is set to 'Administrators, Window Manager\Window Manager Group'
+					<br>
+					Ensure 'Load and unload device drivers' is set to 'Administrators'
+					<br>
+					Ensure 'Modify an object label' is set to 'No One'
+					<br>
+					Ensure 'Modify firmware environment values' is set to 'Administrators'
+					<br>
+					Ensure 'Perform volume maintenance tasks' is set to 'Administrators'
+					<br>
+					Ensure 'Profile single process' is set to 'Administrators'
+					<br>
+					Ensure 'Profile system performance' is set to 'Administrators, NT SERVICE\WdiServiceHost'
+					<br>
+					Ensure 'Replace a process level token' is set to 'LOCAL SERVICE, NETWORK SERVICE'
+					<br>
+				</p>
+				<p align="left" style="color:#CEAC01">
+				Services:
+			</p>
+				<p align="left" style="color:#907800">
+					Ensure 'Downloaded Maps Manager (MapsBroker)' is set to 'Disabled'
+					<br>
+					Ensure 'Geolocation Service (lfsvc)' is set to 'Disabled'
+					<br>
+					Ensure 'IIS Admin Service (IISADMIN)' is set to 'Disabled' or 'Not Installed'
+					<br>
+					Ensure 'Infrared monitor service (irmon)' is set to 'Disabled'
+					<br>
+					Ensure 'LxssManager (LxssManager)' is set to 'Disabled' or 'Not Installed'
+					<br>
+					Ensure 'OpenSSH SSH Server (sshd)' is set to 'Disabled' or 'Not Installed'
+					<br>
+					Ensure 'Peer Name Resolution Protocol (PNRPsvc)' is set to 'Disabled'
+					<br>
+					Ensure 'Peer Networking Grouping (p2psvc)' is set to 'Disabled'
+					<br>
+					Ensure 'Peer Networking Identity Manager (p2pimsvc)' is set to 'Disabled'
+					<br>
+					Ensure 'PNRP Machine Name Publication Service (PNRPAutoReg)' is set to 'Disabled'
+					<br>
+					Ensure 'Problem Reports and Solutions Control Panel Support (wercplsupport)' is set to 'Disabled'
+					<br>
+					Ensure 'Remote Access Auto Connection Manager (RasAuto)' is set to 'Disabled'
+					<br>
+					Ensure 'Remote Procedure Call (RPC) Locator (RpcLocator)' is set to 'Disabled'
+					<br>
+					Ensure 'Routing and Remote Access (RemoteAccess)' is set to 'Disabled'
+					<br>
+					Ensure 'Simple TCP/IP Services (simptcp)' is set to 'Disabled' or 'Not Installed'
+					<br>
+					Ensure 'SNMP Service (SNMP)' is set to 'Disabled' or 'Not Installed'
+					<br>
+					Ensure 'Web Management Service (WMSvc)' is set to 'Disabled' or 'Not Installed'
+					<br>
+					Ensure 'Windows Mobile Hotspot Service (icssvc)' is set to 'Disabled'
+					<br>
+				</p>
+				<p align="center" style="color:#C71A29">
+								The high security option will do all low & medium option actions, as well as:
+				</p>
+				<p align="left" style="color:#C71A29">
+				Local Security Policy:
+			</p>
+				<p align="left" style="color:#560B12">
+					Block Microsoft accounts from logging in
+					<br>
+					Disable Remote services
+					<br>
+					Enforce control-Alt-Delete
+					<br>
+					'Devices: Prevent users from installing printer drivers'  Enabled
+					<br>
+				</p>
+				<p align="left" style="color:#C71A29">
+				Local Users and Groups:
+			</p>
+				<p align="left" style="color:#560B12">
+					Ensure 'Restore files and directories' is set to 'Administrators'
+					<br>
+					Ensure 'Shut down the system' is set to 'Administrators, Users'
+					<br>
+					Ensure 'Take ownership of files or other objects' is set to 'Administrators'
+					<br>
+				</p>
+				<p align="left" style="color:#C71A29">
+				Services:
+			</p>
+				<p align="left" style="color:#560B12">
+					Ensure 'Bluetooth Audio Gateway Service (BTAGService)' is set to 'Disabled'
+					<br>
+					Ensure 'Bluetooth Support Service (bthserv)' is set to 'Disabled'
+					<br>
+					Ensure 'Microsoft iSCSI Initiator Service (MSiSCSI)' is set to 'Disabled'
+					<br>
+					Ensure 'Microsoft Store Install Service (InstallService)' is set to 'Disabled'
+					<br>
+					Ensure 'Server (LanmanServer)' is set to 'Disabled'
+					<br>
+					Ensure 'Windows Error Reporting Service (WerSvc)' is set to 'Disabled'
+					<br>
+					Ensure 'Windows Event Collector (Wecsvc)' is set to 'Disabled'
+					<br>
+					Ensure 'Windows Media Player Network Sharing Service (WMPNetworkSvc)' is set to 'Disabled' or 'Not Installed'
+					<br>
+					Ensure 'Windows Push Notifications System Service (WpnService)' is set to 'Disabled'
+					<br>
+					Ensure 'Windows PushToInstall Service (PushToInstall)' is set to 'Disabled'
+					<br>
+					Ensure 'Windows Remote Management (WS-Management) (WinRM)' is set to 'Disabled'
+					<br>
+					Ensure 'Xbox Accessory Management Service (XboxGipSvc)' is set to 'Disabled'
+					<br>
+					Ensure 'Xbox Live Auth Manager (XblAuthManager)' is set to 'Disabled'
+					<br>
+					Ensure 'Xbox Live Game Save (XblGameSave)' is set to 'Disabled'
+					<br>
+					Ensure 'Xbox Live Networking Service (XboxNetApiSvc)' is set to 'Disabled'
+					<br>
+					Ensure 'Printer Spooler' is set to 'Disabled'
+					<br>
+				</p>
+				<p align="center" style="color:#000000">
+					Furthur documentation for each action can be found at docs.microsoft.com, in the Windows section.
+				</p>
+			</div>
+			<div class="column3" style="background-color:#EDF8FF;">
+			</div>
+		</div>
+	</div>
+</div>
+<div style="align:center">
+	<footer style="background-color:black">
+		<br>
+		<p class="p" style="text-align:center" style="background-color:black"><font size="2px" color="#C7C7C7">
+		Made By Kevin Alegre, Christopher Zhong, and Justin Vogel
+		</font></p>
+		<br>
+	</footer>
+</div>
+</body>
+</html>
