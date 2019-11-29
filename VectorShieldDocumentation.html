@@ -190,337 +190,337 @@ footer {
 			<div class="column4" style="background-color:#EDF8FF;">
 			</div>
 			<div class="column1" style="background-color:#EDF8FF;">
-			<br>
-			<h3 align="center" style="color:#494949">Documentation</h3>
-			<hr class="line1">
-			<p align="center" style="color:#000000">
-			A full list of Vector Shield's actions for each security option is detailed below.
-			</p>
-			<p align="center" style="color:#12ae10">
-			The low security option will do the following:
-			</p>
-			<p align="left" style="color:#12ae10">
-			<br>
-			<br>
-			Networking:
-			</p>
-			<p align="left" style="color:#256013">
-			Ensure 'Network security: Allow Local System to use computer identity for NTLM' is set to 'Enabled'
-			<br>
-			Ensure 'Network security: Allow LocalSystem NULL session fallback' is set to 'Disabled'
-			<br>
-			Ensure 'Network Security: Allow PKU2U authentication requests to this computer to use online identities' is set to 'Disabled'
-			<br>
-			Ensure 'Network security: Configure encryption types allowed for Kerberos' is set to 'AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types'
-			<br>
-			Ensure 'Network security: Do not store LAN Manager hash value on next password change' is set to 'Enabled'
-			<br>
-			Ensure 'Network security: Force logoff when logon hours expire' is set to 'Enabled'
-			<br>
-			Ensure 'Network security: LAN Manager authentication level' is set to 'Send NTLMv2 response only. Refuse LM & NTLM'
-			<br>
-			Ensure 'Network security: LDAP client signing requirements' is set to 'Negotiate signing' or higher
-			<br>
-			Ensure 'Network security: Minimum session security for NTLM SSP based (including secure RPC) clients' is set to 'Require NTLMv2 session security, Require 128-bit encryption'
-			<br>
-			Ensure 'Network security: Minimum session security for NTLM SSP based (including secure RPC) servers' is set to 'Require NTLMv2 session security, Require 128-bit encryption'
-			<br>
-			Disable Telnet
-			<br>
-			Disable TFTP
-			<br>
-			Disable Fax & Scan
-			<br>
-			Disable IPv6 networking protocol
-			<br>
-			</p>
-			<p align="left" style="color:#12ae10">
-			<br>
-			<br>
-			Local Security Policy:
-			</p>
-			<p align="left" style="color:#256013">
-			Set Windows Firewall As Enabled
-			<br>
-			Enable full Auditing for success and failure
-			<br>
-			Set 'Additional restrictions for anonymous connections' to 'Do not allow enumeration of SAM accounts and shares'
-			<br>
-			'Digitally sign server communication (when possible)' Enabled
-			<br>
-			'Do not display last username in logon screen' Enabled
-			<br>
-			'LAN Manager authentication level' Send LM & NTLM - use NTLMv2 if negotiated
-			<br>
-			'Unsigned driver/non-driver installation behavior' Warn
-			<br>
-			Clear virtual memory pagefile: Enabled
-			<br>
-			'RDP network level authentication' Enabled
-			<br>
-			'Limit local use of blank passwords to local console only' Enabled
-			<br>
-			'Network access: Restrict anonymous access to Named Pipes and Shares' Enabled
-			<br>
-			'User Account Control: Allow UIAccess applications to prompt for elevation without using the secure desktop' Enabled
-			<br>
-			'User Account Control: Switch to the secure desktop when prompting for elevation' Enabled
-			<br>
-			'Microsoft network client: Send unencrypted password to third-party SMB servers' Disabled
-			<br>
-			</p>
-			<p align="left" style="color:#12ae10">
-			<br>
-			<br>
-			Local Users and Groups:
-			</p>
-			<p align="left" style="color:#256013">
-			Ensure 'Guest Account' is set to 'Disabled'
-			<br>
-			Ensure Defualt 'Admin' is set to 'Disabled'
-			<br>
-			Ensure 'Access this computer from the network' is set to 'Administrators, Remote Desktop Users'
-			<br>
-			Ensure 'Act as part of the operating system' is set to 'No One'
-			<br>
-			Ensure 'Deny log on as a batch job' to include 'Guests'
-			<br>
-			Ensure 'Deny log on as a service' to include 'Guests'
-			<br>
-			Ensure 'Deny log on locally' to include 'Guests'
-			<br>
-			Ensure 'Deny log on through Remote Desktop Services' to include 'Guests, Local account'
-			<br>
-			Ensure 'Log on as a batch job' is set to 'Administrators'
-			<br>
-			Configure 'Log on as a service'
-			<br>
-			Ensure 'Force shutdown from a remote system' is set to 'Administrators'
-			<br>
-			Ensure 'Impersonate a client after authentication' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE'
-			<br>
-			Ensure 'Lock pages in memory' is set to 'No One'
-			<br>
-			</p>
-			<p align="left" style="color:#12ae10">
-			<br>
-			<br>		
-			Services:
-			</p>
-			<p align="left" style="color:#256013">
-			Ensure 'Internet Connection Sharing (ICS) (SharedAccess)' is set to 'Disabled'
-			<br>
-			Ensure 'Link-Layer Topology Discovery Mapper (lltdsvc)' is set to 'Disabled'
-			<br>
-			Ensure 'Microsoft FTP Service (FTPSVC)' is set to 'Disabled' or 'Not Installed'
-			<br>
-			Ensure 'Remote Desktop Configuration (SessionEnv)' is set to 'Disabled'
-			<br>
-			Ensure 'Remote Desktop Services (TermService)' is set to 'Disabled'
-			<br>
-			Ensure 'Remote Desktop Services UserMode Port Redirector (UmRdpService)' is set to 'Disabled'
-			<br>
-			Ensure 'Remote Registry (RemoteRegistry)' is set to 'Disabled'
-			<br>
-			Ensure 'SSDP Discovery (SSDPSRV)' is set to 'Disabled'
-			<br>
-			Ensure 'UPnP Device Host (upnphost)' is set to 'Disabled'
-			<br>
-			Ensure 'Windows Updates' are enabled as 'Automatic on startup'
-			<br>
-			</p>
-			<p align="center" style="color:#CEAC01">
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			The medium security option will do all low option actions, as well as:
-			</p>
-			<p align="left" style="color:#CEAC01">
-			Local Security Policy:
-			</p>
-			<p align="left" style="color:#907800">
-			Ensure 'Number of previous logons to cache' is set to '0 logons'
-			<br>
-			'Restrict CD-ROM/floppy access to locally logged on user' Enabled
-			<br>
-			Ensure 'Smart card removal behavior' is set to 'Lock Workstation'
-			<br>
-			'Updates for other microsoft products' Enabled
-			<br>
-			'Recovery console: Allow automatic administrative logon'  Disabled
-			<br>
-			'Network security: Do not store LAN Manager hash value on next password change' Enabled
-			<br>
-			</p>
-			<p align="left" style="color:#CEAC01">
-			<br>
-			<br>
-			Local Users and Groups:
-			</p>
-			<p align="left" style="color:#907800">
-			Ensure 'Access Credential Manager as a trusted caller' is set to 'No One'
-			<br>
-			Ensure 'Adjust memory quotas for a process' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE'
-			<br>
-			Ensure 'Back up files and directories' is set to 'Administrators'
-			<br>
-			Ensure 'Change the time zone' is set to 'Administrators, LOCAL SERVICE, Users'
-			<br>
-			Ensure 'Create a pagefile' is set to 'Administrators'
-			<br>
-			Ensure 'Create a token object' is set to 'No One'
-			<br>
-			Ensure 'Create global objects' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE'
-			<br>
-			Ensure 'Create permanent shared objects' is set to 'No One'
-			<br>
-			Configure 'Create symbolic links'
-			<br>
-			Ensure 'Debug programs' is set to 'Administrators'
-			<br>
-			Ensure 'Enable computer and user accounts to be trusted for delegation' is set to 'No One'
-			<br>
-			Ensure 'Generate security audits' is set to 'LOCAL SERVICE, NETWORK SERVICE'
-			<br>
-			Ensure 'Increase scheduling priority' is set to 'Administrators, Window Manager\Window Manager Group'
-			<br>
-			Ensure 'Load and unload device drivers' is set to 'Administrators'
-			<br>
-			Ensure 'Modify an object label' is set to 'No One'
-			<br>
-			Ensure 'Modify firmware environment values' is set to 'Administrators'
-			<br>
-			Ensure 'Perform volume maintenance tasks' is set to 'Administrators'
-			<br>
-			Ensure 'Profile single process' is set to 'Administrators'
-			<br>
-			Ensure 'Profile system performance' is set to 'Administrators, NT SERVICE\WdiServiceHost'
-			<br>
-			Ensure 'Replace a process level token' is set to 'LOCAL SERVICE, NETWORK SERVICE'
-			<br>
-			</p>
-			<p align="left" style="color:#CEAC01">
-			<br>
-			<br>
-			Services:
-			</p>
-			<p align="left" style="color:#907800">
-			Ensure 'Downloaded Maps Manager (MapsBroker)' is set to 'Disabled'
-			<br>
-			Ensure 'Geolocation Service (lfsvc)' is set to 'Disabled'
-			<br>
-			Ensure 'IIS Admin Service (IISADMIN)' is set to 'Disabled' or 'Not Installed'
-			<br>
-			Ensure 'Infrared monitor service (irmon)' is set to 'Disabled'
-			<br>
-			Ensure 'LxssManager (LxssManager)' is set to 'Disabled' or 'Not Installed'
-			<br>
-			Ensure 'OpenSSH SSH Server (sshd)' is set to 'Disabled' or 'Not Installed'
-			<br>
-			Ensure 'Peer Name Resolution Protocol (PNRPsvc)' is set to 'Disabled'
-			<br>
-			Ensure 'Peer Networking Grouping (p2psvc)' is set to 'Disabled'
-			<br>
-			Ensure 'Peer Networking Identity Manager (p2pimsvc)' is set to 'Disabled'
-			<br>
-			Ensure 'PNRP Machine Name Publication Service (PNRPAutoReg)' is set to 'Disabled'
-			<br>
-			Ensure 'Problem Reports and Solutions Control Panel Support (wercplsupport)' is set to 'Disabled'
-			<br>
-			Ensure 'Remote Access Auto Connection Manager (RasAuto)' is set to 'Disabled'
-			<br>
-			Ensure 'Remote Procedure Call (RPC) Locator (RpcLocator)' is set to 'Disabled'
-			<br>
-			Ensure 'Routing and Remote Access (RemoteAccess)' is set to 'Disabled'
-			<br>
-			Ensure 'Simple TCP/IP Services (simptcp)' is set to 'Disabled' or 'Not Installed'
-			<br>
-			Ensure 'SNMP Service (SNMP)' is set to 'Disabled' or 'Not Installed'
-			<br>
-			Ensure 'Web Management Service (WMSvc)' is set to 'Disabled' or 'Not Installed'
-			<br>
-			Ensure 'Windows Mobile Hotspot Service (icssvc)' is set to 'Disabled'
-			<br>
-			</p>
-			<br>
-			<br>
-			<br>
-			<br>
-			<p align="center" style="color:#C71A29">
-			The high security option will do all low & medium option actions, as well as:
-			</p>
-			<p align="left" style="color:#C71A29">
-			Local Security Policy:
-			</p>
-			<p align="left" style="color:#560B12">
-			Block Microsoft accounts from logging in
-			<br>
-			Disable Remote services
-			<br>
-			Enforce control-Alt-Delete
-			<br>
-			'Devices: Prevent users from installing printer drivers'  Enabled
-			<br>
-			</p>
-			<p align="left" style="color:#C71A29">
-			Local Users and Groups:
-			</p>
-			<p align="left" style="color:#560B12">
-			Ensure 'Restore files and directories' is set to 'Administrators'
-			<br>
-			Ensure 'Shut down the system' is set to 'Administrators, Users'
-			<br>
-			Ensure 'Take ownership of files or other objects' is set to 'Administrators'
-			<br>
-			</p>
-			<p align="left" style="color:#C71A29">
-			<br>
-			<br>
-			Services:
-			</p>
-			<p align="left" style="color:#560B12">
-			Ensure 'Bluetooth Audio Gateway Service (BTAGService)' is set to 'Disabled'
-			<br>
-			Ensure 'Bluetooth Support Service (bthserv)' is set to 'Disabled'
-			<br>
-			Ensure 'Microsoft iSCSI Initiator Service (MSiSCSI)' is set to 'Disabled'
-			<br>
-			Ensure 'Microsoft Store Install Service (InstallService)' is set to 'Disabled'
-			<br>
-			Ensure 'Server (LanmanServer)' is set to 'Disabled'
-			<br>
-			Ensure 'Windows Error Reporting Service (WerSvc)' is set to 'Disabled'
-			<br>
-			Ensure 'Windows Event Collector (Wecsvc)' is set to 'Disabled'
-			<br>
-			Ensure 'Windows Media Player Network Sharing Service (WMPNetworkSvc)' is set to 'Disabled' or 'Not Installed'
-			<br>
-			Ensure 'Windows Push Notifications System Service (WpnService)' is set to 'Disabled'
-			<br>
-			Ensure 'Windows PushToInstall Service (PushToInstall)' is set to 'Disabled'
-			<br>
-			Ensure 'Windows Remote Management (WS-Management) (WinRM)' is set to 'Disabled'
-			<br>
-			Ensure 'Xbox Accessory Management Service (XboxGipSvc)' is set to 'Disabled'
-			<br>
-			Ensure 'Xbox Live Auth Manager (XblAuthManager)' is set to 'Disabled'
-			<br>
-			Ensure 'Xbox Live Game Save (XblGameSave)' is set to 'Disabled'
-			<br>
-			Ensure 'Xbox Live Networking Service (XboxNetApiSvc)' is set to 'Disabled'
-			<br>
-			Ensure 'Printer Spooler' is set to 'Disabled'
-			<br>
-			</p>
-			<br>
-			<br>
-			<br>
-			<br>
-			<p align="center" style="color:#000000">
-			Furthur documentation for each action can be found at docs.microsoft.com, in the Windows section.
-			</p>
+				<br>
+				<h3 align="center" style="color:#494949">Documentation</h3>
+				<hr class="line1">
+				<p align="center" style="color:#000000">
+				A full list of Vector Shield's actions for each security option is detailed below.
+				</p>
+				<p align="center" style="color:#12ae10">
+				The low security option will do the following:
+				</p>
+				<p align="left" style="color:#12ae10">
+				<br>
+				<br>
+				Networking:
+				</p>
+				<p align="left" style="color:#256013">
+				Ensure 'Network security: Allow Local System to use computer identity for NTLM' is set to 'Enabled'
+				<br>
+				Ensure 'Network security: Allow LocalSystem NULL session fallback' is set to 'Disabled'
+				<br>
+				Ensure 'Network Security: Allow PKU2U authentication requests to this computer to use online identities' is set to 'Disabled'
+				<br>
+				Ensure 'Network security: Configure encryption types allowed for Kerberos' is set to 'AES128_HMAC_SHA1, AES256_HMAC_SHA1, Future encryption types'
+				<br>
+				Ensure 'Network security: Do not store LAN Manager hash value on next password change' is set to 'Enabled'
+				<br>
+				Ensure 'Network security: Force logoff when logon hours expire' is set to 'Enabled'
+				<br>
+				Ensure 'Network security: LAN Manager authentication level' is set to 'Send NTLMv2 response only. Refuse LM & NTLM'
+				<br>
+				Ensure 'Network security: LDAP client signing requirements' is set to 'Negotiate signing' or higher
+				<br>
+				Ensure 'Network security: Minimum session security for NTLM SSP based (including secure RPC) clients' is set to 'Require NTLMv2 session security, Require 128-bit encryption'
+				<br>
+				Ensure 'Network security: Minimum session security for NTLM SSP based (including secure RPC) servers' is set to 'Require NTLMv2 session security, Require 128-bit encryption'
+				<br>
+				Disable Telnet
+				<br>
+				Disable TFTP
+				<br>
+				Disable Fax & Scan
+				<br>
+				Disable IPv6 networking protocol
+				<br>
+				</p>
+				<p align="left" style="color:#12ae10">
+				<br>
+				<br>
+				Local Security Policy:
+				</p>
+				<p align="left" style="color:#256013">
+				Set Windows Firewall As Enabled
+				<br>
+				Enable full Auditing for success and failure
+				<br>
+				Set 'Additional restrictions for anonymous connections' to 'Do not allow enumeration of SAM accounts and shares'
+				<br>
+				'Digitally sign server communication (when possible)' Enabled
+				<br>
+				'Do not display last username in logon screen' Enabled
+				<br>
+				'LAN Manager authentication level' Send LM & NTLM - use NTLMv2 if negotiated
+				<br>
+				'Unsigned driver/non-driver installation behavior' Warn
+				<br>
+				Clear virtual memory pagefile: Enabled
+				<br>
+				'RDP network level authentication' Enabled
+				<br>
+				'Limit local use of blank passwords to local console only' Enabled
+				<br>
+				'Network access: Restrict anonymous access to Named Pipes and Shares' Enabled
+				<br>
+				'User Account Control: Allow UIAccess applications to prompt for elevation without using the secure desktop' Enabled
+				<br>
+				'User Account Control: Switch to the secure desktop when prompting for elevation' Enabled
+				<br>
+				'Microsoft network client: Send unencrypted password to third-party SMB servers' Disabled
+				<br>
+				</p>
+				<p align="left" style="color:#12ae10">
+				<br>
+				<br>
+				Local Users and Groups:
+				</p>
+				<p align="left" style="color:#256013">
+				Ensure 'Guest Account' is set to 'Disabled'
+				<br>
+				Ensure Defualt 'Admin' is set to 'Disabled'
+				<br>
+				Ensure 'Access this computer from the network' is set to 'Administrators, Remote Desktop Users'
+				<br>
+				Ensure 'Act as part of the operating system' is set to 'No One'
+				<br>
+				Ensure 'Deny log on as a batch job' to include 'Guests'
+				<br>
+				Ensure 'Deny log on as a service' to include 'Guests'
+				<br>
+				Ensure 'Deny log on locally' to include 'Guests'
+				<br>
+				Ensure 'Deny log on through Remote Desktop Services' to include 'Guests, Local account'
+				<br>
+				Ensure 'Log on as a batch job' is set to 'Administrators'
+				<br>
+				Configure 'Log on as a service'
+				<br>
+				Ensure 'Force shutdown from a remote system' is set to 'Administrators'
+				<br>
+				Ensure 'Impersonate a client after authentication' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE'
+				<br>
+				Ensure 'Lock pages in memory' is set to 'No One'
+				<br>
+				</p>
+				<p align="left" style="color:#12ae10">
+				<br>
+				<br>		
+				Services:
+				</p>
+				<p align="left" style="color:#256013">
+				Ensure 'Internet Connection Sharing (ICS) (SharedAccess)' is set to 'Disabled'
+				<br>
+				Ensure 'Link-Layer Topology Discovery Mapper (lltdsvc)' is set to 'Disabled'
+				<br>
+				Ensure 'Microsoft FTP Service (FTPSVC)' is set to 'Disabled' or 'Not Installed'
+				<br>
+				Ensure 'Remote Desktop Configuration (SessionEnv)' is set to 'Disabled'
+				<br>
+				Ensure 'Remote Desktop Services (TermService)' is set to 'Disabled'
+				<br>
+				Ensure 'Remote Desktop Services UserMode Port Redirector (UmRdpService)' is set to 'Disabled'
+				<br>
+				Ensure 'Remote Registry (RemoteRegistry)' is set to 'Disabled'
+				<br>
+				Ensure 'SSDP Discovery (SSDPSRV)' is set to 'Disabled'
+				<br>
+				Ensure 'UPnP Device Host (upnphost)' is set to 'Disabled'
+				<br>
+				Ensure 'Windows Updates' are enabled as 'Automatic on startup'
+				<br>
+				</p>
+				<p align="center" style="color:#CEAC01">
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				The medium security option will do all low option actions, as well as:
+				</p>
+				<p align="left" style="color:#CEAC01">
+				Local Security Policy:
+				</p>
+				<p align="left" style="color:#907800">
+				Ensure 'Number of previous logons to cache' is set to '0 logons'
+				<br>
+				'Restrict CD-ROM/floppy access to locally logged on user' Enabled
+				<br>
+				Ensure 'Smart card removal behavior' is set to 'Lock Workstation'
+				<br>
+				'Updates for other microsoft products' Enabled
+				<br>
+				'Recovery console: Allow automatic administrative logon'  Disabled
+				<br>
+				'Network security: Do not store LAN Manager hash value on next password change' Enabled
+				<br>
+				</p>
+				<p align="left" style="color:#CEAC01">
+				<br>
+				<br>
+				Local Users and Groups:
+				</p>
+				<p align="left" style="color:#907800">
+				Ensure 'Access Credential Manager as a trusted caller' is set to 'No One'
+				<br>
+				Ensure 'Adjust memory quotas for a process' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE'
+				<br>
+				Ensure 'Back up files and directories' is set to 'Administrators'
+				<br>
+				Ensure 'Change the time zone' is set to 'Administrators, LOCAL SERVICE, Users'
+				<br>
+				Ensure 'Create a pagefile' is set to 'Administrators'
+				<br>
+				Ensure 'Create a token object' is set to 'No One'
+				<br>
+				Ensure 'Create global objects' is set to 'Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE'
+				<br>
+				Ensure 'Create permanent shared objects' is set to 'No One'
+				<br>
+				Configure 'Create symbolic links'
+				<br>
+				Ensure 'Debug programs' is set to 'Administrators'
+				<br>
+				Ensure 'Enable computer and user accounts to be trusted for delegation' is set to 'No One'
+				<br>
+				Ensure 'Generate security audits' is set to 'LOCAL SERVICE, NETWORK SERVICE'
+				<br>
+				Ensure 'Increase scheduling priority' is set to 'Administrators, Window Manager\Window Manager Group'
+				<br>
+				Ensure 'Load and unload device drivers' is set to 'Administrators'
+				<br>
+				Ensure 'Modify an object label' is set to 'No One'
+				<br>
+				Ensure 'Modify firmware environment values' is set to 'Administrators'
+				<br>
+				Ensure 'Perform volume maintenance tasks' is set to 'Administrators'
+				<br>
+				Ensure 'Profile single process' is set to 'Administrators'
+				<br>
+				Ensure 'Profile system performance' is set to 'Administrators, NT SERVICE\WdiServiceHost'
+				<br>
+				Ensure 'Replace a process level token' is set to 'LOCAL SERVICE, NETWORK SERVICE'
+				<br>
+				</p>
+				<p align="left" style="color:#CEAC01">
+				<br>
+				<br>
+				Services:
+				</p>
+				<p align="left" style="color:#907800">
+				Ensure 'Downloaded Maps Manager (MapsBroker)' is set to 'Disabled'
+				<br>
+				Ensure 'Geolocation Service (lfsvc)' is set to 'Disabled'
+				<br>
+				Ensure 'IIS Admin Service (IISADMIN)' is set to 'Disabled' or 'Not Installed'
+				<br>
+				Ensure 'Infrared monitor service (irmon)' is set to 'Disabled'
+				<br>
+				Ensure 'LxssManager (LxssManager)' is set to 'Disabled' or 'Not Installed'
+				<br>
+				Ensure 'OpenSSH SSH Server (sshd)' is set to 'Disabled' or 'Not Installed'
+				<br>
+				Ensure 'Peer Name Resolution Protocol (PNRPsvc)' is set to 'Disabled'
+				<br>
+				Ensure 'Peer Networking Grouping (p2psvc)' is set to 'Disabled'
+				<br>
+				Ensure 'Peer Networking Identity Manager (p2pimsvc)' is set to 'Disabled'
+				<br>
+				Ensure 'PNRP Machine Name Publication Service (PNRPAutoReg)' is set to 'Disabled'
+				<br>
+				Ensure 'Problem Reports and Solutions Control Panel Support (wercplsupport)' is set to 'Disabled'
+				<br>
+				Ensure 'Remote Access Auto Connection Manager (RasAuto)' is set to 'Disabled'
+				<br>
+				Ensure 'Remote Procedure Call (RPC) Locator (RpcLocator)' is set to 'Disabled'
+				<br>
+				Ensure 'Routing and Remote Access (RemoteAccess)' is set to 'Disabled'
+				<br>
+				Ensure 'Simple TCP/IP Services (simptcp)' is set to 'Disabled' or 'Not Installed'
+				<br>
+				Ensure 'SNMP Service (SNMP)' is set to 'Disabled' or 'Not Installed'
+				<br>
+				Ensure 'Web Management Service (WMSvc)' is set to 'Disabled' or 'Not Installed'
+				<br>
+				Ensure 'Windows Mobile Hotspot Service (icssvc)' is set to 'Disabled'
+				<br>
+				</p>
+				<br>
+				<br>
+				<br>
+				<br>
+				<p align="center" style="color:#C71A29">
+				The high security option will do all low & medium option actions, as well as:
+				</p>
+				<p align="left" style="color:#C71A29">
+				Local Security Policy:
+				</p>
+				<p align="left" style="color:#560B12">
+				Block Microsoft accounts from logging in
+				<br>
+				Disable Remote services
+				<br>
+				Enforce control-Alt-Delete
+				<br>
+				'Devices: Prevent users from installing printer drivers'  Enabled
+				<br>
+				</p>
+				<p align="left" style="color:#C71A29">
+				Local Users and Groups:
+				</p>
+				<p align="left" style="color:#560B12">
+				Ensure 'Restore files and directories' is set to 'Administrators'
+				<br>
+				Ensure 'Shut down the system' is set to 'Administrators, Users'
+				<br>
+				Ensure 'Take ownership of files or other objects' is set to 'Administrators'
+				<br>
+				</p>
+				<p align="left" style="color:#C71A29">
+				<br>
+				<br>
+				Services:
+				</p>
+				<p align="left" style="color:#560B12">
+				Ensure 'Bluetooth Audio Gateway Service (BTAGService)' is set to 'Disabled'
+				<br>
+				Ensure 'Bluetooth Support Service (bthserv)' is set to 'Disabled'
+				<br>
+				Ensure 'Microsoft iSCSI Initiator Service (MSiSCSI)' is set to 'Disabled'
+				<br>
+				Ensure 'Microsoft Store Install Service (InstallService)' is set to 'Disabled'
+				<br>
+				Ensure 'Server (LanmanServer)' is set to 'Disabled'
+				<br>
+				Ensure 'Windows Error Reporting Service (WerSvc)' is set to 'Disabled'
+				<br>
+				Ensure 'Windows Event Collector (Wecsvc)' is set to 'Disabled'
+				<br>
+				Ensure 'Windows Media Player Network Sharing Service (WMPNetworkSvc)' is set to 'Disabled' or 'Not Installed'
+				<br>
+				Ensure 'Windows Push Notifications System Service (WpnService)' is set to 'Disabled'
+				<br>
+				Ensure 'Windows PushToInstall Service (PushToInstall)' is set to 'Disabled'
+				<br>
+				Ensure 'Windows Remote Management (WS-Management) (WinRM)' is set to 'Disabled'
+				<br>
+				Ensure 'Xbox Accessory Management Service (XboxGipSvc)' is set to 'Disabled'
+				<br>
+				Ensure 'Xbox Live Auth Manager (XblAuthManager)' is set to 'Disabled'
+				<br>
+				Ensure 'Xbox Live Game Save (XblGameSave)' is set to 'Disabled'
+				<br>
+				Ensure 'Xbox Live Networking Service (XboxNetApiSvc)' is set to 'Disabled'
+				<br>
+				Ensure 'Printer Spooler' is set to 'Disabled'
+				<br>
+				</p>
+				<br>
+				<br>
+				<br>
+				<br>
+				<p align="center" style="color:#000000">
+				Furthur documentation for each action can be found at docs.microsoft.com, in the Windows section.
+				</p>
 			</div>
 			<div class="column4" style="background-color:#EDF8FF;">
 			</div>
