@@ -1,5 +1,20 @@
 REM This is the Vector Shield Reversal Tool, and is to be used to reverse all changes made with the main core.bat script.
 
+echo Reversed Windows Firewall Enabled
+netsh advfirewall set allprofiles state off
+
+echo Reversed Auditing Enabled
+Auditpol /set /category:"Account Logon" /success:disable /failure:disable
+Auditpol /set /category:"Account Management" /success:disable /failure:disable
+Auditpol /set /category:"Detailed Tracking" /success:disable /failure:disable
+Auditpol /set /category:"DS Access" /success:disable /failure:disable
+Auditpol /set /category:"Logon/Logoff" /success:disable /failure:disable
+Auditpol /set /category:"Object Access" /success:disable /failure:disable
+Auditpol /set /category:"Policy Change" /success:disable /failure:disable
+Auditpol /set /category:"Privilege Use" /success:disable /failure:disable
+Auditpol /set /category:"System" /success:disable /failure:disable
+
+
 
 echo Reversed Bluetooth service stopped and disabled from startup.
 
