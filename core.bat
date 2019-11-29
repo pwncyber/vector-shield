@@ -92,7 +92,21 @@ echo do your stuff here
 
 REM ==================================Configures System Local Security Policy Settings==========================================
 
+if %LocalSecPol[1]%==true (
+echo Windows Firewall Enabled
+netsh advfirewall set allprofiles state on
 
+echo Auditing Enabled
+Auditpol /set /category:"Account Logon" /success:enable /failure:enable
+Auditpol /set /category:"Account Management" /success:enable /failure:enable
+Auditpol /set /category:"Detailed Tracking" /success:enable /failure:enable
+Auditpol /set /category:"DS Access" /success:enable /failure:enable
+Auditpol /set /category:"Logon/Logoff" /Success:enable /failure:enable
+Auditpol /set /category:"Object Access" /success:enable /failure:enable
+Auditpol /set /category:"Policy Change" /success:enable /failure:enable
+Auditpol /set /category:"Privilege Use" /success:enable /failure:enable
+Auditpol /set /category:"System" /success:enable /failure:enable
+)
 
 REM ==================================Configures Local User Manager Settings====================================================
 
