@@ -81,8 +81,8 @@ public class Gui extends Application {
       });
       //For homepage
       Label welcome = new Label("Welcome to VectorShield! The system hardening application for Windows 10.");
-      Label description = new Label("Choose a setting preset to get started, then click harden. Or, you can set your own settings in advanced settings for customization.");
-      Label warning = new Label("NOTE: Choosing a preset will overwrite changes in Advanced settings.");
+      Label description = new Label("Choose a setting preset to get started, then click 'Secure my System'. Or, you can set your own settings in advanced settings for customization.");
+      Label warning = new Label("NOTE: Choosing a preset will overwrite changes made in Advanced settings.");
       Label boost = new Label("Ver 1.0. VectorShield is a free non-profit software made for public use.");
       welcome.getStyleClass().add("labels");
       description.getStyleClass().add("labels");
@@ -90,7 +90,7 @@ public class Gui extends Application {
       Button hardenSyst = new Button("Secure my system");
       hardenSyst.setGraphic(new ImageView(new Image(new File("Images/buttonIcon.png").toURI().toString(), 37, 42, true, true)));
       
-      String Description1 = "Low option: Strongly recommened for personal users, and impacts your computer the least. It will: Secure networking, disable weak/legacy protcols, enable basic windows security components, prevent insecure remote access, restrict defualt admin & guest accounts, and more.";
+      String Description1 = "Low option: Strongly recommened for personal users, and impacts your computer the least. It will: Secure networking, disable weak encryption, enable basic windows security, prevent insecure remote access, restrict defualt admin & guest accounts, and more.";
       String Description2 = "Medium option: Recommended for enterprise business environment. Will do Low option actions, plus: Restrict low-level users, secure removable media, disable network sharing services(Mobile Hotspot, Peer Networking, Geolocation, etc), disable certain support services, and more.";
       String Description3 = "High option: Reserved for high security environments, impacts computer usability severly. Will do Medium option actions plus: Disable printing, block Microsoft accounts, restrict file control, disable basic Windows services(Push notifications, Media player, etc), disable XBox services, and more.";
 
