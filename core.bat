@@ -58,10 +58,7 @@ for /f "delims=" %%a in ('Type "%File2Read%"') do (
     set /a count+=1
     set "Services[!count!]=%%a"
 )
-rem Display array elements
-For /L %%i in (1,1,%Count%) do (
-    echo "Services%%i" is assigned to ==^> "!Services[%%i]!"
-)
+rem Display array elements, cant due to issue with GUI.
 REM ==================================Imports CyPat.json============================================
 set "File2Read=CyPat.json"
 rem This will read a file into an array of variables and populate it 
@@ -86,8 +83,8 @@ rem Display array elements
 
 REM ==================================Configures System Network Security Settings===============================================
 
-if %Networking[1]%==true (
-echo do your stuff here
+if %Networking[10]%==true (
+DISM /online /disable-feature /featurename:TelnetClient
 )
 
 REM ==================================Configures System Local Security Policy Settings==========================================
@@ -95,7 +92,8 @@ REM ==================================Configures System Local Security Policy Se
 if %LocalSecPol[1]%==true (
 echo Windows Firewall Enabled
 netsh advfirewall set allprofiles state on
-
+)
+if %LocalSecPol[2]%==true (
 echo Auditing Enabled
 Auditpol /set /category:"Account Logon" /success:enable /failure:enable
 Auditpol /set /category:"Account Management" /success:enable /failure:enable
@@ -110,8 +108,12 @@ Auditpol /set /category:"System" /success:enable /failure:enable
 
 REM ==================================Configures Local User Manager Settings====================================================
 
-
-
+if %Lusrmgr[1]%==true (
+net user Guest /active no
+)
+if %Lusrmgr[2]%==true (
+net user Administrator /active no
+)
 REM ==================================Configures System Services Security Settings==============================================
 
 if %Services[1]%==true (
@@ -121,7 +123,22 @@ sc stop bthserv
 sc config BTAGService start= disabled
 sc config bthserv start= disabled
 )
-
+if %Services[6]%==true (
+net stop SharedAccess
+sc config "SharedAccess" start= disabled
+)
+if %Services[18]%==true (
+net stop RemoteRegistry
+sc config "RemoteRegistry" start= disabled
+)
+if %Services[23]%==true (
+net stop SSDPSRV
+sc config "SSDPSRV" start= disabled
+)
+if %Services[24]%==true (
+net stop upnphost
+sc config "upnphost" start= disabled
+)
 REM ==================================Cypat Security Settings===================================================================
 
 
