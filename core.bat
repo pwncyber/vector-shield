@@ -214,6 +214,22 @@ if %Services[18]%==true (
 net stop RemoteRegistry
 sc config "RemoteRegistry" start= disabled
 )
+if %Services[19]%==true (
+net stop RemoteAccess
+sc config RemoteAccess start= disabled
+)
+if %Services[20]%==true (
+net stop LanmanServer
+sc config LanmanServer start= disabled
+)
+if %Services[21]%==true (
+net stop simptcp
+sc config simptcp start= disabled
+)
+if %Services[22]%==true (
+net stop SNMP
+sc config SNMP start= disabled
+)
 if %Services[23]%==true (
 net stop SSDPSRV
 sc config "SSDPSRV" start= disabled
