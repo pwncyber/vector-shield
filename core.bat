@@ -84,9 +84,11 @@ rem Display array elements
 REM ==================================Configures System Network Security Settings===============================================
 
 if %Networking[10]%==true (
-DISM /online /disable-feature /featurename:TelnetClient
+DISM /online /Disable-feature /featurename:TelnetClient
 )
-
+if %Networking[11]%==true (
+Dism /online /Disable-Feature /FeatureName:TFTP
+)
 REM ==================================Configures System Local Security Policy Settings==========================================
 
 if %LocalSecPol[1]%==true (
