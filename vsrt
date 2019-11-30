@@ -10,6 +10,8 @@ DISM /online /Enable-feature /featurename:TelnetClient
 Dism /online /Enable-Feature /FeatureName:TFTP
 
 sc config Fax start= demand
+
+REG DELETE HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TCPIP6 /v DisabledComponents /f
 REM ==================================Reverses System Local Security Policy Settings==========================================
 
 echo Reversed Windows Firewall Enabled
