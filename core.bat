@@ -238,6 +238,54 @@ if %Services[24]%==true (
 net stop upnphost
 sc config "upnphost" start= disabled
 )
+if %Services[25]%==true (
+net stop WMSvc
+sc config WMSvc start= disabled
+)
+if %Services[26]%==true (
+net stop WerSvc
+sc config WerSvc start= disabled
+)
+if %Services[27]%==true (
+net stop Wecsvc
+sc config Wecsvc start= disabled
+)
+if %Services[28]%==true (
+net stop WMPNetworkSvc
+sc config WMPNetworkSvc start= disabled
+)
+if %Services[29]%==true (
+net stop icssvc
+sc config icssvc start= disabled
+)
+if %Services[30]%==true (
+net stop WpnService
+sc config WpnService start= disabled
+)
+if %Services[31]%==true (
+net stop PushToInstall
+sc config PushToInstall start= disabled
+)
+if %Services[32]%==true (
+net stop WinRM
+sc config WinRM start= disabled
+)
+if %Services[33]%==true (
+net stop XboxGipSvc
+sc config XboxGipSvc start= disabled
+net stop XblAuthManager
+sc config XblAuthManager start= disabled
+net stop XblGameSave
+sc config XblGameSave start= disabled
+net stop XboxNetApiSvc
+sc config XboxNetApiSvc start= disabled
+)
+if %Services[34]%==true (
+
+)
+if %Services[35]%==true (
+
+)
 REM ==================================Cypat Security Settings===================================================================
 
 if %CyPat[4]%==true (
