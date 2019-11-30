@@ -42,7 +42,42 @@ echo Reversed Bluetooth service stopped and disabled from startup.
 sc config BTAGService start= demand
 sc config bthserv start= demand
 
+sc config MapsBroker start= demand
+
+sc config lfsvc start= demand
+
+sc config IISADMIN start= demand
+
+sc config irmon start= demand
+
 sc config "SharedAccess" start= demand
+
+sc config lltdsvc start= demand
+
+sc config LxssManager start= demand
+
+sc config FTPSVC start= demand
+
+sc config MSiSCSI start= demand
+
+sc config InstallService start= demand
+
+sc config sshd start= demand
+
+sc config PNRPsvc start= demand
+sc config p2psvc start= demand
+sc config p2pimsvc start= demand
+sc config PNRPAutoReg start= demand
+
+sc config wercplsupport start= demand
+
+sc config RasAuto start= demand
+
+sc config SessionEnv start= demand
+sc config TermService start= demand
+sc config UmRdpService start= demand
+
+sc config RpcLocator start= demand
 
 sc config "RemoteRegistry" start= demand
 
