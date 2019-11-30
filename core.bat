@@ -290,7 +290,7 @@ sc stop XboxNetApiSvc
 sc config XboxNetApiSvc start= disabled
 )
 if %Services[34]%==true (
-REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 0
+REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 0 /f
 )
 if %Services[35]%==true (
 sc stop Spooler
