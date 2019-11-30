@@ -82,12 +82,14 @@ rem Display array elements
     echo "Password" is assigned to ==^> "!Password!"
 
 REM ==================================Configures System Network Security Settings===============================================
+if %Networking[1]%==true (
 
+)
 if %Networking[10]%==true (
 DISM /online /Disable-feature /featurename:TelnetClient
 )
 if %Networking[11]%==true (
-Dism /online /Disable-Feature /FeatureName:TFTP
+DISM /online /Disable-Feature /FeatureName:TFTP
 )
 REM ==================================Configures System Local Security Policy Settings==========================================
 
