@@ -146,13 +146,69 @@ if %Services[4]%==true (
 sc stop IISADMIN
 sc config IISADMIN start= disabled
 )
+
 if %Services[5]%==true (
 sc stop irmon
 sc config irmon start= disabled
 )
+
 if %Services[6]%==true (
 net stop SharedAccess
 sc config "SharedAccess" start= disabled
+)
+if %Services[7]%==true (
+net stop lltdsvc
+sc config lltdsvc start= disabled
+)
+if %Services[8]%==true (
+net stop LxssManager
+sc config LxssManager start= disabled
+)
+if %Services[9]%==true (
+net stop FTPSVC
+sc config FTPSVC start= disabled
+)
+if %Services[10]%==true (
+net stop MSiSCSI
+sc config MSiSCSI start= disabled
+)
+if %Services[11]%==true (
+net stop InstallService
+sc config InstallService start= disabled
+)
+if %Services[12]%==true (
+net stop sshd
+sc config sshd start= disabled
+)
+if %Services[13]%==true (
+net stop PNRPsvc
+sc config PNRPsvc start= disabled
+net stop p2psvc
+sc config p2psvc start= disabled
+net stop p2pimsvc
+sc config p2pimsvc start= disabled
+net stop PNRPAutoReg
+sc config PNRPAutoReg start= disabled
+)
+if %Services[14]%==true (
+net stop wercplsupport
+sc config wercplsupport start= disabled
+)
+if %Services[15]%==true (
+net stop RasAuto
+sc config RasAuto start= disabled
+)
+if %Services[16]%==true (
+net stop SessionEnv
+sc config SessionEnv start= disabled
+net stop TermService
+sc config TermService start= disabled
+net stop UmRdpService
+sc config UmRdpService start= disabled
+)
+if %Services[17]%==true (
+net stop RpcLocator
+sc config RpcLocator start= disabled
 )
 if %Services[18]%==true (
 net stop RemoteRegistry
