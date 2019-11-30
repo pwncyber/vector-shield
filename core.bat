@@ -115,7 +115,7 @@ secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg
 del c:\secconfig.cfg
 del c:\secconfigupdated.cfg
 )
-if %LocalSecPol[11]%==true (
+if %LocalSecPol[14]%==true (
 echo Limit Local Use of Blank Passwords to Console Only
 secedit.exe /export /cfg C:\secconfig.cfg
 powershell -Command "(gc C:\secconfig.cfg) -replace 'LimitBlankPasswordUse=4,0', 'LimitBlankPasswordUse=4,1' | Out-File -encoding ASCII C:\secconfigupdated.cfg"
