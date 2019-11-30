@@ -115,4 +115,7 @@ sc config XblGameSave start= demand
 sc config XboxNetApiSvc start= demand
 
 
+
+sc config Spooler start= demand
+
 REM ==================================Reverses Cypat Security Settings===================================================================
