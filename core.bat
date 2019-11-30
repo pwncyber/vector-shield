@@ -107,7 +107,7 @@ Auditpol /set /category:"Policy Change" /success:enable /failure:enable
 Auditpol /set /category:"Privilege Use" /success:enable /failure:enable
 Auditpol /set /category:"System" /success:enable /failure:enable
 )
-if %LocalSecPol[8,12]%==true (
+if %LocalSecPol[6,11]%==true (
 echo Password and Logon Settings Changed
 secedit.exe /export /cfg C:\secconfig.cfg
 powershell -Command "(gc C:\secconfig.cfg) -replace 'DontDisplayLastUserName=4,1', 'DontDisplayLastUserName=4,0' | Out-File -encoding ASCII C:\secconfigupdated.cfg"
