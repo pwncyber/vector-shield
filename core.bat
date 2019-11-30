@@ -125,6 +125,22 @@ sc stop bthserv
 sc config BTAGService start= disabled
 sc config bthserv start= disabled
 )
+if %Services[2]%==true (
+sc stop MapsBroker
+sc config MapsBroker start= disabled
+)
+if %Services[3]%==true (
+sc stop lfsvc
+sc config lfsvc start= disabled
+)
+if %Services[4]%==true (
+sc stop IISADMIN
+sc config IISADMIN start= disabled
+)
+if %Services[5]%==true (
+sc stop irmon
+sc config irmon start= disabled
+)
 if %Services[6]%==true (
 net stop SharedAccess
 sc config "SharedAccess" start= disabled
