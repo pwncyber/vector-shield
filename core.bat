@@ -168,6 +168,14 @@ sc config "upnphost" start= disabled
 )
 REM ==================================Cypat Security Settings===================================================================
 
+if %CyPat[4]%==true (
+echo Default Administrator Account Renamed
+wmic useraccount where name='Administrator' rename 'VS1'
+)
+if %CyPat[5]%==true (
+echo Default Guest Account Renamed
+wmic useraccount where name='Guest' rename 'VS2'
+)
 
 
 
