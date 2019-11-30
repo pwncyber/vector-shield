@@ -159,20 +159,139 @@ sc stop irmon
 sc config irmon start= disabled
 )
 if %Services[6]%==true (
-net stop SharedAccess
+sc stop SharedAccess
 sc config "SharedAccess" start= disabled
 )
+if %Services[7]%==true (
+sc stop lltdsvc
+sc config lltdsvc start= disabled
+)
+if %Services[8]%==true (
+sc stop LxssManager
+sc config LxssManager start= disabled
+)
+if %Services[9]%==true (
+sc stop FTPSVC
+sc config FTPSVC start= disabled
+)
+if %Services[10]%==true (
+sc stop MSiSCSI
+sc config MSiSCSI start= disabled
+)
+if %Services[11]%==true (
+sc stop InstallService
+sc config InstallService start= disabled
+)
+if %Services[12]%==true (
+sc stop sshd
+sc config sshd start= disabled
+)
+if %Services[13]%==true (
+sc stop PNRPsvc
+sc config PNRPsvc start= disabled
+sc stop p2psvc
+sc config p2psvc start= disabled
+sc stop p2pimsvc
+sc config p2pimsvc start= disabled
+sc stop PNRPAutoReg
+sc config PNRPAutoReg start= disabled
+)
+if %Services[14]%==true (
+sc stop wercplsupport
+sc config wercplsupport start= disabled
+)
+if %Services[15]%==true (
+sc stop RasAuto
+sc config RasAuto start= disabled
+)
+if %Services[16]%==true (
+sc stop SessionEnv
+sc config SessionEnv start= disabled
+sc stop TermService
+sc config TermService start= disabled
+sc stop UmRdpService
+sc config UmRdpService start= disabled
+)
+if %Services[17]%==true (
+sc stop RpcLocator
+sc config RpcLocator start= disabled
+)
 if %Services[18]%==true (
-net stop RemoteRegistry
+sc stop RemoteRegistry
 sc config "RemoteRegistry" start= disabled
 )
+if %Services[19]%==true (
+sc stop RemoteAccess
+sc config RemoteAccess start= disabled
+)
+if %Services[20]%==true (
+sc stop LanmanServer
+sc config LanmanServer start= disabled
+)
+if %Services[21]%==true (
+sc stop simptcp
+sc config simptcp start= disabled
+)
+if %Services[22]%==true (
+sc stop SNMP
+sc config SNMP start= disabled
+)
 if %Services[23]%==true (
-net stop SSDPSRV
+sc stop SSDPSRV
 sc config "SSDPSRV" start= disabled
 )
 if %Services[24]%==true (
-net stop upnphost
+sc stop upnphost
 sc config "upnphost" start= disabled
+)
+if %Services[25]%==true (
+sc stop WMSvc
+sc config WMSvc start= disabled
+)
+if %Services[26]%==true (
+sc stop WerSvc
+sc config WerSvc start= disabled
+)
+if %Services[27]%==true (
+sc stop Wecsvc
+sc config Wecsvc start= disabled
+)
+if %Services[28]%==true (
+sc stop WMPNetworkSvc
+sc config WMPNetworkSvc start= disabled
+)
+if %Services[29]%==true (
+sc stop icssvc
+sc config icssvc start= disabled
+)
+if %Services[30]%==true (
+sc stop WpnService
+sc config WpnService start= disabled
+)
+if %Services[31]%==true (
+sc stop PushToInstall
+sc config PushToInstall start= disabled
+)
+if %Services[32]%==true (
+sc stop WinRM
+sc config WinRM start= disabled
+)
+if %Services[33]%==true (
+sc stop XboxGipSvc
+sc config XboxGipSvc start= disabled
+sc stop XblAuthManager
+sc config XblAuthManager start= disabled
+sc stop XblGameSave
+sc config XblGameSave start= disabled
+sc stop XboxNetApiSvc
+sc config XboxNetApiSvc start= disabled
+)
+if %Services[34]%==true (
+
+)
+if %Services[35]%==true (
+sc stop Spooler
+sc config Spooler start= disabled
 )
 REM ==================================Cypat Security Settings===================================================================
 
