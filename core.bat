@@ -107,6 +107,10 @@ Auditpol /set /category:"Policy Change" /success:enable /failure:enable
 Auditpol /set /category:"Privilege Use" /success:enable /failure:enable
 Auditpol /set /category:"System" /success:enable /failure:enable
 )
+if %LocalSecPol[3]%==true (
+echo Block All Microsoft Accounts
+REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v NoConnectedUser /t REG_DWORD /d 3 /f
+)
 if %LocalSecPol[6]%==true (
 echo Do Not Display Last Username At Logon Screen Enabled
 secedit.exe /export /cfg C:\secconfig.cfg
@@ -123,7 +127,6 @@ secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg
 del c:\secconfig.cfg
 del c:\secconfigupdated.cfg
 )
-
 
 REM ==================================Configures Local User Manager Settings====================================================
 
