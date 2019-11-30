@@ -107,15 +107,23 @@ Auditpol /set /category:"Policy Change" /success:enable /failure:enable
 Auditpol /set /category:"Privilege Use" /success:enable /failure:enable
 Auditpol /set /category:"System" /success:enable /failure:enable
 )
-if %LocalSecPol[6,11]%==true (
-echo Password and Logon Settings Changed
+if %LocalSecPol[6]%==true (
+echo Do Not Display Last Username At Logon Screen Enabled
 secedit.exe /export /cfg C:\secconfig.cfg
-powershell -Command "(gc C:\secconfig.cfg) -replace 'DontDisplayLastUserName=4,1', 'DontDisplayLastUserName=4,0' | Out-File -encoding ASCII C:\secconfigupdated.cfg"
-powershell -Command "(gc C:\secconfig.cfg) -replace 'LimitBlankPasswordUse=4,1', 'LimitBlankPasswordUse=4,0' | Out-File -encoding ASCII C:\secconfigupdated.cfg"
+powershell -Command "(gc C:\secconfig.cfg) -replace 'DontDisplayLastUserName=4,0', 'DontDisplayLastUserName=4,1' | Out-File -encoding ASCII C:\secconfigupdated.cfg"
 secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg /areas SECURITYPOLICY
 del c:\secconfig.cfg
 del c:\secconfigupdated.cfg
 )
+if %LocalSecPol[11]%==true (
+echo Limit Local Use of Blank Passwords to Console Only
+secedit.exe /export /cfg C:\secconfig.cfg
+powershell -Command "(gc C:\secconfig.cfg) -replace 'LimitBlankPasswordUse=4,0', 'LimitBlankPasswordUse=4,1' | Out-File -encoding ASCII C:\secconfigupdated.cfg"
+secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg /areas SECURITYPOLICY
+del c:\secconfig.cfg
+del c:\secconfigupdated.cfg
+)
+
 
 REM ==================================Configures Local User Manager Settings====================================================
 
@@ -146,89 +154,17 @@ if %Services[4]%==true (
 sc stop IISADMIN
 sc config IISADMIN start= disabled
 )
-
 if %Services[5]%==true (
 sc stop irmon
 sc config irmon start= disabled
 )
-
 if %Services[6]%==true (
 net stop SharedAccess
 sc config "SharedAccess" start= disabled
 )
-if %Services[7]%==true (
-net stop lltdsvc
-sc config lltdsvc start= disabled
-)
-if %Services[8]%==true (
-net stop LxssManager
-sc config LxssManager start= disabled
-)
-if %Services[9]%==true (
-net stop FTPSVC
-sc config FTPSVC start= disabled
-)
-if %Services[10]%==true (
-net stop MSiSCSI
-sc config MSiSCSI start= disabled
-)
-if %Services[11]%==true (
-net stop InstallService
-sc config InstallService start= disabled
-)
-if %Services[12]%==true (
-net stop sshd
-sc config sshd start= disabled
-)
-if %Services[13]%==true (
-net stop PNRPsvc
-sc config PNRPsvc start= disabled
-net stop p2psvc
-sc config p2psvc start= disabled
-net stop p2pimsvc
-sc config p2pimsvc start= disabled
-net stop PNRPAutoReg
-sc config PNRPAutoReg start= disabled
-)
-if %Services[14]%==true (
-net stop wercplsupport
-sc config wercplsupport start= disabled
-)
-if %Services[15]%==true (
-net stop RasAuto
-sc config RasAuto start= disabled
-)
-if %Services[16]%==true (
-net stop SessionEnv
-sc config SessionEnv start= disabled
-net stop TermService
-sc config TermService start= disabled
-net stop UmRdpService
-sc config UmRdpService start= disabled
-)
-if %Services[17]%==true (
-net stop RpcLocator
-sc config RpcLocator start= disabled
-)
 if %Services[18]%==true (
 net stop RemoteRegistry
 sc config "RemoteRegistry" start= disabled
-)
-if %Services[19]%==true (
-net stop RemoteAccess
-sc config RemoteAccess start= disabled
-)
-if %Services[20]%==true (
-net stop LanmanServer
-sc config LanmanServer start= disabled
-)
-if %Services[21]%==true (
-net stop simptcp
-sc config simptcp start= disabled
-)
-if %Services[22]%==true (
-net stop SNMP
-sc config SNMP start= disabled
 )
 if %Services[23]%==true (
 net stop SSDPSRV
@@ -237,54 +173,6 @@ sc config "SSDPSRV" start= disabled
 if %Services[24]%==true (
 net stop upnphost
 sc config "upnphost" start= disabled
-)
-if %Services[25]%==true (
-net stop WMSvc
-sc config WMSvc start= disabled
-)
-if %Services[26]%==true (
-net stop WerSvc
-sc config WerSvc start= disabled
-)
-if %Services[27]%==true (
-net stop Wecsvc
-sc config Wecsvc start= disabled
-)
-if %Services[28]%==true (
-net stop WMPNetworkSvc
-sc config WMPNetworkSvc start= disabled
-)
-if %Services[29]%==true (
-net stop icssvc
-sc config icssvc start= disabled
-)
-if %Services[30]%==true (
-net stop WpnService
-sc config WpnService start= disabled
-)
-if %Services[31]%==true (
-net stop PushToInstall
-sc config PushToInstall start= disabled
-)
-if %Services[32]%==true (
-net stop WinRM
-sc config WinRM start= disabled
-)
-if %Services[33]%==true (
-net stop XboxGipSvc
-sc config XboxGipSvc start= disabled
-net stop XblAuthManager
-sc config XblAuthManager start= disabled
-net stop XblGameSave
-sc config XblGameSave start= disabled
-net stop XboxNetApiSvc
-sc config XboxNetApiSvc start= disabled
-)
-if %Services[34]%==true (
-
-)
-if %Services[35]%==true (
-
 )
 REM ==================================Cypat Security Settings===================================================================
 
