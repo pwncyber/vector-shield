@@ -97,7 +97,7 @@ sc stop Fax
 sc config Fax start= disabled
 )
 if  %Networking[13]%==true (
-REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TCPIP6 /v DisabledComponents /t REG_DWORD /d 0xff /f
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /v DisabledComponents /t REG_DWORD /d 0xff /f
 )
 REM ==================================Configures System Local Security Policy Settings==========================================
 
