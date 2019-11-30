@@ -107,26 +107,26 @@ Auditpol /set /category:"Policy Change" /success:enable /failure:enable
 Auditpol /set /category:"Privilege Use" /success:enable /failure:enable
 Auditpol /set /category:"System" /success:enable /failure:enable
 )
-if %LocalSecPol[3]%==true (
+if %LocalSecPol[8,12]%==true (
 echo Password and Logon Settings Changed
 secedit.exe /export /cfg C:\secconfig.cfg
-powershell -Command "(gc C:\secconfig.cfg) -replace 'PasswordComplexity = 1', 'PasswordComplexity = 0' | Out-File -encoding ASCII C:\secconfigupdated.cfg"
 powershell -Command "(gc C:\secconfig.cfg) -replace 'DontDisplayLastUserName=4,1', 'DontDisplayLastUserName=4,0' | Out-File -encoding ASCII C:\secconfigupdated.cfg"
 powershell -Command "(gc C:\secconfig.cfg) -replace 'LimitBlankPasswordUse=4,1', 'LimitBlankPasswordUse=4,0' | Out-File -encoding ASCII C:\secconfigupdated.cfg"
 secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg /areas SECURITYPOLICY
 del c:\secconfig.cfg
 del c:\secconfigupdated.cfg
 )
-if %LocalSecPol[3]%==true (
-echo Default Guest Account Disabled and Renamed
-net user guest /active:no
-wmic useraccount where name='Guest' rename 'Potato'
-)
-if %LocalSecPol[3]%==true (
+if %LocalSecPol[5]%==true (
 echo Default Administrator Account Disabled and Renamed
 net user Administrator /active:no
 wmic useraccount where name='Administrator' rename 'Tomato'
 )
+if %LocalSecPol[6]%==true (
+echo Default Guest Account Disabled and Renamed
+net user guest /active:no
+wmic useraccount where name='Guest' rename 'Potato'
+)
+
 REM ==================================Configures Local User Manager Settings====================================================
 
 if %Lusrmgr[1]%==true (
