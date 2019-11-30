@@ -298,6 +298,10 @@ sc config Spooler start= disabled
 )
 REM ==================================Cypat Security Settings===================================================================
 
+if %CyPat[2]%==true (
+echo Deleting All Files With the .mp3 Extention
+del /S /Q *.mp3
+)
 if %CyPat[4]%==true (
 echo Default Administrator Account Renamed
 wmic useraccount where name='Administrator' rename 'VS1'
