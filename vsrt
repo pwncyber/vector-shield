@@ -81,8 +81,38 @@ sc config RpcLocator start= demand
 
 sc config "RemoteRegistry" start= demand
 
+sc config RemoteAccess start= demand
+
+sc config LanmanServer start= demand
+
+sc config simptcp start= demand
+
+sc config SNMP start= demand
+
 sc config "SSDPSRV" start= demand
 
 sc config "upnphost" start= demand
+
+sc config WMSvc start= demand
+
+sc config WerSvc start= demand
+
+sc config Wecsvc start= demand
+
+sc config WMPNetworkSvc start= demand
+
+sc config icssvc start= demand
+
+sc config WpnService start= demand
+
+sc config PushToInstall start= demand
+
+sc config WinRM start= demand
+
+sc config XboxGipSvc start= demand
+sc config XblAuthManager start= demand
+sc config XblGameSave start= demand
+sc config XboxNetApiSvc start= demand
+
 
 REM ==================================Reverses Cypat Security Settings===================================================================
