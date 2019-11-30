@@ -1,5 +1,14 @@
 REM This is the Vector Shield Reversal Tool, and is to be used to reverse all changes made with the main core.bat script.
 
+pause
+REM ==================================Reverses System Network Security Settings===============================================
+
+DISM /online /Enable-feature /featurename:TelnetClient
+
+Dism /online /Enable-Feature /FeatureName:TFTP
+
+REM ==================================Reverses System Local Security Policy Settings==========================================
+
 echo Reversed Windows Firewall Enabled
 netsh advfirewall set allprofiles state off
 
@@ -14,11 +23,24 @@ Auditpol /set /category:"Policy Change" /success:disable /failure:disable
 Auditpol /set /category:"Privilege Use" /success:disable /failure:disable
 Auditpol /set /category:"System" /success:disable /failure:disable
 
+REM ==================================Reverses Local User Manager Settings====================================================
 
+net user Guest /active yes
+
+net user Administrator /active yes
+
+REM ==================================Reverses System Services Security Settings==============================================
 
 echo Reversed Bluetooth service stopped and disabled from startup.
-
 sc config BTAGService start= demand
 sc config bthserv start= demand
 
-pause
+sc config "SharedAccess" start= enabled
+
+sc config "RemoteRegistry" start= enabled
+
+sc config "SSDPSRV" start= enabled
+
+sc config "upnphost" start= enabled
+
+REM ==================================Reverses Cypat Security Settings===================================================================
