@@ -83,13 +83,16 @@ rem Display array elements
 
 REM ==================================Configures System Network Security Settings===============================================
 if %Networking[1]%==true (
-
 )
 if %Networking[10]%==true (
 DISM /online /Disable-feature /featurename:TelnetClient
 )
 if %Networking[11]%==true (
 DISM /online /Disable-Feature /FeatureName:TFTP
+)
+if  %Networking[12]%==true (
+sc stop Fax
+sc config Fax start= disabled
 )
 REM ==================================Configures System Local Security Policy Settings==========================================
 
