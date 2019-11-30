@@ -32,6 +32,13 @@ secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg
 del c:\secconfig.cfg
 del c:\secconfigupdated.cfg
 
+echo Reversed Default Administrator Account Disabled and Renamed
+net user Tomato /active:yes
+wmic useraccount where name='Tomato' rename 'Administrator'
+
+echo Reversed Default Guest Account Disabled and Renamed
+net user Potato /active:yes
+wmic useraccount where name='Potato' rename 'Guest'
 REM ==================================Reverses Local User Manager Settings====================================================
 
 net user Guest /active yes
