@@ -51,12 +51,12 @@ echo Reversed Bluetooth service stopped and disabled from startup.
 sc config BTAGService start= demand
 sc config bthserv start= demand
 
-sc config "SharedAccess" start= enabled
+sc config "SharedAccess" start= demand
 
-sc config "RemoteRegistry" start= enabled
+sc config "RemoteRegistry" start= demand
 
-sc config "SSDPSRV" start= enabled
+sc config "SSDPSRV" start= demand
 
-sc config "upnphost" start= enabled
+sc config "upnphost" start= demand
 
 REM ==================================Reverses Cypat Security Settings===================================================================
