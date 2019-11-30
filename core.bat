@@ -116,14 +116,6 @@ secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg
 del c:\secconfig.cfg
 del c:\secconfigupdated.cfg
 )
-if %LocalSecPol[5]%==true (
-echo Default Administrator Account Renamed
-wmic useraccount where name='Administrator' rename 'Tomato'
-)
-if %LocalSecPol[6]%==true (
-echo Default Guest Account Renamed
-wmic useraccount where name='Guest' rename 'Potato'
-)
 
 REM ==================================Configures Local User Manager Settings====================================================
 
