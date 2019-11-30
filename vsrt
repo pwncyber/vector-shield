@@ -30,6 +30,12 @@ powershell -Command "(gc C:\secconfig.cfg) -replace 'LimitBlankPasswordUse=4,1',
 secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg /areas SECURITYPOLICY
 del c:\secconfig.cfg
 del c:\secconfigupdated.cfg
+
+
+echo Reversed Block All Microsoft Accounts
+REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v NoConnectedUser /t REG_DWORD /d 0 /f
+
+
 REM ==================================Reverses Local User Manager Settings====================================================
 
 net user Guest /active yes
