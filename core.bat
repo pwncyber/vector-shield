@@ -134,7 +134,10 @@ secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg
 del c:\secconfig.cfg
 del c:\secconfigupdated.cfg
 )
-
+if %LocalSecPol[19]%==true (
+REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies /v EnableUIADesktopToggle /t REG_DWORD /d 0 /f
+REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v PromptOnSecureDesktop /t REG_DWORD /d 1 /f
+)
 REM ==================================Configures Local User Manager Settings====================================================
 
 if %Lusrmgr[1]%==true (
