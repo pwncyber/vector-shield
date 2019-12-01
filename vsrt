@@ -42,6 +42,9 @@ Auditpol /set /category:"Policy Change" /success:disable /failure:disable
 Auditpol /set /category:"Privilege Use" /success:disable /failure:disable
 Auditpol /set /category:"System" /success:disable /failure:disable
 
+REG DELETE HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v RestrictAnonymous /f
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v RestrictAnonymous /t REG_DWORD /d 0 /f
+
 echo Reversed Password and Logon Settings Changed
 secedit.exe /export /cfg C:\secconfig.cfg
 powershell -Command "(gc C:\secconfig.cfg) -replace 'DontDisplayLastUserName=4,1', 'DontDisplayLastUserName=4,0' | Out-File -encoding ASCII C:\secconfigupdated.cfg"
