@@ -42,6 +42,9 @@ Auditpol /set /category:"Policy Change" /success:disable /failure:disable
 Auditpol /set /category:"Privilege Use" /success:disable /failure:disable
 Auditpol /set /category:"System" /success:disable /failure:disable
 
+echo Reversed Block All Microsoft Accounts
+REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v NoConnectedUser /t REG_DWORD /d 0 /f
+
 REG DELETE HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v RestrictAnonymous /f
 REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v RestrictAnonymous /t REG_DWORD /d 0 /f
 
@@ -55,9 +58,7 @@ secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg
 del c:\secconfig.cfg
 del c:\secconfigupdated.cfg
 
-
-echo Reversed Block All Microsoft Accounts
-REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v NoConnectedUser /t REG_DWORD /d 0 /f
+REG DELETE HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v LmCompatibilityLevel /f
 
 echo reversed 'Enforce secure desktop'
 REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies /v EnableUIADesktopToggle /t REG_DWORD /d 1 /f
