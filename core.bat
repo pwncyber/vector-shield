@@ -142,6 +142,9 @@ if %LocalSecPol[3]%==true (
 echo Block All Microsoft Accounts
 REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v NoConnectedUser /t REG_DWORD /d 3 /f
 )
+if %LocalSecPol[4]%==true (
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v RestrictAnonymous /t REG_DWORD /d 1 /f
+)
 if %LocalSecPol[6]%==true (
 echo Do Not Display Last Username At Logon Screen Enabled
 secedit.exe /export /cfg C:\secconfig.cfg
