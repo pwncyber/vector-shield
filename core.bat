@@ -162,6 +162,9 @@ REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v LmCompatibili
 if %LocalSecPol[8]%==true (
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v CachedLogonsCount /t REG_SZ /d 0 /f
 )
+if %LocalSecPol[10]%==true (
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v ScRemoveOption /t REG_SZ /d 1 /f
+)
 if %LocalSecPol[14]%==true (
 echo Limit Local Use of Blank Passwords to Console Only
 secedit.exe /export /cfg C:\secconfig.cfg
