@@ -186,6 +186,9 @@ del c:\secconfigupdated.cfg
 if %LocalSecPol[15]%==true (
 REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate /v AllowMUUpdateService /t REG_DWORD /d 1 /f
 )
+if %LocalSecPol[17]%==true (
+REG ADD HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableCAD /t REG_DWORD /d 0 /f
+)
 if %LocalSecPol[18]%==true (
 REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters /v RestrictNullSessAccess /t REG_DWORD /d 1 /f
 )
