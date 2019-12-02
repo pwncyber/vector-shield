@@ -190,7 +190,7 @@ REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies /v
 REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v PromptOnSecureDesktop /t REG_DWORD /d 1 /f
 )
 if %LocalSecPol[20]%==true (
-REG ADD HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Setup\RecoveryConsole /v SecurityLevel /t REG_DWORD /d 0 /f
+REG ADD "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Setup\RecoveryConsole" /v SecurityLevel /t REG_DWORD /d 0 /f
 )
 if %LocalSecPol[21]%==true (
 REG ADD HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa /v NoLMHash /t REG_DWORD /d 1 /f
