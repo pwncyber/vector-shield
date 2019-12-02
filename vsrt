@@ -158,7 +158,7 @@ sc config XblGameSave start= demand
 sc config XboxNetApiSvc start= demand
 
 REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
-REG ADD	HKEY_LOCAL_MACHINE\SOFTWARE\Motive\M-Files\Common\Updates Enabled /t REG_DWORD /d 0 /f
+REG ADD	HKEY_LOCAL_MACHINE\SOFTWARE\Motive\M-Files\Common\Updates /v Enabled /t REG_DWORD /d 0 /f
 
 sc config Spooler start= demand
 
