@@ -189,6 +189,9 @@ if %LocalSecPol[19]%==true (
 REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies /v EnableUIADesktopToggle /t REG_DWORD /d 0 /f
 REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v PromptOnSecureDesktop /t REG_DWORD /d 1 /f
 )
+if %LocalSecPol[23]%==true (
+ REG ADD "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Print\Providers\LanMan Print Services\Servers" /v AddPrinterDrivers /t REG_DWORD /d 1 /f
+)
 REM ==================================Configures Local User Manager Settings====================================================
 
 if %Lusrmgr[1]%==true (
