@@ -168,6 +168,9 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogo
 if %LocalSecPol[12]%==true (
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v ClearPageFileAtShutdown /t REG_DWORD /d 1 /f
 )
+if %LocalSecPol[13]%==true (
+powershell -Command "(Get-WmiObject -class Win32_TSGeneralSetting -Namespace root\cimv2\terminalservices -ComputerName $ComputerName -Filter "TerminalName='RDP-tcp'").SetUserAuthenticationRequired(1)"
+)
 if %LocalSecPol[14]%==true (
 echo Limit Local Use of Blank Passwords to Console Only
 secedit.exe /export /cfg C:\secconfig.cfg
