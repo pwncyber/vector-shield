@@ -169,6 +169,10 @@ REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogo
 if %LocalSecPol[10]%==true (
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v ScRemoveOption /t REG_SZ /d 1 /f
 )
+if %LocalSecPol[11]%==true (
+REG ADD "HKEY_LOCAL_MACHINE\Software\Microsoft\Driver Signing" /v Policy /t REG_BINARY /d 02 /f
+REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Non-Driver Signing" /v Policy /t REG_BINARY /d 02 /f
+)
 if %LocalSecPol[12]%==true (
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" /v ClearPageFileAtShutdown /t REG_DWORD /d 1 /f
 )
