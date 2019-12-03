@@ -222,10 +222,8 @@ if %Lusrmgr[2]%==true (
 net user Administrator /active no
 )
 if %Lusrmgr[3]%==true (
-Set "MyCmnd=first line up to the end of a command;"
-Set "MyCmnd=%MyCmnd% next line up to the end of a command;"
-Set "MyCmnd=%MyCmnd% another line up to the end of a command;"
-Set "MyCmnd=%MyCmnd% last line"
+powershell -Command "Install-Module -Name UserRights -f"
+Set "MyCmnd=%MyCmnd% Get-AccountsWithUserRight SeServiceLogonRight;"
 powershell -Command "%MyCmnd%"
 )
 REM ==================================Configures System Services Security Settings==============================================
