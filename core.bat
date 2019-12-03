@@ -221,8 +221,11 @@ net user Guest /active no
 if %Lusrmgr[2]%==true (
 net user Administrator /active no
 )
-if %Lusrmgr[3]%==true (
+REM --Installing Needed Packages to edit User Rights Assighnment--
+powershell -Command "Install-PackageProvider -Name NuGet -Force"
 powershell -Command "Install-Module -Name UserRights -f"
+
+if %Lusrmgr[3]%==true (
 Set "MyCmnd=%MyCmnd% Get-AccountsWithUserRight SeServiceLogonRight;"
 powershell -Command "%MyCmnd%"
 )
