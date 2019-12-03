@@ -97,11 +97,7 @@ REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Sy
 if %Networking[5]%==true (
 REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v NoLMHash /t REG_DWORD /d 1 /f
 )
-if %Networking[6]%==true (
-cmd.exe /c start rsop.msc
-Get-WmiObject rsop_securitysettings -Namespace "root\rsop\computer" |
-     ?{$_.Path -like '*ForceLogoffWhenHourExpire*'}
-)
+
 if %Networking[7]%==true (
 REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v LmCompatibilityLevel /t REG_DWORD /d 5 /f
 )
