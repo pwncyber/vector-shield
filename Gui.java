@@ -208,7 +208,7 @@ public class Gui extends Application {
             CheckBox N6 = new CheckBox("'LAN Manager authentication level' is set to 'Send NTLMv2 response only. Refuse LM & NTLM'");
             CheckBox N7 = new CheckBox("'LDAP client signing requirements' is set to 'Negotiate signing'");
             CheckBox N8 = new CheckBox("Require NTLMv2 session security & Require 128-bit encryption for NTLM SSP based servers & clients.");
-            CheckBox[] NetSecurityBoxes = {N0, N1, N2, N3, N4, N5, N6, N7, N8};
+            CheckBox[] NetSecurityBoxes = {N0, N1, N2, N3, N4, N6, N7, N8};
           CheckBox NetProtocol = new CheckBox("Network Protocols");
             CheckBox N9 = new CheckBox("Disable Telnet protocol");
             CheckBox N10 = new CheckBox("Disable Trivial File Transfer Protocol");
