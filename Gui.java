@@ -66,7 +66,7 @@ public class Gui extends Application {
    // GUI Start
       launch(args);
    //Any code to be run after GUI is closed:
-
+   Double a =0.0;
    }
    @Override
    //Gui Code:
@@ -287,7 +287,7 @@ public class Gui extends Application {
             CheckBox S15 = new CheckBox("Disable Remote Services");
             CheckBox S20 = new CheckBox("Network security: Enable 'Do not store LAN Manager hash value on next password change'");
             CheckBox S21 = new CheckBox("Microsoft network client: Disable 'Send unencrypted password to third-party SMB servers'");
-            CheckBox[] SecpolClientBoxes = {S6, S11, S12, S13, S14, S15, S20, S21};
+            CheckBox[] SecpolClientBoxes = {S11, S12, S13, S14, S15, S21};
           CheckBox SecpolUser = new CheckBox("User restrictions");
             CheckBox S16 = new CheckBox("Admin Services: Enforce Control-Alt-Delete");
             CheckBox S17 = new CheckBox("Enable 'Restrict anonymous access to Named Pipes and Shares'");
