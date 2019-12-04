@@ -159,9 +159,8 @@ secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg
 del c:\secconfig.cfg
 del c:\secconfigupdated.cfg
 )
-if %LocalSecPol[7]%==true (
-REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v LmCompatibilityLevel /t REG_DWORD /d 1 /f
-)
+
+
 if %LocalSecPol[8]%==true (
 REG ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v CachedLogonsCount /t REG_SZ /d 0 /f
 )
@@ -206,9 +205,8 @@ REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Sy
 if %LocalSecPol[20]%==true (
 REG ADD "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Setup\RecoveryConsole" /v SecurityLevel /t REG_DWORD /d 0 /f
 )
-if %LocalSecPol[21]%==true (
-REG ADD HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa /v NoLMHash /t REG_DWORD /d 1 /f
-)
+
+
 if %LocalSecPol[22]%==true (
 REG ADD HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanmanWorkstation\Parameters /v EnablePlainTextPassword /t REG_DWORD /d 0 /f
 )
@@ -397,11 +395,12 @@ sc stop Spooler
 sc config Spooler start= disabled
 )
 REM ==================================Cypat Security Settings===================================================================
-
+cd /D "C:"
 if %CyPat[2]%==true (
 echo Deleting All Files With the .mp3 Extention
 del /S /Q *.mp3
 )
+cd /D "%~dp0"
 if %CyPat[4]%==true (
 echo Default Administrator Account Renamed
 wmic useraccount where name='Administrator' rename 'VS1'
