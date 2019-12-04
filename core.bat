@@ -226,7 +226,7 @@ if %Lusrmgr[2]%==true (
 net user Administrator /active no
 )
 REM --Installing Needed Packages to edit User Rights Assighnment--
-REM powershell -Command "Install-Module -Name UserRights -f"
+REM powershell -Command "Copy-Item -Path $MyInvocation.MyCommand.Path\UserRights.pm1 -Destination $Env:PSModulePath"
 REM powershell Import-Module .\UserRights.psm1
 REM powershell Write-host Get-AccountsWithUserRight -Right SeServiceLogonRight
 
