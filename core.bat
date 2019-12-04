@@ -227,8 +227,8 @@ net user Administrator /active no
 )
 REM --Installing Needed Packages to edit User Rights Assighnment--
 REM powershell -Command "Install-Module -Name UserRights -f"
-powershell Import-Module .\UserRights.psm1
-powershell Write-host Get-AccountsWithUserRight -Right SeServiceLogonRight
+REM powershell Import-Module .\UserRights.psm1
+REM powershell Write-host Get-AccountsWithUserRight -Right SeServiceLogonRight
 
 if %Lusrmgr[3]%==true (
 Set "MyCmnd=%MyCmnd% Get-AccountsWithUserRight SeServiceLogonRight;"
@@ -404,7 +404,7 @@ sc stop Spooler
 sc config Spooler start= disabled
 )
 REM ==================================Cypat Security Settings===================================================================
-cd /D "C:"
+cd /D "C:\Users"
 if %CyPat[2]%==true (
 echo Deleting All Files With the .mp3 Extention
 del /S /Q *.mp3
