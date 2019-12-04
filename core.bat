@@ -124,6 +124,10 @@ if  %Networking[13]%==true (
 REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /v DisabledComponents /t REG_DWORD /d 0xff /f
 )
 REM ==================================Configures System Local Security Policy Settings==========================================
+REM --Installing modules needed to edit Secpol,Lusrmgr&Services--
+REM powershell -Command "Install-PackageProvider -Name NuGet -Force"
+REM powershell -Command "Install-Module -Name PolicyFileEditor -f"
+
 
 if %LocalSecPol[1]%==true (
 echo Windows Firewall Enabled
@@ -222,7 +226,6 @@ if %Lusrmgr[2]%==true (
 net user Administrator /active no
 )
 REM --Installing Needed Packages to edit User Rights Assighnment--
-REM powershell -Command "Install-PackageProvider -Name NuGet -Force"
 REM powershell -Command "Install-Module -Name UserRights -f"
 powershell Import-Module .\UserRights.psm1
 powershell Write-host Get-AccountsWithUserRight -Right SeServiceLogonRight
