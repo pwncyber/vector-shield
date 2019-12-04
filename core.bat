@@ -10,6 +10,8 @@ title Vector Shield
 
 echo[
 
+cd /D "%~dp0"
+
 REM ==================================Imports Networking.json============================================
 set "File2Read=Networking.json"
 rem This will read a file into an array of variables and populate it 
