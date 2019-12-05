@@ -230,10 +230,14 @@ if not exist C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights mkdir
 if not exist C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1 copy /-Y "%~dp0UserRights.psm1" "C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights"
 
 
-if %Lusrmgr[3]%==true (
+
+if %Lusrmgr[4]%==true (
 Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
 Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
-Set "MyCmnd=%MyCmnd% Get-AccountsWithUserRight SeServiceLogonRight;"
+Set "MyCmnd=%MyCmnd% Get-AccountsWithUserRight -Right SeNetworkLogonRight | Format-List -Property SID |Set-Variable -Name "Accounts";"
+Set "MyCmnd=%MyCmnd% Revoke-UserRight -Account "$Accounts" -Right SeNetworkLogonRight;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeNetworkLogonRight;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Remote Desktop Users" -Right SeNetworkLogonRight;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 REM ==================================Configures System Services Security Settings==============================================
