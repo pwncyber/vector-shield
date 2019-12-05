@@ -234,7 +234,7 @@ Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Module
 Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
 Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeTrustedCredManAccessPrivilege;"
 Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
-Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter-1; $i++)  {Revoke-UserRight -Account "$Accounts[i].SID" -Right SeTrustedCredManAccessPrivilege};"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter-1; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeTrustedCredManAccessPrivilege};"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 
@@ -243,9 +243,28 @@ Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Module
 Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
 Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeNetworkLogonRight;"
 Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
-Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter-1; $i++)  {Revoke-UserRight -Account "$Accounts[i].SID" -Right SeNetworkLogonRight};"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter-1; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeNetworkLogonRight};"
 Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeNetworkLogonRight;"
 Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Remote Desktop Users" -Right SeNetworkLogonRight;"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
+)
+if %Lusrmgr[5]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeTcbPrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter-1; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeTcbPrivilege};"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
+)
+if %Lusrmgr[6]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeIncreaseQuotaPrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter-1; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeIncreaseQuotaPrivilege};"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeIncreaseQuotaPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "NT AUTHORITY\Local Service" -Right SeIncreaseQuotaPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "NT AUTHORITY\Network Service" -Right SeIncreaseQuotaPrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 REM ==================================Configures System Services Security Settings==============================================
