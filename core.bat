@@ -125,8 +125,8 @@ REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /
 )
 REM ==================================Configures System Local Security Policy Settings==========================================
 REM --Installing modules needed to edit Secpol,Lusrmgr&Services--
-REM powershell -Command "Install-PackageProvider -Name NuGet -Force"
-REM powershell -Command "Install-Module -Name PolicyFileEditor -f"
+powershell -Command "Install-PackageProvider -Name NuGet -Force"
+powershell -Command "Install-Module -Name PolicyFileEditor -f"
 
 
 if %LocalSecPol[1]%==true (
@@ -226,13 +226,15 @@ if %Lusrmgr[2]%==true (
 net user Administrator /active no
 )
 REM --Installing Needed Packages to edit User Rights Assighnment--
-REM powershell -Command "Copy-Item -Path $MyInvocation.MyCommand.Path\UserRights.pm1 -Destination $Env:PSModulePath"
-REM powershell Import-Module .\UserRights.psm1
-REM powershell Write-host Get-AccountsWithUserRight -Right SeServiceLogonRight
+if not exist C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights mkdir C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights
+if not exist C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1 copy /-Y "%~dp0UserRights.psm1" "C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights"
+
 
 if %Lusrmgr[3]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
 Set "MyCmnd=%MyCmnd% Get-AccountsWithUserRight SeServiceLogonRight;"
-powershell -Command "%MyCmnd%"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 REM ==================================Configures System Services Security Settings==============================================
 
