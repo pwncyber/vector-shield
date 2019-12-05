@@ -229,7 +229,14 @@ REM --Installing Needed Packages to edit User Rights Assighnment--
 if not exist C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights mkdir C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights
 if not exist C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1 copy /-Y "%~dp0UserRights.psm1" "C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights"
 
-
+if %Lusrmgr[3]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeTrustedCredManAccessPrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter-1; $i++)  {Revoke-UserRight -Account "$Accounts[i].SID" -Right SeTrustedCredManAccessPrivilege};"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
+)
 
 if %Lusrmgr[4]%==true (
 Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
