@@ -234,8 +234,9 @@ if not exist C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserR
 if %Lusrmgr[4]%==true (
 Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
 Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
-Set "MyCmnd=%MyCmnd% Get-AccountsWithUserRight -Right SeNetworkLogonRight | Format-List -Property SID |Set-Variable -Name "Accounts";"
-Set "MyCmnd=%MyCmnd% Revoke-UserRight -Account "$Accounts" -Right SeNetworkLogonRight;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeNetworkLogonRight;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter-1; $i++)  {Revoke-UserRight -Account "$Accounts[i].SID" -Right SeNetworkLogonRight};"
 Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeNetworkLogonRight;"
 Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Remote Desktop Users" -Right SeNetworkLogonRight;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
