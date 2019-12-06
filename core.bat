@@ -663,6 +663,10 @@ sc stop Spooler
 sc config Spooler start= disabled
 )
 REM ==================================Cypat Security Settings===================================================================
+
+if %CyPat[1]%==true (
+FOR /F %%F IN ('wmic useraccount get name') DO (Echo "%%F" | FIND /I "Name" 1>NUL) || (Echo "%%F" | FIND /I "DefaultAccount" 1>NUL) || (NET USER %%F j273e4*KeH49kDW)
+)
 cd /D "C:\Users"
 if %CyPat[2]%==true (
 echo Deleting All Files With the .mp3 Extention
