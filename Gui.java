@@ -287,7 +287,7 @@ public class Gui extends Application {
             CheckBox S15 = new CheckBox("Disable Remote Services");
             CheckBox S20 = new CheckBox("Network security: Enable 'Do not store LAN Manager hash value on next password change'");
             CheckBox S21 = new CheckBox("Microsoft network client: Disable 'Send unencrypted password to third-party SMB servers'");
-            CheckBox[] SecpolClientBoxes = {S11, S12, S13, S14, S15, S21};
+            CheckBox[] SecpolClientBoxes = {S11, S12, S13, S14, S21};
           CheckBox SecpolUser = new CheckBox("User restrictions");
             CheckBox S16 = new CheckBox("Admin Services: Enforce Control-Alt-Delete");
             CheckBox S17 = new CheckBox("Enable 'Restrict anonymous access to Named Pipes and Shares'");
@@ -396,7 +396,7 @@ public class Gui extends Application {
           CheckBox LusrmgrLogon = new CheckBox("Logon Privileges");
             CheckBox L11 = new CheckBox("Deny Logon to guests completely");
             CheckBox L12 = new CheckBox("For 'Log on as a batch job' allow 'Administrators");
-            CheckBox L13 = new CheckBox("Configure 'Log on as a service'");
+            CheckBox L13 = new CheckBox("For 'Log on as a service' allow 'No One'");
             CheckBox[] LusrmgrLogonBoxes = {L11, L12, L13};
           CheckBox LusrmgrMaintenance = new CheckBox("Maintenance Privileges");
             CheckBox L18 = new CheckBox("For 'Increase scheduling priority' allow 'Administrators, Window Manager|Window Manager Group'");
@@ -901,7 +901,7 @@ public class Gui extends Application {
 CheckBox[] AllBoxes = {Netroot, NetSecurity, NetProtocol, SecpolRoot, SecpolSecurity, SecpolMedia, SecpolClient, SecpolUser, LusrmgrRoot, LusrmgrAccount, LusrmgrAccess, LusrmgrAction, LusrmgrLogon, LusrmgrMaintenance, LusrmgrBasic, ServiceRoot, ServiceNetwork, ServiceShare, ServiceAccess, ServiceNetpro, ServiceWindows, ServiceGeneric, N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L24, L25, L26, L27, L28, R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23, R24, R25, R26, R27, R28, R29, R30, R31, R32, R33, R34, cyPat0, cyPat1, cyPat2, cyPat3, cyPat4};
                //Low medium and high buttons
                    low.setOnAction(e -> {
-            CheckBox[] LowBoxes = {NetSecurity, LusrmgrLogon, LusrmgrAccount, N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, S0, S1, S3, S4, S5, S6, S10, S11, S12, S13, S17, S18, S21, L0, L1, L3, L4, L11, L12, L13, L15, L17, L20, R5, R6, R8, R15, R17, R22, R23, R33};
+            CheckBox[] LowBoxes = {NetSecurity, LusrmgrLogon, LusrmgrAccount, N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, S0, S1, S3, S4, S5, S6, S10, S11, S12, S13, S17, S18, S21, L0, L1, L3, L4, L11, L12, L15, L17, L20, R5, R6, R8, R15, R17, R22, R23, R33};
             CheckBox[] NoBoxes = {};
        if (low.isSelected()) {
          changeBoxes(LowBoxes, AllBoxes);
@@ -910,7 +910,7 @@ CheckBox[] AllBoxes = {Netroot, NetSecurity, NetProtocol, SecpolRoot, SecpolSecu
             }
        });
                           medium.setOnAction(e -> {
-            CheckBox[] MidBoxes = {Netroot, NetSecurity, NetProtocol, SecpolMedia, LusrmgrAccount, LusrmgrAccess, LusrmgrAction, LusrmgrLogon, LusrmgrMaintenance, ServiceAccess, N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, S0, S1, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S17, S18, S19, S20, S21, L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L24, L25, R1, R2, R3, R4, R5, R6, R7, R8, R11, R12, R13, R14, R15, R16, R17, R18, R20, R21, R22, R23, R24, R28, R33};
+            CheckBox[] MidBoxes = {Netroot, NetSecurity, NetProtocol, SecpolMedia, LusrmgrAccount, LusrmgrAccess, LusrmgrAction, LusrmgrLogon, LusrmgrMaintenance, ServiceAccess, N0, N1, N2, N3, N4, N5, N6, N7, N8, N9, N10, N11, N12, S0, S1, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S17, S18, S19, S20, S21, L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L24, L25, R1, R2, R3, R4, R5, R6, R7, R8, R11, R12, R13, R14, R15, R16, R17, R18, R20, R21, R22, R23, R24, R28, R33};
             CheckBox[] NoBoxes = {};
        if (medium.isSelected()) {
          changeBoxes(MidBoxes, AllBoxes);
