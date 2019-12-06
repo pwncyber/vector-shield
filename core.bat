@@ -368,7 +368,7 @@ Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
 Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeRemoteShutdownPrivilege;"
 Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
 Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeRemoteShutdownPrivilege};"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -SeRemoteShutdownPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeRemoteShutdownPrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 if %Lusrmgr[17]%==true (
@@ -377,8 +377,8 @@ Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
 Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeAuditPrivilege;"
 Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
 Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeAuditPrivilege};"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-19" -SeAuditPrivilege;"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-20" -SeAuditPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-19" -Right SeAuditPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-20" -Right SeAuditPrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 if %Lusrmgr[18]%==true (
@@ -387,10 +387,10 @@ Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
 Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeImpersonatePrivilege;"
 Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
 Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeImpersonatePrivilege};"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -SeImpersonatePrivilege;"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-20" -SeImpersonatePrivilege;"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-19" -SeImpersonatePrivilege;"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-6" -SeImpersonatePrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeImpersonatePrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-20" -Right SeImpersonatePrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-19" -Right SeImpersonatePrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-6" -Right SeImpersonatePrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 if %Lusrmgr[19]%==true (
@@ -399,8 +399,8 @@ Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
 Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeIncreaseBasePriorityPrivilege;"
 Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
 Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeIncreaseBasePriorityPrivilege};"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -SeIncreaseBasePriorityPrivilege;"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-90-0" -SeIncreaseBasePriorityPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeIncreaseBasePriorityPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-90-0" -Right SeIncreaseBasePriorityPrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 if %Lusrmgr[20]%==true (
@@ -409,7 +409,7 @@ Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
 Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeLoadDriverPrivilege;"
 Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
 Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeLoadDriverPrivilege};"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -SeLoadDriverPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeLoadDriverPrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 if %Lusrmgr[21]%==true (
@@ -434,7 +434,7 @@ Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
 Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeSystemEnvironmentPrivilege;"
 Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
 Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeSystemEnvironmentPrivilege};"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -SeSystemEnvironmentPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeSystemEnvironmentPrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 if %Lusrmgr[24]%==true (
@@ -443,7 +443,7 @@ Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
 Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeManageVolumePrivilege;"
 Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
 Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeManageVolumePrivilege};"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -SeManageVolumePrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeManageVolumePrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 REM ==================================Configures System Services Security Settings==============================================
