@@ -124,7 +124,7 @@ if  %Networking[13]%==true (
 REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /v DisabledComponents /t REG_DWORD /d 0xff /f
 )
 REM ==================================Configures System Local Security Policy Settings==========================================
-REM --Installing modules needed to edit Secpol,Lusrmgr&Services--
+REM --Installing modules needed to Ensure automatic updates---
 powershell -Command "Install-PackageProvider -Name NuGet -Force"
 powershell -Command "Install-Module -Name PolicyFileEditor -f"
 
@@ -499,6 +499,8 @@ Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Accou
 Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeTakeOwnershipPrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
+REM -Uninstalling packages-
+if exist C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights @RD /S /Q "C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights"
 REM ==================================Configures System Services Security Settings==============================================
 
 if %Services[1]%==true (
