@@ -245,7 +245,7 @@ Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeNetworkLogonRi
 Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
 Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeNetworkLogonRight};"
 Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeNetworkLogonRight;"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Remote Desktop Users" -Right SeNetworkLogonRight;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-32-555" -Right SeNetworkLogonRight;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 if %Lusrmgr[5]%==true (
