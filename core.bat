@@ -354,6 +354,14 @@ Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
 Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeServiceLogonRight};"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
+if %Lusrmgr[15]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeEnableDelegationPrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeEnableDelegationPrivilege};"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
+)
 REM ==================================Configures System Services Security Settings==============================================
 
 if %Services[1]%==true (
