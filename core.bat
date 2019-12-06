@@ -196,7 +196,6 @@ echo (new-object -c "microsoft.update.servicemanager").addservice2("7971f918-a84
 powershell -ExecutionPolicy Unrestricted %TEMP%\tempscript.ps1 >> %SystemRoot%\script-logs\Computer-Turn-On-Application-Updates.log.txt
 )
 
-
 if %LocalSecPol[17]%==true (
 REG ADD HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableCAD /t REG_DWORD /d 0 /f
 )
