@@ -124,12 +124,6 @@ if  %Networking[13]%==true (
 REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /v DisabledComponents /t REG_DWORD /d 0xff /f
 )
 REM ==================================Configures System Local Security Policy Settings==========================================
-if %LocalSecPol[15]%==true (
-if %Services[34]%==true (
-echo --Installing RSAT for Automatic updates--
-Powershell.exe -executionpolicy remotesigned -File  %~dp0Download.ps1
-)
-)
 if %LocalSecPol[1]%==true (
 echo Windows Firewall Enabled
 netsh advfirewall set allprofiles state on
@@ -196,7 +190,7 @@ del c:\secconfigupdated.cfg
 )
 if %LocalSecPol[15]%==true (
 REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate /v AllowMUUpdateService /t REG_DWORD /d 1 /f
-powershell -ExecutionPolicy Unrestricted -Command "Invoke-GPUpdate"
+gpupdate /force
 )
 if %LocalSecPol[17]%==true (
 REG ADD HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableCAD /t REG_DWORD /d 0 /f
@@ -663,7 +657,7 @@ REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU 
 REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v ScheduledInstallDay /t REG_DWORD /d 0 /f
 REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v ScheduledInstallTime /t REG_DWORD /d 3 /f
 REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v ScheduledInstallEveryWeek /t REG_DWORD /d 1 /f
-powershell -ExecutionPolicy Unrestricted -Command "Invoke-GPUpdate"
+gpupdate /force
 )
 if %Services[35]%==true (
 sc stop Spooler
