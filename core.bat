@@ -665,7 +665,7 @@ sc config Spooler start= disabled
 REM ==================================Cypat Security Settings===================================================================
 
 if %CyPat[1]%==true (
-FOR /F %%F IN ('wmic useraccount get name') DO (Echo "%%F" | FIND /I "Name" 1>NUL) || (Echo "%%F" | FIND /I "DefaultAccount" 1>NUL) || (NET USER %%F j273e4*KeH49kDW)
+FOR /F %%F IN ('wmic useraccount get name') DO (Echo "%%F" | FIND /I "Name" 1>NUL) || (Echo "%%F" | FIND /I "DefaultAccount" 1>NUL) || (NET USER %%F "!Password!")
 )
 cd /D "C:\Users"
 if %CyPat[2]%==true (
