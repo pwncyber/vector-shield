@@ -124,11 +124,6 @@ if  %Networking[13]%==true (
 REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters /v DisabledComponents /t REG_DWORD /d 0xff /f
 )
 REM ==================================Configures System Local Security Policy Settings==========================================
-REM --Installing modules needed to Ensure automatic updates---
-powershell -Command "Install-PackageProvider -Name NuGet -Force"
-powershell -Command "Install-Module -Name PolicyFileEditor -f"
-
-
 if %LocalSecPol[1]%==true (
 echo Windows Firewall Enabled
 netsh advfirewall set allprofiles state on
@@ -195,6 +190,7 @@ del c:\secconfigupdated.cfg
 )
 if %LocalSecPol[15]%==true (
 REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate /v AllowMUUpdateService /t REG_DWORD /d 1 /f
+powershell -ExecutionPolicy Unrestricted -Command "Invoke-GPUpdate"
 )
 if %LocalSecPol[17]%==true (
 REG ADD HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableCAD /t REG_DWORD /d 0 /f
@@ -228,7 +224,7 @@ net user Administrator /active no
 REM --Installing Needed Packages to edit User Rights Assighnment--
 if not exist C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights mkdir C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights
 if not exist C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1 copy /-Y "%~dp0UserRights.psm1" "C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights"
-
+echo Setting User rights(Array:Lusrmgr). This will take awhile. Ignore any errors.
 if %Lusrmgr[3]%==true (
 Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
 Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
@@ -445,7 +441,6 @@ Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Accou
 Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeManageVolumePrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
-REM ---
 if %Lusrmgr[25]%==true (
 Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
 Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
@@ -500,6 +495,7 @@ Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeTakeOwne
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 REM -Uninstalling packages-
+echo Lusrmgr finished.
 if exist C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights @RD /S /Q "C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights"
 REM ==================================Configures System Services Security Settings==============================================
 
@@ -661,10 +657,7 @@ REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU 
 REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v ScheduledInstallDay /t REG_DWORD /d 0 /f
 REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v ScheduledInstallTime /t REG_DWORD /d 3 /f
 REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v ScheduledInstallEveryWeek /t REG_DWORD /d 1 /f
-REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v ScheduledInstallFirstWeek /t REG_DWORD /d 0 /f
-REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v ScheduledInstallSecondWeek /t REG_DWORD /d 0 /f
-REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v ScheduledInstallThirdWeek /t REG_DWORD /d 0 /f
-REG ADD HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU /v ScheduledInstallFourthWeek /t REG_DWORD /d 0 /f
+powershell -ExecutionPolicy Unrestricted -Command "Invoke-GPUpdate"
 )
 if %Services[35]%==true (
 sc stop Spooler
