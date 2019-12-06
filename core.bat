@@ -189,8 +189,14 @@ del c:\secconfig.cfg
 del c:\secconfigupdated.cfg
 )
 if %LocalSecPol[15]%==true (
-powershell -Command "(new-object -c "microsoft.update.servicemanager").addservice2("7971f918-a847-4430-9279-4a52d1efe18d",7,"")"
+if not exist %SystemRoot%\script-logs\ (
+  mkdir %SystemRoot%\script-logs\
+    )
+echo (new-object -c "microsoft.update.servicemanager").addservice2("7971f918-a847-4430-9279-4a52d1efe18d",7,"") > %TEMP%\tempscript.ps1
+powershell -ExecutionPolicy Unrestricted %TEMP%\tempscript.ps1 >> %SystemRoot%\script-logs\Computer-Turn-On-Application-Updates.log.txt
 )
+
+
 if %LocalSecPol[17]%==true (
 REG ADD HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableCAD /t REG_DWORD /d 0 /f
 )
