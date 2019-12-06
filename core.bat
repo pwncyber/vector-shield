@@ -267,6 +267,52 @@ Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-19" -Right SeIncreaseQuotaP
 Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-20" -Right SeIncreaseQuotaPrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
+REM ------
+if %Lusrmgr[7]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeBackupPrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeBackupPrivilege};"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeBackupPrivilege;"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
+)
+if %Lusrmgr[8]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeTimeZonePrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeTimeZonePrivilege};"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeTimeZonePrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-19" -Right SeTimeZonePrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Users" -Right SeTimeZonePrivilege;"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
+)
+if %Lusrmgr[9]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeCreatePagefilePrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeCreatePagefilePrivilege};"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeCreatePagefilePrivilege;"
+
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeCreateTokenPrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeCreateTokenPrivilege};"
+
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeCreateGlobalPrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeCreateGlobalPrivilege};"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeCreateGlobalPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-19" -Right SeCreateGlobalPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-20" -Right SeCreateGlobalPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-6" -Right SeCreateGlobalPrivilege;"
+
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeCreatePermanentPrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeCreatePermanentPrivilege};"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
+)
 REM ==================================Configures System Services Security Settings==============================================
 
 if %Services[1]%==true (
