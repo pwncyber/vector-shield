@@ -361,7 +361,6 @@ Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
 Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeEnableDelegationPrivilege};"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
-REM -----
 if %Lusrmgr[16]%==true (
 Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
 Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
@@ -444,6 +443,60 @@ Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeManageVolumePr
 Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
 Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeManageVolumePrivilege};"
 Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeManageVolumePrivilege;"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
+)
+REM ---
+if %Lusrmgr[25]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeProfileSingleProcessPrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeProfileSingleProcessPrivilege};"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeProfileSingleProcessPrivilege;"
+
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeSystemProfilePrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeSystemProfilePrivilege};"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeSystemProfilePrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-80" -Right SeSystemProfilePrivilege;"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
+)
+if %Lusrmgr[26]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeAssignPrimaryTokenPrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeAssignPrimaryTokenPrivilege};"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-19" -Right SeAssignPrimaryTokenPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-20" -Right SeAssignPrimaryTokenPrivilege;"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
+)
+if %Lusrmgr[27]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeRestorePrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeRestorePrivilege};"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeRestorePrivilege;"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
+)
+if %Lusrmgr[28]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeShutdownPrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeShutdownPrivilege};"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeShutdownPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Users" -Right SeShutdownPrivilege;"
+powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
+)
+if %Lusrmgr[29]%==true (
+Set "MyCmnd=Unblock-File -Path C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\UserRights\UserRights.psm1;"
+Set "MyCmnd=%MyCmnd% Import-Module  UserRights -Force;"
+Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeTakeOwnershipPrivilege;"
+Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
+Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeTakeOwnershipPrivilege};"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeTakeOwnershipPrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 REM ==================================Configures System Services Security Settings==============================================
