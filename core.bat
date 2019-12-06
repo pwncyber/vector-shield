@@ -263,8 +263,8 @@ Set "MyCmnd=%MyCmnd% $Accounts=Get-AccountsWithUserRight -Right SeIncreaseQuotaP
 Set "MyCmnd=%MyCmnd% $Counter = $Counter = $($Accounts | measure).Count;"
 Set "MyCmnd=%MyCmnd% For ($i=0; $i -lt $Counter; $i++)  {Revoke-UserRight -Account "$Accounts[$i].SID" -Right SeIncreaseQuotaPrivilege};"
 Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "Administrators" -Right SeIncreaseQuotaPrivilege;"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "NT AUTHORITY\Local Service" -Right SeIncreaseQuotaPrivilege;"
-Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "NT AUTHORITY\Network Service" -Right SeIncreaseQuotaPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-19" -Right SeIncreaseQuotaPrivilege;"
+Set "MyCmnd=%MyCmnd% Grant-UserRight -Account "S-1-5-20" -Right SeIncreaseQuotaPrivilege;"
 powershell -ExecutionPolicy Unrestricted -Command "%MyCmnd%"
 )
 REM ==================================Configures System Services Security Settings==============================================
