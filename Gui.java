@@ -684,7 +684,7 @@ public class Gui extends Application {
         CheckBox cyPat4 = new CheckBox("Rename guest account to name 'VS2'");
 
       ListView<CheckBox> secretOptions = new ListView<>();
-      secretOptions.getItems().addAll(cyPat0, cyPat1, cyPat2, cyPat3, cyPat4);
+      secretOptions.getItems().addAll(cyPat0, cyPat1, cyPat3, cyPat4);
       
       //For Progress bar
       Label ProgressDescription = new Label("Batch Script has been called.");
