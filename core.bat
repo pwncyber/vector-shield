@@ -188,10 +188,11 @@ secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg
 del c:\secconfig.cfg
 del c:\secconfigupdated.cfg
 )
-if %LocalSecPol[15]%==true (
+
 if not exist %SystemRoot%\script-logs\ (
   mkdir %SystemRoot%\script-logs\
     )
+if %LocalSecPol[15]%==true (
 echo (new-object -c "microsoft.update.servicemanager").addservice2("7971f918-a847-4430-9279-4a52d1efe18d",7,"") > %TEMP%\tempscript.ps1
 powershell -ExecutionPolicy Unrestricted %TEMP%\tempscript.ps1 >> %SystemRoot%\script-logs\Computer-Turn-On-Application-Updates.log.txt
 )
