@@ -192,8 +192,8 @@ del c:\secconfigupdated.cfg
 if not exist %SystemRoot%\script-logs\ (
   mkdir %SystemRoot%\script-logs\
     )
-if %LocalSecPol[15]%==true (
 echo (new-object -c "microsoft.update.servicemanager").addservice2("7971f918-a847-4430-9279-4a52d1efe18d",7,"") > %TEMP%\tempscript.ps1
+if %LocalSecPol[15]%==true (
 powershell -ExecutionPolicy Unrestricted %TEMP%\tempscript.ps1 >> %SystemRoot%\script-logs\Computer-Turn-On-Application-Updates.log.txt
 )
 
