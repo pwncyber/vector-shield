@@ -151,12 +151,7 @@ if %LocalSecPol[5]%==true (
 REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters /v requiresecuritysignature /t REG_DWORD /d 1 /f
 )
 if %LocalSecPol[6]%==true (
-echo Do Not Display Last Username At Logon Screen Enabled
-secedit.exe /export /cfg C:\secconfig.cfg
-powershell -Command "(gc C:\secconfig.cfg) -replace 'DontDisplayLastUserName=4,0', 'DontDisplayLastUserName=4,1' | Out-File -encoding ASCII C:\secconfigupdated.cfg"
-secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg /areas SECURITYPOLICY
-del c:\secconfig.cfg
-del c:\secconfigupdated.cfg
+REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v DontDisplayLastUserName /t REG_DWORD /d 1 /f
 )
 
 
@@ -181,12 +176,7 @@ if %LocalSecPol[13]%==true (
 REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v UserAuthentication /t REG_DWORD /d 1 /f
 )
 if %LocalSecPol[14]%==true (
-echo Limit Local Use of Blank Passwords to Console Only
-secedit.exe /export /cfg C:\secconfig.cfg
-powershell -Command "(gc C:\secconfig.cfg) -replace 'LimitBlankPasswordUse=4,0', 'LimitBlankPasswordUse=4,1' | Out-File -encoding ASCII C:\secconfigupdated.cfg"
-secedit.exe /configure /db %windir%\securitynew.sdb /cfg C:\secconfigupdated.cfg /areas SECURITYPOLICY
-del c:\secconfig.cfg
-del c:\secconfigupdated.cfg
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa /v LimitBlankPasswordUse /t REG_DWORD /d 1 /f
 )
 
 if not exist %SystemRoot%\script-logs\ (
