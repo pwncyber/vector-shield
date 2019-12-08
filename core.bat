@@ -701,7 +701,4 @@ if %CyPat[5]%==true (
 echo Default Guest Account Renamed
 wmic useraccount where name='Guest' rename 'VS2'
 )
-
-
-
-pause
+exit
