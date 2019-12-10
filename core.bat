@@ -691,6 +691,10 @@ if %Services[35]%==true (
 sc stop Spooler
 sc config Spooler start= disabled
 )
+if %Services[36]%==true (
+sc stop NetTcpPortSharing
+sc config NetTcpPortSharing start= disabled
+)
 REM ==================================Cypat Security Settings===================================================================
 
 if %CyPat[1]%==true (
