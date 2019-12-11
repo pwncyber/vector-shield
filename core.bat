@@ -695,6 +695,10 @@ if %Services[36]%==true (
 sc stop NetTcpPortSharing
 sc config NetTcpPortSharing start= disabled
 )
+if %Services[37]%==true (
+sc stop WebClient
+sc config WebClient start= disabled
+)
 REM ==================================Cypat Security Settings===================================================================
 
 if %CyPat[1]%==true (
