@@ -723,4 +723,7 @@ if %CyPat[5]%==true (
 echo Default Guest Account Renamed
 wmic useraccount where name='Guest' rename 'VS2'
 )
+if %CyPat[6]%==true (
+REG ADD HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters /v AutoShareWks /t REG_DWORD /d 0 /f
+)
 exit
