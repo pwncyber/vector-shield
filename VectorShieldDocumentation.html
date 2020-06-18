@@ -8,190 +8,165 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <head>
-<style>
-.column1 {
-	float: left;
-	width: 90%;
-}
-.column2 {
-	float: left;
-	width: 30%;
-}
-.column3 {
-	float: left;
-	width: 10%;
-}
-.column4 {
-	float: left;
-	width: 5%
-}
-.column5 {
-	float: left;
-	width: 80%
-}
-.row:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-.grad1 {
-	background-image: linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #E9FEFF, #F2F6FF, #DFF2FF);
-}
-.p {
-    margin-top: 0;
-    margin-bottom: 0rem;
-}
-.paragraph {
-	color: black;
-	text-align: center;
-}
-h1 {
-	text-shadow: 3px 2px gray;
-}
-h2 {
-	text-align: center;
-	margin:0;
-}
-body {
-	background-color: #001B25;
-	max-width: 100%;
-	overflow-x: hidden;
-}
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: white;
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
-	text-align: center;
-}
-li {
-	float: left;
-	text-align: center;
-}
-li a {
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-}
-nav a.active {
-	color: #DADADA;
-	text-decoration: none;
-}
-nav a:hover:not(.active) {
-	color:gray !important;
-	text-decoration: none;
-}
-.navbar-custom {
-	background-color: white;
-}
-a.ex1:hover, a.ex1:active {
-	color: red;
-}
-@media screen and (max-width: 600px) {
-	.column {
-		width:100%;
+	<link rel="icon" href="Shield.png" type="image/gif" sizes="16x16">
+	<style>
+	.column1 {
+		float: left;
+		width: 90%;
 	}
-}
-hr.line1 {
-	display: block;
-	overflow: hidden;
-	border-style: inset;
-	border-width: 1px;
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	border-color: black;
-}
-hr.line2 {
-	display: block;
-	margin-before: 0.5em;
-	margin-after: 0.5em;
-	margin-start: auto;
-	margin-end: auto;
-	overflow: hidden;
-	border-style: inset;
-	border-width: 1px;
-	width: 76%;
-	margin-left: auto;
-	margin-right: auto;
-}
-.btn {
-	border: 2px solid #4B4B4B;
-	background-color: #E6EDFF;
-	padding: 16px;
-	font-size: 1.5vw;
-	cursor: pointer;
-	display: inline-block;
-	text-align: center;
-	color: #858585;
-	text-decoration: none;
-	margin: -10px 2px;
-}
-.roundedbtn {
-	border-radius: 40px;
-}
-.btn:hover {
-	background-color: #D5E1FF;
-}
-.imgborder {
-	border: 5px solid #212121;
-}
-div.box {
-	width: 90%;
-	padding: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #EDF8FF;
-}
-footer {
-	display: block;
-}
-</style>
+	.column2 {
+		float: left;
+		width: 30%;
+	}
+	.column3 {
+		float: left;
+		width: 10%;
+	}
+	.column4 {
+		float: left;
+		width: 5%
+	}
+	.column5 {
+		float: left;
+		width: 80%
+	}
+	.row:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.grad1 {
+		background-image: linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #E9FEFF, #F2F6FF, #DFF2FF);
+	}
+	.p {
+		margin-top: 0;
+		margin-bottom: 0rem;
+	}
+	.paragraph {
+		color: black;
+		text-align: center;
+	}
+	h1 {
+		text-shadow: 3px 2px gray;
+	}
+	h2 {
+		text-align: center;
+		margin:0;
+	}
+	html,body {
+		background-color: white;
+		max-width: 100%;
+		overflow-x: hidden;
+		width: 100%;
+		height: 100%;
+		margin: 0px;
+		padding: 0px;
+	}
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: white;
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
+		text-align: center;
+	}
+	li {
+		float: left;
+		text-align: center;
+	}
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+	nav a.active {
+		color: #DADADA;
+		text-decoration: none;
+	}
+	nav a:hover:not(.active) {
+		color:gray !important;
+		text-decoration: none;
+	}
+	.navbar-custom {
+		background-color: white;
+	}
+	a.ex1:hover, a.ex1:active {
+		color: red;
+	}
+	@media screen and (max-width: 600px) {
+		.column {
+			width:100%;
+		}
+	}
+	hr.line1 {
+		display: block;
+		overflow: hidden;
+		border-style: inset;
+		border-width: 1px;
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+		border-color: black;
+	}
+	.btn {
+		border: 2px solid #4B4B4B;
+		background-color: #E6EDFF;
+		padding: 16px;
+		font-size: 1.5vw;
+		cursor: pointer;
+		display: inline-block;
+		text-align: center;
+		color: #858585;
+		text-decoration: none;
+		margin: -10px 2px;
+	}
+	.roundedbtn {
+		border-radius: 40px;
+	}
+	.btn:hover {
+		background-color: #D5E1FF;
+	}
+	.imgborder {
+		border: 5px solid #212121;
+	}
+	div.box {
+		width: 90%;
+		padding: 15px;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: white;
+	}
+	footer {
+		display: block;
+	}
+	</style>
 </head>
 <body>
 <div style="background-color:black">
 	<div class="row">
 		<div class="column3">
 		</div>
-		<div class="column5">
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+		<div class="column5" style="margin-top:14em; margin-bottom:14em">
 			<div align="center">
 				<p style="font-size:4.8vw; color:white">Vector Shield Documentation</p>
 			</div>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
 		</div>
 		<div class="column3">
 		</div>
 	</div>
 </div>
-<div style="background-color:#EDF8FF">
-	<div class="box" style="border: 10px solid #EDF8FF">
+<div style="background-color:white">
+	<div class="box" style="border: 10px solid white">
 		<div class="row">
-			<div class="column4" style="background-color:#EDF8FF;">
+			<div class="column4" style="background-color:white;">
 			</div>
-			<div class="column1" style="background-color:#EDF8FF;">
-				<br>
-				<h3 align="center" style="color:#494949">Documentation</h3>
+			<div class="column1" style="background-color:white;">
+				<h3 align="center" style="color:#494949; margin-top:2em">Documentation</h3>
 				<hr class="line1">
 				<p align="center" style="color:#000000">
 				A full list of Vector Shield's actions for each security option is detailed below.
@@ -233,7 +208,6 @@ footer {
 				<br>
 				</p>
 				<p align="left" style="color:#12ae10">
-				<br>
 				Local Security Policy:
 				</p>
 				<p align="left" style="color:#256013">
@@ -265,7 +239,6 @@ footer {
 				<br>
 				</p>
 				<p align="left" style="color:#12ae10">
-				<br>
 				Local Users and Groups:
 				</p>
 				<p align="left" style="color:#256013">
@@ -295,7 +268,6 @@ footer {
 				<br>
 				</p>
 				<p align="left" style="color:#12ae10">
-				<br>	
 				Services:
 				</p>
 				<p align="left" style="color:#256013">
@@ -322,9 +294,7 @@ footer {
 				Ensure 'Net.Tcp Port sharing service' is set to 'Disabled'
 				<br>
 				</p>
-				<p align="center" style="color:#CEAC01">
-				<br>
-				<br>
+				<p align="center" style="color:#CEAC01; margin-top:3em">
 				The medium security option will do all low option actions, as well as:
 				</p>
 				<p align="left" style="color:#CEAC01">
@@ -349,7 +319,6 @@ footer {
 				<br>
 				</p>
 				<p align="left" style="color:#CEAC01">
-				<br>
 				Local Users and Groups:
 				</p>
 				<p align="left" style="color:#907800">
@@ -395,7 +364,6 @@ footer {
 				<br>
 				</p>
 				<p align="left" style="color:#CEAC01">
-				<br>
 				Services:
 				</p>
 				<p align="left" style="color:#907800">
@@ -438,8 +406,7 @@ footer {
 				Ensure ‘Webclient' is set to 'Disabled’
 				<br>
 				</p>
-				<br>
-				<p align="center" style="color:#C71A29">
+				<p align="center" style="color:#C71A29; margin-top:3em">
 				The high security option will do all low & medium option actions, as well as:
 				</p>
 				<p align="left" style="color:#C71A29">
@@ -456,8 +423,7 @@ footer {
 				<p align="left" style="color:#C71A29">
 				Local Users and Groups:
 				</p>
-				<p align="left" style="color:#560B12">
-								
+				<p align="left" style="color:#560B12">								
 				Set 'Log on as a service' to 'No One'
 				<br>
 				Ensure 'Restore files and directories' is set to 'Administrators'
@@ -468,7 +434,6 @@ footer {
 				<br>
 				</p>
 				<p align="left" style="color:#C71A29">
-				<br>
 				Services:
 				</p>
 				<p align="left" style="color:#560B12">
@@ -505,23 +470,20 @@ footer {
 				Ensure 'Printer Spooler' is set to 'Disabled'
 				<br>
 				</p>
-				<br>
-				<p align="center" style="color:#000000">
+				<p align="center" style="color:#000000; margin-top:1.5em; margin-bottom:4em">
 				Furthur documentation for each action can be found at docs.microsoft.com, in the Windows section.
 				</p>
 			</div>
-			<div class="column4" style="background-color:#EDF8FF;">
+			<div class="column4" style="background-color:white;">
 			</div>
 		</div>
 	</div>
 </div>
 <div style="align:center">
-	<footer style="background-color:black">
-		<br>
-		<p class="p" style="text-align:center" style="background-color:black"><font size="2px" color="#C7C7C7">
+	<footer style="background-color:#f2f2f2">
+		<p class="p" style="text-align:center; padding-top:1.5em; padding-bottom:1.5em"><font size="2px" color="black">
 		Vector Shield 2020
 		</font></p>
-		<br>
 	</footer>
 </div>
 </body>
