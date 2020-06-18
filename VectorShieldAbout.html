@@ -8,154 +8,163 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <head>
-<style>
-.column1 {
-	float: left;
-	width: 5%;
-}
-.column2 {
-	float: left;
-	width: 40%;
-}
-.column3 {
-	float: left;
-	width: 50%
-}
-.column4 {
-	float: left;
-	width: 25%
-}
-.row:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-.grad1 {
-	background-image: linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #E9FEFF, #F2F6FF, #DFF2FF);
-}
-.p {
-    margin-top: 0;
-    margin-bottom: 0rem;
-	text-align: center;
-}
-.paragraph {
-	color: black;
-	text-align: center;
-}
-h1 {
-	text-shadow: 3px 2px gray;
-}
-h2 {
-	text-align: center;
-	margin:0;
-}
-body {
-	background-color: #001B25;
-	max-width: 100%;
-	overflow-x: hidden;
-}
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	background-color: white;
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
-	text-align: center;
-}
-li {
-	float: left;
-	text-align: center;
-}
-li a {
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-}
-nav a.active {
-	color: #DADADA;
-	text-decoration: none;
-}
-nav a:hover:not(.active) {
-	color:gray !important;
-	text-decoration: none;
-}
-.navbar-custom {
-	background-color: white;
-}
-a.ex1:hover, a.ex1:active {
-	color: red;
-}
-@media screen and (max-width: 600px) {
-	.column {
-		width:100%;
+	<link rel="icon" href="Shield.png" type="image/gif" sizes="16x16">
+	<style>
+	.column1 {
+		float: left;
+		width: 5%;
 	}
-}
-hr.line1 {
-	display: block;
-	overflow: hidden;
-	border-style: inset;
-	border-width: 1px;
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	border-color: black;
-}
-.btn {
-	border: none;
-	background-color: #85D5FF;
-	padding: 13px;
-	font-size: 20px;
-	cursor: pointer;
-	display: inline-block;
-	text-align: center;
-	color: black;
-	text-decoration: none;
-	margin: -10px 2px;
-	border-color: black;
-}
-.roundedbtn {
-	border-radius: 40px;
-}
-.imgborder {
-	border: 5px solid #212121;
-}
-div.box {
-	width: 90%;
-	padding: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	background-color: #F4FCFE;
-}
-footer {
-	display: block;
-}
-</style>
+	.column2 {
+		float: left;
+		width: 40%;
+	}
+	.column3 {
+		float: left;
+		width: 50%
+	}
+	.column4 {
+		float: left;
+		width: 25%
+	}
+	.row:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.grad1 {
+		background-image: linear-gradient(to bottom right, #F2FEFF, #E9FFF9, #E9FEFF, #F2F6FF, #DFF2FF);
+	}
+	.p {
+		margin-top: 0;
+		margin-bottom: 0rem;
+		text-align: center;
+	}
+	.paragraph {
+		color: black;
+		text-align: center;
+	}
+	.responsive {
+	  width: 10%;
+	  height: auto;
+	}
+	h1 {
+		text-shadow: 3px 2px gray;
+	}
+	h2 {
+		text-align: center;
+		margin:0;
+	}
+	html,body {
+		background-color: white;
+		max-width: 100%;
+		overflow-x: hidden;
+		width: 100%;
+		height: 100%;
+		margin: 0px;
+		padding: 0px;
+	}
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: white;
+		position: -webkit-sticky;
+		position: sticky;
+		top: 0;
+		text-align: center;
+	}
+	li {
+		float: left;
+		text-align: center;
+	}
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+	nav a.active {
+		color: #DADADA;
+		text-decoration: none;
+	}
+	nav a:hover:not(.active) {
+		color: gray !important;
+		text-decoration: none;
+	}
+	.navbar-custom {
+		background-color: white;
+	}
+	a.ex1:hover, a.ex1:active {
+		color: red;
+	}
+	@media screen and (max-width: 600px) {
+		.column {
+			width:100%;
+		}
+	}
+	hr.line1 {
+		display: block;
+		overflow: hidden;
+		border-style: inset;
+		border-width: 1px;
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		border-color: black;
+	}
+	.btn {
+		border: none;
+		background-color: #85D5FF;
+		padding: 13px;
+		font-size: 20px;
+		cursor: pointer;
+		display: inline-block;
+		text-align: center;
+		color: black;
+		text-decoration: none;
+		margin: -10px 2px;
+		border-color: black;
+	}
+	.roundedbtn {
+		border-radius: 40px;
+	}
+	.imgborder {
+		border: 5px solid #212121;
+	}
+	div.box {
+		width: 90%;
+		padding: 15px;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: white;
+	}
+	footer {
+		display: block;
+	}
+	</style>
 </head>
 <body>
 <nav class="navbar nav-tabs navbar-inverse navbar-expand-sm sticky-top" style="background-color: white;">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand">
-			<img src="VectorShieldLogo.JPG" width="100" height="40" alt="Vector Shield" style="float:left">
+			<a class="navbar-brand" style="width: 60vw;">
+			<img src="VectorShieldLogo.JPG" class="responsive" alt="Vector Shield" style="float:left">
 			</a>
 		</div>
 		<ul class="nav navbar-nav">
 			<li class="nav-item"; style="float:right">
-			<a class="nav-link" href="VectorShieldDownload.html" style="color:black">Download</a>
+			<a href="index.html" class="nav-link" style="color:black;font-size: 1.25vw;">Home</a>
 			</li>
 			<li class="nav-item"; style="float:right">
-			<a class="nav-link" href="VectorShieldHowtoUse.html" style="color:black">How To Use</a>
+			<a href="VectorShieldAbout.html" class="nav-link active" style="color:black;font-size: 1.25vw;">About</a>
 			</li>
 			<li class="nav-item"; style="float:right">
-			<a class="nav-link active" href="VectorShieldAbout.html" style="color:black">About</a>
+			<a href="VectorShieldHowtoUse.html" class="nav-link" style="color:black;font-size: 1.25vw;">How To Use</a>
 			</li>
 			<li class="nav-item"; style="float:right">
-			<a class="nav-link" href="index.html" style="color:black">Home</a>
+			<a href="VectorShieldDownload.html" class="nav-link" style="color:black;font-size: 1.25vw;">Download</a>
 			</li>
 		</ul>
 	</div>
@@ -164,123 +173,77 @@ footer {
 	<div class="row">
 		<div class="column4">
 		</div>
-		<div class="column3">
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+		<div class="column3" style="margin-top:12.6em; margin-bottom:12.6em">
 			<div align="center">
-				<p style="font-size:4.8vw; color:white">About Vector Shield</p>
+				<p style="font-size:4.5vw; color:white">About Vector Shield</p>
 			</div>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
 		</div>
 		<div class="column4">
 		</div>
 	</div>
 </div>
-<div style="background-color:#F4FCFE">
-	<br>
-	<br>
-	<div class="box" style="border: 10px solid #F4FCFE">
+<div style="background-color:white">
+	<div class="box" style="border: 10px solid white; margin-top:4em; margin-bottom:4em">
 		<div class="row">
-			<div class="column1" style="background-color:#F4FCFE;">
+			<div class="column1" style="background-color:white;">
 			</div>
-			<div class="column2" style="background-color:#F4FCFE;">
-				<br>
+			<div class="column2" style="background-color:white">
 				<h3 align="center" style="color:#505050">Vector Shield</h3>
 				<hr class="line1">
-				<p class="paragraph" style="color:#646464">
+				<p class="paragraph" style="color:#646464; margin-bottom:1em">
 				Vector Shield is a comprehensive security application built for the Microsoft Windows operating system that is made
 				to prevent the unauthorized exploit of the system and reduce the amount of attack vectors for potential cyber-attacks.
-				<br>
-				<br>
+				</p>
+				<p class="paragraph" style="color:#646464; margin-bottom:1em">
 				Vector Shield's easy to understand settings allows you to clearly see what is being done to your computer.
-				<br>
-				<br>
+				</p>
+				<p class="paragraph" style="color:#646464; margin-bottom:1em">
 				Vector shield uses high quality batch scripts to systematically implement
 				industry standard system hardening procedures on the Windows operating system. These
 				procedures are derived from the Centers for Internet Security's annual
 				benchmark, a guideline that our program will use to meet the needs of end users.
-				<br>
-				<br>
+				</p>
+				<p class="paragraph" style="color:#646464; margin-bottom:1em">
 				The batch script coupled with a Java GUI makes our program highly
 				customizable, and all source code is open source for security auditing
 				and is published under the GNU open source license to insure full transparency.
 				</p>
-				<br>
-				<br>
-				<br>
-				<br>
 			</div>
-			<div class="column1" style="background-color:#F4FCFE;">
+			<div class="column1" style="background-color:white;">
 			</div>
-			<div class="column1" style="background-color:#F4FCFE;">
+			<div class="column1" style="background-color:white;">
 			</div>
-			<div class="column2" style="background-color:#F4FCFE;">
-				<br>
+			<div class="column2" style="background-color:white;">
 				<h3 align="center" style="color:#505050">Cybersecurity</h3>
 				<hr class="line1">
-				<p class="paragraph" style="color:#646464">
+				<p class="paragraph" style="color:#646464; margin-bottom:1em">
 				Cybersecurity is important because it protects you and your information from threats that could
 				potentially harm you. Important cybersecurity terms that you should know include:
-				<br>
-				<br>
+				</p>
+				<p class="paragraph" style="color:#646464; margin-bottom:1em">
 				-Malware: A type of software that can be used to harm a computer. This includes a wide variety of softwares
 				such as worms, trojans, viruses, ransomware, spyware, and adware.
-				<br>
-				<br>
+				</p>
+				<p class="paragraph" style="color:#646464; margin-bottom:1em">
 				-Exploit: An exploit is a loophole in software that hackers can use to break in and infect a system.
-				<br>
-				<br>
+				</p>
+				<p class="paragraph" style="color:#646464; margin-bottom:1em">
 				-Hacker: A person who breaks into computer systems or networks generally in order to obtain unauthorized information.
-				<br>
-				<br>
+				</p>
+				<p class="paragraph" style="color:#646464; margin-bottom:1em">
 				-System Hardening: The use of good practices and software to remove vulnerablities and make a system more secure.
 				</p>
 			</div>
-			<div class="column1" style="background-color:#F4FCFE;">
-			</div>
-		</div>
-		<div class="row">
-			<div class="column4" style="background-color:#F4FCFE;">
-			</div>
-			<div class="column3" style="background-color:#F4FCFE;">
-				<h3 align="center" style="color:#505050">Vector Shield Documentation</h3>
-				<hr class="line1">
-				<p class="paragraph" style="color:#646464">
-				A full list of all the actions Vector Shield does to your system for Low, Medium, and High security options can be found
-				below.
-				</p>
-				<p class="p">
-				<a href="VectorShieldDocumentation.html" style="color:red" target="_blank">Documentation</a>
-				</p>
-				<br>
-			</div>
-			<div class="column4" style="background-color:#F4FCFE;">
+			<div class="column1" style="background-color:white;">
 			</div>
 		</div>
 	</div>
-	<br>
-	<br>
 </div>
 <div style="align:center">
-	<footer style="background-color:black">
-		<br>
-		<p class="p" style="text-align:center" style="background-color:black"><font size="2px" color="#C7C7C7">
+	<footer style="background-color:#f2f2f2">
+		<p class="p" style="text-align:center; padding-top:1.5em; padding-bottom:1.5em"><font size="2px" color="black">
 		Vector Shield 2020
 		</font></p>
-		<br>
 	</footer>
 </div>
 </body>
