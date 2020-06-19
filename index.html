@@ -14,7 +14,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <head>
-	<link rel="icon" href="Shield.png" type="image/gif" sizes="16x16">
+	<link rel="icon" href="Shield.png" type="image/png" sizes="16x16">
 	<style>
 	.column1 {
 		float: left;
@@ -215,6 +215,30 @@
 	.dropdown-content a:hover {background-color: #bfbfbf;}
 	.dropdown:hover .dropdown-content {display: block;}
 	.dropdown:hover .dropbtn {background-color: #f2f2f2;}
+	.alert {
+		padding: 15px;
+		background-color: #f44336;
+		color: white;
+		opacity: 1;
+		transition: opacity 0.6s;
+		margin-bottom: 15px;
+	}
+	.alert.success {background-color: #4CAF50;}
+	.alert.info {background-color: #2196F3;}
+	.alert.warning {background-color: #ff9800;}
+	.closebtn {
+		margin-left: 15px;
+		color: white;
+		font-weight: bold;
+		float: right;
+		font-size: 22px;
+		line-height: 20px;
+		cursor: pointer;
+		transition: 0.3s;
+	}
+	.closebtn:hover {
+		color: black;
+	}
 	</style>
 </head>
 <body>
@@ -261,8 +285,33 @@
 	</div>
 </div>
 <div style="background-color:white">
-	<div class="box" style="border:10px solid white; margin-top:3em">
+	<div class="box" style="border:10px solid white">
 		<div class="row">
+			<div class="column1" style="background-color:white;">
+			</div>
+			<div class="column5" style="background-color:white;">
+				<div class="alert info">
+					<span class="closebtn">&times;</span>  
+					<strong>Be Aware:</strong> Vector Shield is sponsered by the sacred Church of Bob el Mono. All generous donations go directly to his cause. Buy now and he will give you good things.
+				</div>
+				<script>
+				var close = document.getElementsByClassName("closebtn");
+				var i;
+
+				for (i = 0; i < close.length; i++) {
+				  close[i].onclick = function(){
+					var div = this.parentElement;
+					div.style.opacity = "0";
+					setTimeout(function(){ div.style.display = "none"; }, 600);
+				  }
+				}
+				</script>
+				</div>
+			</div>
+			<div class="column1" style="background-color:white;">
+			</div>
+		</div>
+		<div class="row" style="margin-top:3em">
 			<div class="column1" style="background-color:white;">
 			</div>
 			<div class="column6" style="background-color:white;">
