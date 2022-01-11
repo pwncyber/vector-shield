@@ -1,1 +1,1 @@
-hello test
+Protect your computer with the click of a button! Vector Shield is a cybersecurity program made for the Windows operating system. Unlike a traditional antivirus, Vector Shield utilizes commands though scripts to secure different settings on your computer. Every setting Vector Shield changes is completely customizable, and full documentation can be found at https://vectorshield.net. There are three default levels of security: low (for personal use), medium, and high (for systems with sensitive information).
